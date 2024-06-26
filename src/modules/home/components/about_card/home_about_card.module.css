@@ -1,4 +1,5 @@
 .card {
+	position: relative;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
@@ -52,4 +53,8 @@
 
 .card_list {
 	padding-inline-start: 2rem;
+}
+
+.ornament {
+	position: absolute;
 }

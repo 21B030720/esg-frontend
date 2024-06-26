@@ -56,10 +56,16 @@ const Project = () => {
 						className={styles.loader}
 					/>
 				:
-					<ProjectCard
-						isLoading={isLoading}
-						project={project}
-					/>
+					<div className={styles.main}>
+						<ProjectCard
+							isLoading={isLoading}
+							project={project}
+						/>
+
+						<button className={styles.button}>
+							Подать свое решение
+						</button>
+					</div>
 			}
 		</Container>
 	);

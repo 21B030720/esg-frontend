@@ -36,7 +36,7 @@ const routes = [
 		element: <Directions />
 	},
 	{
-		path: '/projects?page=1&page_size=5',
+		path: '/projects',
 		element: <Projects />,
 	},
 	{

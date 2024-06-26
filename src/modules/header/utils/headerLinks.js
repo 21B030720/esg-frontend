@@ -1,8 +1,9 @@
+
 const headerLinks = [
 	{
 		id: 1,
 		name: 'О нас',
-		url: '/about',
+		url: '/#home_about',
 	},
 	{
 		id: 2,
@@ -22,13 +23,13 @@ const headerLinks = [
 	{
 		id: 5,
 		name: 'Лаборатории',
-		url: '/labs'
+		url: '/labs',
 	},
 	{
-		id: 6,
+		id: 7,
 		name: 'Контакты',
 		url: '/contacts',
-	}
+	},
 ];
 
 export default headerLinks;
