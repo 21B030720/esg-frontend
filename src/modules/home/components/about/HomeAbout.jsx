@@ -6,12 +6,13 @@ import Container from '@common/components/container/Container';
 const HomeAbout = () => {
 
 	return (
-		<Container 
+		<Container
+			id='home_about'
 			type='section'
 			maxWidth='110rem'
 			className={styles.about}
 		>
-			<h2 className={styles.about_header}>
+			<h2 id="home_about" className={styles.about_header}>
 				О нас
 			</h2>
 
@@ -22,7 +23,7 @@ const HomeAbout = () => {
 							<HomeAboutCard
 								key={card.id == null ? i : card.id}
 								card={card}
-								isImageLeft={i % 2 === 0}
+								isMainImageLeft={i % 2 === 0}
 							/>
 						);
 					})

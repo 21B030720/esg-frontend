@@ -2,6 +2,7 @@ import containerTypes from "@common/utils/containerTypes";
 import mergeObjects from "@common/utils/mergeObjects";
 
 const Container = ({
+	id = '',
 	type = 'div',
 	maxWidth = 'none', 
 	className = '',
@@ -17,7 +18,7 @@ const Container = ({
 	const ContainerElement = containerTypes[type] || <div />;
 
 	return (
-		<ContainerElement className={className} style={mergeObjects(style, configStyle) }>
+		<ContainerElement id={id} className={className} style={mergeObjects(style, configStyle) }>
 			{children}
 		</ContainerElement>
 	);

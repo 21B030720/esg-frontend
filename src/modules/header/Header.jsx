@@ -1,8 +1,9 @@
 import { Link, useLocation } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
-import headerLinks from '@common/utils/headerLinks';
+import headerLinks from './utils/headerLinks';
 import styles from "./header.module.css";
 
 const Header = () => {
@@ -22,13 +23,13 @@ const Header = () => {
 							const isActive = currentUrl === l.url;
 
 							return (
-								<Link 
+								<HashLink 
 									key={l.id}
 									to={l.url} 
 									className={isActive ? styles.active_link : ''}
 								>
 									{l.name}
-								</Link>
+								</HashLink>
 							)
 					})
 					}
