@@ -38,5 +38,42 @@
 }
 
 .button_wrapper {
-	margin-block-start: 3.5rem;
+	margin-block-start: 3rem;
+}
+
+@media (max-width: 1024px) {
+	.hero_content{
+		display: flex;
+		flex-direction: row;
+	}
+	.hero_header {
+		font-size: 2.7rem;
+		text-align: left;
+	}
+	.button_wrapper {
+		margin-top: auto;
+	}
+}
+
+@media (max-width: 480px) {
+	.hero {
+        background-size: 100%; 
+		min-height: 100%;
+		padding: 0;
+		margin: 0;
+    }
+	.hero_content{
+		display: flex;
+		flex-direction: column;
+		padding: 1rem;
+	}
+	.hero_header {
+		margin-top: 2.1rem;
+		font-size: 1.3rem;
+		text-align: center;
+	}
+	.button_wrapper {
+		padding: 1.5rem;
+	}
+	
 }

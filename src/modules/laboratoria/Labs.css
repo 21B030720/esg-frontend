@@ -1,0 +1,111 @@
+.labs-page {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 35px;
+  padding: 20px 70px;
+}
+
+.labs-list {
+  background-color: #fff;
+  padding: 5px 30px;
+  padding-left: 0;
+}
+
+.labs-list h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  color: #000;
+}
+
+.lab-button {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #F5F5F5;
+  color: #000;
+  text-align: center;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.lab-button:hover {
+  background-color: #f0f0f0;
+}
+
+.lab-details-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #00357D;
+  color: #ffffff;
+  padding: 35px 140px;
+  align-items: center;
+  position: relative;
+}
+
+.lab-details-container h2 {
+  margin-top: 0;
+  font-size: 2em;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.lab-details-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.lab-details-container p {
+  position: relative;
+  padding-left: 10px;
+  line-height: 1.5em;
+}
+
+.lab-details-container::before,
+.lab-details-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 420px;
+  background-image: url('./uzor.png');
+  background-repeat: repeat-y;
+  background-size: cover;
+}
+
+.lab-details-container::before {
+  left: 0;
+}
+
+.lab-details-container::after {
+  right: 0;
+}
+
+.lab-details-container p::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: #ffffff;
+}
+
+.lab-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.arrow-button {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.arrow-button:hover .arrow-image {
+  filter: brightness(120%);
+  opacity: 70%;
+}

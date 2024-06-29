@@ -10,7 +10,8 @@ const HomeDirectionsCard = ({
 
 	const configStyle = {
 		color: isBlue ? "var(--color-white)" : "var(--color-black)",
-		backgroundColor: isBlue ? "var(--color-blue-dark)" : "var(--color-gray-light)"
+		backgroundColor: isBlue ? "var(--color-blue-dark)" : "var(--color-gray-light)",
+		minWidth: "100%"
 	};
 
 	return (

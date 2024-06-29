@@ -4,3 +4,12 @@
 	font-weight: 500;
 	border-radius: 0.8rem;
 }
+
+@media (max-width: 480px) {
+	.button_blue_round {
+		padding: 1rem 1.5rem; 
+		font-size: 1.2rem; 
+		font-weight: 500;
+		border-radius: 0.8rem;
+	}
+}
