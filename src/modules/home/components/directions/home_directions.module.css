@@ -1,5 +1,9 @@
 .directions {
 	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .directions_heading {
@@ -10,8 +14,42 @@
 }
 
 .directions_cards {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 2.5rem;
+	--card-min-width: 25rem;
+
+	/* TODO: improve grid's flexibility */
+	display: grid;
+	grid-template-columns: repeat(3, 1fr); 
+	gap: 3rem;
+}
+
+@media (max-width: 1024px){
+	.directions{
+		display: inline;
+	}
+
+	.directions_heading {
+		padding-block: 1rem 2rem;
+		font-size: 3.1rem;
+	}
+
+	.directions_cards {
+		display: flex;
+		flex-direction: column;
+		--card-min-width: 15rem;
+		gap: 1.8rem;
+	}
+}
+
+@media (max-width: 480px){
+	.directions_heading {
+		padding-block: 1rem 2rem;
+		font-size: 2.4rem;
+	}
+
+	.directions_cards {
+		display: flex;
+		flex-direction: row;
+		padding: 1rem;
+		overflow: hidden;
+	}
 }

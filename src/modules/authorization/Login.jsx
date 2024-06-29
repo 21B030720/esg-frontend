@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { validate } from "./util";
-import "./auth.css";
+import "./Auth.css";
 
 const Login = () => {
   const SERVER_ADDRESS = import.meta.env.VITE_SERVER_ADDRESS;

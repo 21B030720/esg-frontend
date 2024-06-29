@@ -1,7 +1,7 @@
 .card {
 	padding: 2.3125rem 3.75rem;
 
-	width: 18%;
+	width: 100%;
 	max-width: 23rem;
 
 	display: flex;
@@ -22,4 +22,31 @@
 .card_title {
 	font-size: 1.4375rem;
 	text-align: center;
+}
+
+@media (max-width: 1024px) {
+	.card {
+		display: flex;
+		flex-direction: row;
+		padding: 1.2rem 2rem;
+		max-width: 100%;
+	}
+
+	.card_title {
+		font-size: 1.8rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.card {
+		display: flex;
+		flex-direction: column;
+		padding: 1.2rem 2rem;
+		width: 100%;
+		min-height: 15rem;
+	}
+
+	.card_title {
+		font-size: 2rem;
+	}
 }

@@ -1,38 +1,60 @@
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faGlobe, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import headerLinks from './utils/headerLinks';
 import styles from "./header.module.css";
 
 const Header = () => {
 
 	const {pathname: currentUrl} = useLocation();
-
+	const [menuOpen, setMenuOpen] = useState(false);
+	
+	const handleMenuToggle = () => {
+		setMenuOpen(!menuOpen);
+	};
+		
 	return (
-		<nav>
+		<nav className={styles.menu_nav}>
 			<div className={styles.main}>
 				<Link to="/">
 					<div className={styles.kbtu_icon} />
 				</Link>
+				
+				{!menuOpen && (
+				<button className={styles.menu_button} onClick={handleMenuToggle}>
+					<FontAwesomeIcon icon={faBars} size="2x" />
+				</button>
+				)}
 
-				<nav className={styles.navigation_buttons}>
-					{
-						headerLinks.map(l => {
-							const isActive = currentUrl === l.url;
+				<nav className={`${styles.navigation_buttons} ${menuOpen ? styles.show : ''}`}>
+					<div className={styles.incon}>
+						{menuOpen && (
+							<button className={styles.x_button} onClick={handleMenuToggle}>
+								<FontAwesomeIcon icon={faTimes} size="2x" />
+							</button>
+						)}
 
-							return (
-								<HashLink 
-									key={l.id}
-									to={l.url} 
-									className={isActive ? styles.active_link : ''}
-								>
-									{l.name}
-								</HashLink>
-							)
-					})
-					}
+						<div className={styles.incon2}>
+							{
+								headerLinks.map(l => {
+									const isActive = currentUrl === l.url;
+
+									return (
+										<HashLink 
+											key={l.id}
+											to={l.url} 
+											className={isActive ? styles.active_link : ''}
+										>
+											{l.name}
+										</HashLink>
+									)
+								})
+							}
+						</div>		
+					</div>
 				</nav>
 
 				<div className={styles.right_side_elements}>
