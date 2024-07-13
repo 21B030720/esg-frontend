@@ -6,6 +6,7 @@ import ru from "date-fns/locale/ru";
 import kk from "date-fns/locale/kk";
 import enGB from "date-fns/locale/en-GB";
 
+
 const App = () => {
 
   const { i18n } = useTranslation();

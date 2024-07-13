@@ -55,9 +55,11 @@
 }
 
 .right_side_elements {
-	width: 5%;
+	width: 10%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
+  	align-items: center; 
+	gap: 10px;
 }
 
 .menu_button {

@@ -10,21 +10,25 @@ const Registration = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    firstname: '',
-    lastname: '',
-    company: '',
-    phonenumber: '',
+    firstName: '',
+    lastName: '',
+    username: '',
+    // company: '',
+    // phonenumber: '',
     email: '',
     password: '',
+    role: 'USER'
   });
   
   const [error, setError] = useState({
-    firstname: '',
-    lastname: '',
-    company: '',
-    phonenumber: '',
+    firstName: '',
+    lastName: '',
+    username: '',
+    // company: '',
+    // phonenumber: '',
     email: '',
     password: '',
+    role: 'USER'
   });
 
   const [formattedPhone, setFormattedPhone] = useState('');
@@ -50,34 +54,44 @@ const Registration = () => {
       return;
     }
 
-    const data = {
-      name: formData.firstname + ' ' + formData.lastname,
-      company_name: formData.company,
-      phone_number: formData.phonenumber,
-      email: formData.email,
-      password: formData.password,
-    };
+    // const data = {
+    //   name: formData.firstname + ' ' + formData.lastname,
+    //   company_name: formData.company,
+    //   phone_number: formData.phonenumber,
+    //   email: formData.email,
+    //   password: formData.password,
+    // };
 
-    axios.post(`${SERVER_ADDRESS}/user/register/`, data)
+
+    console.log(formData);
+    axios.post(`http://localhost:8090/auth/sign-up`, formData, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
     .then(() => {
       navigate('/login')
       
       setFormData({
-        firstname: '',
-        lastname: '',
-        company: '',
-        phonenumber: '',
+        firstName: '',
+        lastName: '',
+        username: '',
+        // company: '',
+        // phonenumber: '',
         email: '',
         password: '',
+        role: 'USER'
       });
       
       setError({
-        firstname: '',
-        lastname: '',
-        company: '',
-        phonenumber: '',
+        firstName: '',
+        lastName: '',
+        username: '',
+        // company: '',
+        // phonenumber: '',
         email: '',
         password: '',
+        role: 'USER'
       });
     })
     .catch(err => {
@@ -130,36 +144,51 @@ const Registration = () => {
 
         <form className="form" onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="firstname">Имя</label>
+            <label htmlFor="firstName">Имя</label>
 
-            { error.firstname && <span className="error-msg">{error.firstname}</span> }
+            { error.firstName && <span className="error-msg">{error.firstName}</span> }
 
             <input 
-              id="firstname" 
+              id="firstName" 
               type="text"
               className="form-field" 
-              name="firstname"
-              value={formData.firstname}
+              name="firstName"
+              value={formData.firstName}
               onChange={handleChange}
             />
           </div>
 
           <div>
-            <label htmlFor="lastname">Фамилия</label>
+            <label htmlFor="lastName">Фамилия</label>
 
-            { error.lastname && <span className="error-msg">{error.lastname}</span> }
+            { error.lastName && <span className="error-msg">{error.lastName}</span> }
 
             <input 
-              id="lastname" 
+              id="lastName" 
               type="text"
               className="form-field" 
-              name="lastname"
-              value={formData.lastname}
+              name="lastName"
+              value={formData.lastName}
               onChange={handleChange}
             />
           </div>
 
           <div>
+            <label htmlFor="username">Имя Пользователя</label>
+
+            { error.username && <span className="error-msg">{error.username}</span> }
+
+            <input 
+              id="username" 
+              type="text"
+              className="form-field" 
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+            />
+          </div>
+
+          {/* <div>
             <label htmlFor="company">Компания</label>
 
             { error.company && <span className="error-msg">{error.company}</span> }
@@ -172,9 +201,9 @@ const Registration = () => {
               value={formData.company}
               onChange={handleChange}
             />
-          </div>
+          </div> */}
 
-          <div>
+          {/* <div>
             <label htmlFor="phone-number">Номер телефона</label>
 
             { error.phonenumber && <span className="error-msg">{error.phonenumber}</span> }
@@ -190,7 +219,7 @@ const Registration = () => {
               onChange={handlePhone}
               onKeyDown={handlePhone}
             />
-          </div>
+          </div> */}
 
           <div>
             <label htmlFor="email">Email</label>

@@ -1,8 +1,12 @@
 import ButtonBlueRound from "@common/components/buttons/button_blue_round/ButtonBlueRound";
 import styles from "./home_hero.module.css";
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
 
 const HomeHero = () => {
+
+	const { t } = useTranslation();
+	
 	const navigate = useNavigate();
 
 	const handleButtonClick = () => {

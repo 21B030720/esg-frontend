@@ -1,0 +1,14 @@
+{
+    "translation": {
+      "ru_locale": "RUS",
+      "en_locale": "ENG",
+      "kk_locale": "KAZ",
+
+      "about_us": "О нас",
+      "projects": "Проекты",
+      "directions": "Направления",
+      "send_application": "Отправить заявку",
+      "laboratories": "Лаборатории",
+      "contacts": "Контакты"
+    }
+  }

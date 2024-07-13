@@ -40,12 +40,13 @@ const Login = () => {
       return;
     }
 
-    const data = {
-      username: formData.email,
-      password: formData.password
-    };
 
-    axios.post(`${SERVER_ADDRESS}/user/login/`, data)
+
+    axios.post(`http://localhost:8090/auth/sign-in`, formData, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
       .then(res => {
         localStorage.setItem('refresh', res.data.refresh);
         localStorage.setItem('access', res.data.access);

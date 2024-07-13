@@ -2,32 +2,32 @@
 const headerLinks = [
 	{
 		id: 1,
-		name: 'О нас',
+		name: 'about_us',
 		url: '/#home_about',
 	},
 	{
 		id: 2,
-		name: 'Проекты',
+		name: 'projects',
 		url: '/projects?page=1&page_size=5',
 	},
 	{
 		id: 3,
-		name: 'Направления',
+		name: 'directions',
 		url: '/directions',
 	},
 	{
 		id: 4,
-		name: 'Подать заявку',
+		name: 'send_application',
 		url: '/apply',
 	},
 	{
 		id: 5,
-		name: 'Лаборатории',
+		name: 'laboratories',
 		url: '/labs',
 	},
 	{
 		id: 7,
-		name: 'Контакты',
+		name: 'contacts',
 		url: '/contacts',
 	},
 ];

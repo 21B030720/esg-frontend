@@ -6,15 +6,38 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faGlobe, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import headerLinks from './utils/headerLinks';
 import styles from "./header.module.css";
+import { useTranslation } from 'react-i18next';
+import LocalizationButton from '@common/components/localization_button/LocalizationButton';
+import "../../localization/i18n";
 
 const Header = () => {
 
 	const {pathname: currentUrl} = useLocation();
 	const [menuOpen, setMenuOpen] = useState(false);
+
+	const { t } = useTranslation();
 	
 	const handleMenuToggle = () => {
 		setMenuOpen(!menuOpen);
 	};
+
+	const setLocale = (lng) => {
+		i18n.changeLanguage(lng);
+	  };
+
+	const getLocaleLabel = (lng) => {
+		alert(lng)
+		switch (lng) {
+		  case "ru":
+			return t("ru_locale");
+		  case "en":
+			return t("en_locale");
+		  case "kk":
+			return t("kk_locale");
+		  default:
+			return "";
+		}
+	  };
 		
 	return (
 		<nav className={styles.menu_nav}>
@@ -48,7 +71,7 @@ const Header = () => {
 											to={l.url} 
 											className={isActive ? styles.active_link : ''}
 										>
-											{l.name}
+											{t(l.name)}
 										</HashLink>
 									)
 								})
@@ -56,17 +79,16 @@ const Header = () => {
 						</div>		
 					</div>
 				</nav>
-
 				<div className={styles.right_side_elements}>
+					<LocalizationButton />
 					<Link to="/login">
 						<button>
 							<FontAwesomeIcon icon={faUser} size="2x" />
 						</button>
 					</Link>
-
-					<button>
+					{/* <button>
 						<FontAwesomeIcon icon={faGlobe} size="2x" />
-					</button>
+					</button> */}
 				</div>
 			</div>
 		</nav>

@@ -1,9 +1,9 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-import en from "./locales/en.json";
-import ru from "./locales/ru.json";
-import kk from "./locales/kk.json";
+import en from "./locals/en.json";
+import ru from "./locals/ru.json";
+import kk from "./locals/kz.json";
 
 const resources = {
   en,
