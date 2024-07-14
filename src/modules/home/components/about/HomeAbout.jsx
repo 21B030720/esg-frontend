@@ -3,10 +3,13 @@ import HomeAboutCard from '../about_card/HomeAboutCard';
 import Container from '@common/components/container/Container';
 import aboutCardsData from '@modules/home/utils/aboutCardsData';
 import styles from './home_about.module.css';
+import { useTranslation } from 'react-i18next';
 
 const HomeAbout = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
+
+	const { t } = useTranslation();
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -33,7 +36,7 @@ const HomeAbout = () => {
 	return (
 		<Container id="home_about" type='section' maxWidth='110rem' className={styles.about}>
 			<h2 className={styles.about_header}>
-				О нас
+				{t('about_us')}
 			</h2>
 
 			{isMobile ? 

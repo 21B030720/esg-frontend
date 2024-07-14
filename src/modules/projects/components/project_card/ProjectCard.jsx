@@ -1,8 +1,11 @@
 import ProjectCardField from '../project_card_field/ProjectCardField';
 import downloadIcon from '@assets/icons/download.svg';
 import styles from './project_card.module.css';
+import { useTranslation } from 'react-i18next';
 
 const ProjectCard = ({project}) => {
+
+	const { t } = useTranslation();
 	
 	const {
 		title, descr, client, 
@@ -18,43 +21,43 @@ const ProjectCard = ({project}) => {
 
 			<div className={styles.fields}>
 				<ProjectCardField
-					label='Заказчик'
+					label={t("Customer")}
 					value={client || 'Заказчик неизвестен'}
 				/>
 
 				<ProjectCardField
-					label='Статус заявки'
+					label={t("Request Status")}
 					value={status || 'Статус отсутствует'}
 				/>
 
 				<ProjectCardField
-					label='Тех задание'
+					label={t("Technical Task")}
 					value='Техническое задание'
 					icon={downloadIcon}
 				/>
 
 				<ProjectCardField
-					label='Направление'
+					label={t("Direction")}
 					value={direction || 'Направление неизвестно'}
 				/>
 
 				<ProjectCardField
-					label='Описание'
+					label={t("Description")}
 					value={descr || 'Описание отсутствует'}
 				/>
 
 				<ProjectCardField
-					label='ФИО ответственного лица от заказчика'
+					label={t("Responsible Person's Full Name from Customer")}
 					value={clientName || 'ФИО отсутствует'}
 				/>
 
 				<ProjectCardField
-					label='Контакты ответственного лица от заказчика'
+					label={t("Contact Details of Responsible Person from Customer")}
 					value={phone || 'Телефон отсутствует'}
 				/>
 
 				<ProjectCardField
-					label='Примечание'
+					label={t("Note")}
 					value={note || 'Примечание отсутствует'}
 				/>
 			</div>

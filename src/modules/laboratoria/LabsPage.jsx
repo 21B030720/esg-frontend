@@ -14,18 +14,18 @@ const baseLab = {
 };
 
 const labNames = [
-    'Бизнес обучение',
-    'Химические разработки',
-    'ИТ/Цифровизация',
-    'Экология и ESG',
-    'Оптимизация и энергоэффективность',
-    'Геология и сейсмология',
-    'Водородная энергетика',
-    'Повышение нефтеотдачи',
-    'Промышленная безопасность',
-    'Технологии и моделирование',
-    'Материаловедение',
-    'Проблемы каррозии'
+    "Business Education",
+    "Chemical Developments",
+    "IT/Digitalization",
+    "Ecology and ESG",
+    "Optimization and Energy Efficiency",
+    "Geology and Seismology",
+    "Hydrogen Energy",
+    "Enhanced Oil Recovery",
+    "Industrial Safety",
+    "Technologies and Modeling",
+    "Materials Science",
+    "Corrosion Issues"
 ];
 
 const fakeLabs = labNames.map((name, index) => ({

@@ -3,11 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import styles from "./home_about_card.module.css";
+import { useTranslation } from 'react-i18next';
 
 const HomeAboutCard = ({
 	card, isImageLeft, onPrevClick, 
 	onNextClick, isMobile
 }) => {
+
+	const { t } = useTranslation()
 	const [isActive, setIsActive] = useState(false);
 
 	const toggleParagraph = () => {
@@ -50,7 +53,7 @@ const HomeAboutCard = ({
 
 			<div className={styles.card_content}>
 				<div className={styles.card_title_wrapper}>
-					<h3 className={styles.card_title}>{card.title}</h3>
+					<h3 className={styles.card_title}>{t(card.title)}</h3>
 						{isMobile && (
 							<FontAwesomeIcon
 								icon={faChevronDown}
@@ -63,12 +66,12 @@ const HomeAboutCard = ({
 				{!card.isBodyBullettedList ? 
 					<div className={`${styles.card_paragraphs} ${isMobile && !isActive ? styles.hidden : styles.visible}`}>
 						{card.body.map((p, i) => (
-							<div className={styles.cardp} key={i}>{p}</div>
+							<div className={styles.cardp} key={i}>{t(p)}</div>
 						))}
 					</div> : 
 					<ul className={`${styles.card_list} ${isMobile && !isActive ? styles.hidden : styles.visible}`}>
 						{card.body.map((p, i) => (
-							<li key={i}>{p}</li>
+							<li key={i}>{t(p)}</li>
 						))}
 					</ul>
 				}

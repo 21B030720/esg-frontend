@@ -3,15 +3,18 @@ import { ClipLoader } from 'react-spinners';
 import ProjectsCard from '../card/ProjectsCard';
 import ProjectsContext from '@modules/projects/contexts/ProjectsContext';
 import styles from './projects_cards.module.css';
+import { useTranslation } from 'react-i18next';
 
 
 const ProjectsCards = () => {
 
 	const {projects, isLoading} = useContext(ProjectsContext);
 
+	const { t } = useTranslation();
+
 	const errorEl = (
 		<p className={styles.error_empty}>
-			Проекты не найдены
+			{t("Projects not found")}
 		</p>
 	);
 

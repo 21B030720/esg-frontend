@@ -17,12 +17,11 @@ const HomeHero = () => {
 		<section className={styles.hero}>
 			<div className={styles.hero_content}>
 				<h1 className={styles.hero_header}>
-					Казахстанско-Британский технический университет. 
-					Инновации и Экспертиза для промышленности Казахстана
+					{t("Kazakh-British Technical University. Innovation and Expertise for Kazakhstan's Industry")}
 				</h1>
 
 				<div className={styles.button_wrapper}>
-					<ButtonBlueRound text="Подать заявку" onClick={handleButtonClick} />
+					<ButtonBlueRound text={t("Submit an Application")} onClick={handleButtonClick} />
 				</div>
 			</div>
 		</section>

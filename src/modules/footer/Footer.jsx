@@ -1,7 +1,10 @@
 import { FaInstagram, FaFacebook, FaTwitter, FaTelegram } from 'react-icons/fa';
 import styles from "./footer.module.css";
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+
+	const { t } = useTranslation();
 
 	const curYear = new Date().getFullYear();
 
@@ -20,23 +23,23 @@ const Footer = () => {
 				</div>
 
 				<div className={styles.navigation_buttons}>
-					<button>Проекты</button>
-					<button>Направления</button>
-					<button>О нас</button>
-					<button>Наши партнеры</button>
+					<button>{t('projects')}</button>
+					<button>{t('directions')}</button>
+					<button>{t('about_us')}</button>
+					<button>{t('Our partners')}</button>
 				</div>
 
 				<div className={styles.contacts}>
-					<p>Контакты</p>
-					<p>Офис по управлению проектами</p>
-					<p>Номер: +7-707-561-32-28</p>
-					<p>Почта: esglab@kbtu.kz</p>
+					<p>{t('contacts')}</p>
+					<p>{t("Project Management Office")}</p>
+					<p>{t('Number')}: +7-707-561-32-28</p>
+					<p>{t('Email')}: esglab@kbtu.kz</p>
 				</div>
 			</div>
 
 			<div className={styles.last_content}>
-				<p>Казахстанско-Британский Технический Университет {curYear}</p>
-				<p>Все права защищены</p>
+				<p>{t("Kazakh-British Technical University 2024")} {curYear}</p>
+				<p>{t("All rights reserved")}</p>
 			</div>
 		</footer>
 	);

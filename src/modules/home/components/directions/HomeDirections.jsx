@@ -3,10 +3,13 @@ import Container from '@common/components/container/Container';
 import directionsData from '@modules/home/utils/directionsData';
 import styles from './home_directions.module.css';
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const HomeDirections = () => {
 	const [currentCardIndex, setCurrentCardIndex] = useState(0);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         const handleResize = () => {
@@ -45,7 +48,7 @@ const HomeDirections = () => {
 			
 			className={styles.directions}
 		>
-			<h2 className={styles.directions_heading}>Направления</h2>
+			<h2 className={styles.directions_heading}>{t('Directions')}</h2>
 
 			{isMobile ? (
                 <div

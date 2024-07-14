@@ -2,79 +2,41 @@ const aboutCardsData = [
 	{
 		id: 1,
 		imageUrl: "/src/assets/images/home_about_1.png",
-		title: "Высокий статус",
+		title: "High Status",
 		body: [
-			`
-				КБТУ является уникальным образовательным и 
-				научным центром региона, воплощающим единство 
-				истории Казахстана и прорывные технологические инновации.
-			`,
-			`
-				Университет гордится своими аккредитованными институтами, 
-				лабораториямии центрами, обеспечивающими передовые 
-				исследования в области геологии, 
-				нефтехимии, материаловедения и информационных технологий.
-			`,
-			`
-				КБТУ объединяет именитых учёных и высококвалифицированных 
-				научных работников, чьи достижения признаны не только 
-				в Казахстане, но и в мировой научной среде.
-			`,
+			"KBTU is a unique educational and scientific center in the region, embodying the unity of Kazakhstan's history and breakthrough technological innovations.",
+			"The university prides itself on its accredited institutes, laboratories, and centers, providing advanced research in geology, petrochemistry, materials science, and information technology.",
+			"KBTU brings together renowned scientists and highly qualified researchers whose achievements are recognized not only in Kazakhstan but also in the global scientific community.",
 		],
 		isBodyBullettedList: false,
 	},
 	{
 		id: 2,
 		imageUrl: "/src/assets/images/home_about_2.png",
-		title: "Уникальный возможности сотрудничества",
+		title: "Unique Collaboration Opportunities",
 		body: [
-			`
-				Богатый опыт КБТУ и широкая сеть технологических партнёров, 
-				в том числе и международных, открывает вам доступ 
-				к передовым научным разработкам и инновационным продуктам.
-			`,
-			`
-				Реализация проектов по Вашему запросу возможно 
-				как путём заключения прямых договоров, так и в рамках 1% 
-				финансирования НИОКР,согласно требованиям Законодательства 
-				РК для недропользователей.
-			`,
+			"KBTU's extensive experience and broad network of technological partners, including international ones, provide you access to cutting-edge scientific developments and innovative products.",
+			"Implementation of projects at your request is possible through direct contracts or within the framework of 1% R&D funding, in accordance with the requirements of the legislation of the Republic of Kazakhstan for subsoil users.",
 		],
 		isBodyBullettedList: false,
 	},
 	{
 		id: 3,
 		imageUrl: "/src/assets/images/home_about_3.png",
-		title: "Преимущества для Недропользователей и промышленных предприятий",
+		title: "Advantages for Subsoil Users and Industrial Enterprises",
 		body: [
-			`
-				прямой доступ к инновациям и продуктам 
-				новейших научных исследований;
-			`,
-			`
-				богатый опыт в создании оптимальных 
-				решений, ориентированных на современные потребности;
-			`,
-			`
-				экспертное мнение, консультации и готовые 
-				продукты в сфере научных исследований, 
-				производства материалов и технологий, 
-				цифровизации ИТ-решений для повышения 
-				конкурентоспособности Вашего бизнеса.	
-			`,
+			"Direct access to innovations and products of cutting-edge scientific research;",
+			"Rich experience in creating optimal solutions tailored to modern needs;",
+			"Expert opinions, consultations, and ready-made products in the fields of scientific research, materials and technology production, IT solution digitalization to enhance your business competitiveness;",
 		],
 		isBodyBullettedList: true,
 	},
 	{
 		id: 4,
 		imageUrl: "/src/assets/images/home_about_4.png",
-		title: "Наша миссия",
+		title: "Our mission",
 		body: [
-			`
-				Совместная разработка и внедрение инноваций 
-				для повышения эффективности 
-				недропользования и промышленности.
-			`,
+			"Joint development and implementation of innovations to enhance the efficiency of subsoil use and industry.",
 		],
 		isBodyBullettedList: false,
 	},

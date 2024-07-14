@@ -1,8 +1,11 @@
+import { useTranslation } from "react-i18next";
 import styles from "./home_directions_card.module.css";
 
 const HomeDirectionsCard = ({
 	card, isBlue,
 }) => {
+
+	const { t } = useTranslation();
 
 	if(card == null) {
 		return;
@@ -23,7 +26,7 @@ const HomeDirectionsCard = ({
 			/>
 
 			<p className={styles.card_title}>
-				{card.title}
+				{t(card.title)}
 			</p>
 		</div>
 	);
