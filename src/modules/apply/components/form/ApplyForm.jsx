@@ -5,6 +5,9 @@ import ApplyInputFile from '../input_file/ApplyInputFile';
 import ApplyInputSelect from '../input_select/InputSelect';
 import styles from './apply_form.module.css';
 import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react';
+import getDirections from '@common/api/getDirections';
+import useDirections from '@common/hooks/useDirections';
 
 const ApplyForm = () => {
 
@@ -13,6 +16,10 @@ const ApplyForm = () => {
 	const {
 		formData, change, onSubmit,
 	} = useApplyForm();
+
+	useEffect(() => {
+		onSubmit()
+	}, [formData])
 
 	return (
 		<form className={styles.form}>
@@ -51,7 +58,7 @@ const ApplyForm = () => {
 			<ApplyInputFile
 				label={t("Technical Task")}
 				name='task'
-				onChange={base64String => change('file', base64String)}
+				onChange={e => change('file', e)}
 			/>
 
 			<ApplyInput

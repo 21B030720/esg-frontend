@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { validate } from "./util";
 import "./Auth.css";
+import { BACKEND_ADDRESS } from "@common/baseUrls";
 
 const Login = () => {
   const SERVER_ADDRESS = import.meta.env.VITE_SERVER_ADDRESS;
@@ -42,7 +43,7 @@ const Login = () => {
 
 
 
-    axios.post(`http://localhost:8090/auth/sign-in`, formData, {
+    axios.post(`${BACKEND_ADDRESS}/auth/sign-in`, formData, {
       headers: {
         'Content-Type': 'application/json'
       }

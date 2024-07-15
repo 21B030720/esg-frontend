@@ -19,17 +19,16 @@ const ApplyInputFile = ({
 
 	const inputId = `${Math.random()}`;
 
-	// TODO: finish
 	const loadFile = (e) => {
 		setError('');
 
 		const file = e.target.files[0];
 
-    if(file) {
+		if(file) {
 			setFileName('');
 
 			const fileType = file.type;
-			const fileSize = file.size / 1e6;
+			const fileSize = file.size / 1e6; // Convert to MB
 
 			if(fileType !== 'application/pdf') {
 				setError('Файл должен быть PDF');
@@ -43,19 +42,8 @@ const ApplyInputFile = ({
 
 			setFileName(removeLastChars(file.name, 4));
 
-			const reader = new FileReader();
-
-			reader.onload = (e) => {
-				const base64String = e.target.result.split(',')[1];
-				onChange(base64String);
-			};
-
-			reader.onerror = (e) => {
-				setError(e);
-			};
-
-			reader.readAsDataURL(file);
-    } else {
+			onChange(file); // Pass the File object directly to onChange
+		} else {
 			setError('Файл должен быть загружен');
 		}
 	};

@@ -4,13 +4,15 @@ import useToggle from '@common/hooks/useToggle';
 import doExist from '@common/utils/doExist';
 import caretDown from "@assets/icons/caret_down.svg";
 import styles from './input_select.module.css';
-import directions from '@common/utils/directions';
 import { useState } from 'react';
+import useDirections from '@common/hooks/useDirections';
 
 const ApplyInputSelect = ({
 	label, isRequired = false,
 	name, value, onChange
 }) => {
+
+	const { directions } = useDirections();
 
 	const {	
 		value: areDirsVisible,
@@ -44,8 +46,8 @@ const ApplyInputSelect = ({
 	}
 
 	const onPicking = (dir) => {
-		setPickedDir(dir.name);
-		onChange(dir.name);
+		setPickedDir(dir);
+		onChange(dir);
 		setDirsVisible(false);
 	};
 
@@ -94,7 +96,7 @@ const ApplyInputSelect = ({
 						className={styles.select_ph}
 					>
 						{
-							pickedDir || 'Выберите'
+							pickedDir.name || 'Выберите'
 						}
 					</p>
 
