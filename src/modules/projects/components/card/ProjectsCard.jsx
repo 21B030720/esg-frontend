@@ -1,10 +1,13 @@
 import { useContext } from 'react';
 import ProjectsContext from '@modules/projects/contexts/ProjectsContext';
 import styles from './projects_card.module.css';
+import { useTranslation } from 'react-i18next';
 
-const ProjectsCard = ({card}) => {
+const ProjectsCard = ({card}) => { // Card in Projects List
 
-	const {openProject} = useContext(ProjectsContext);
+	const { t } = useTranslation();
+
+	const { openProject } = useContext(ProjectsContext);
 
 	if(card == null) {
 		return;
@@ -37,7 +40,7 @@ const ProjectsCard = ({card}) => {
 			<div className={styles.info}>
 				<div className={styles.info_box}>
 					<p className={styles.info_label}>
-						Заказчик
+						{t("Customer")}
 					</p>
 
 					<p className={styles.info_main}>
@@ -47,7 +50,7 @@ const ProjectsCard = ({card}) => {
 
 				<div className={styles.info_box}>
 					<p className={styles.info_label}>
-						Направление задачи
+						{t("Task direction")}
 					</p>
 
 					<p className={styles.info_main}>

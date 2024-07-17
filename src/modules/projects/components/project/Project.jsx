@@ -18,7 +18,7 @@ const Project = () => {
 			setLoading(true);
 
 			const p = new Promise(res => {
-				const project = getProjectById(projectId);
+				const project = getProjectById(projectId); // Get Data of Specific Project
 
 				project.then(res);
 			})
@@ -50,12 +50,14 @@ const Project = () => {
 			{
 				isLoading
 				?
+					// Loading Animation
 					<ClipLoader
 						size='1.5rem'
 						color='var(--color-blue-dark)'
 						className={styles.loader}
 					/>
 				:
+					// Project Details
 					<div className={styles.main}>
 						<ProjectCard
 							isLoading={isLoading}

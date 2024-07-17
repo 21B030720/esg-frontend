@@ -11,17 +11,20 @@ const postApplication = async(form) => {
     formData.append('company', form['title']);
     formData.append('description', form['descr']);
     formData.append('directionID', form['direction']['id']);
-    formData.append('projectFile', form['file'])
+    formData.append('projectFile[]', form['file'])
 
     formData.forEach(function(value, key) {
         console.log("FORM DATA:", key, value);
     })
 
 
-    const url = `${BACKEND_ADDRESS}/directions`;
+    const url = `${BACKEND_ADDRESS}/applications`;
     const option = {
         method: 'POST',
         redirect: "follow",
+        headers: {
+            "Authorization": `Bearer ${localStorage.getItem('token')}`,
+        },
         body: formData,
     }
     try {

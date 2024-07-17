@@ -3,7 +3,7 @@ import downloadIcon from '@assets/icons/download.svg';
 import styles from './project_card.module.css';
 import { useTranslation } from 'react-i18next';
 
-const ProjectCard = ({project}) => {
+const ProjectCard = ({project}) => { // Project Details
 
 	const { t } = useTranslation();
 	

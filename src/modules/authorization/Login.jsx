@@ -11,12 +11,12 @@ const Login = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    email: '',
+    username: '',
     password: '',
   });
 
   const [error, setError] = useState({
-    email: '',
+    username: '',
     password: '',
   });
   
@@ -49,19 +49,19 @@ const Login = () => {
       }
     })
       .then(res => {
-        localStorage.setItem('refresh', res.data.refresh);
-        localStorage.setItem('access', res.data.access);
+        localStorage.setItem('token', res.data.token);
         
         setFormData({
-          email: '',
+          username: '',
           password: '',
         })
         setError({
-          email: '',
+          username: '',
           password: '',
         })
     
-        navigate('/')
+        // navigate('/')
+        window.location.href = '/';
       })
       .catch(err => {
         console.log(err.response)
@@ -75,16 +75,16 @@ const Login = () => {
 
         <form className="form" onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="username">Username</label>
 
-            { error.email && <span className="error-msg">{error.email}</span> }
+            { error.username && <span className="error-msg">{error.username}</span> }
 
             <input 
-              id="email" 
+              id="username" 
               type="text"
               className="form-field" 
-              name="email"
-              value={formData.email}
+              name="username"
+              value={formData.username}
               onChange={handleChange}
               />
           </div>

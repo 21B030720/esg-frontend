@@ -6,9 +6,9 @@ import styles from './projects_cards.module.css';
 import { useTranslation } from 'react-i18next';
 
 
-const ProjectsCards = () => {
+const ProjectsCards = () => { // Projects List
 
-	const {projects, isLoading} = useContext(ProjectsContext);
+	const { projects, isLoading } = useContext(ProjectsContext);
 
 	const { t } = useTranslation();
 

@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-const useProject = () => {
+const useProject = () => { // For Project Details
 
 	const [isOneViewed, setOneViewed] = useState(false);
 	const [projectId, setProjectId] = useState('');
 	const [project, setProject] = useState({});
 
-	const openProject = (newProjectId) => {
+	const openProject = (newProjectId) => { // Opening Project Details(One Project). Setting values to isOneViewed, projectId
 		setOneViewed(true);
 
 		if(newProjectId != projectId) {
@@ -16,7 +16,7 @@ const useProject = () => {
 		setProjectId(newProjectId);
 	};
 
-	const closeProject = () => {
+	const closeProject = () => { // Closing Project Details(One Project)
 		setOneViewed(false);
 	};
 

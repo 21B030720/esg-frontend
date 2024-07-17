@@ -5,9 +5,9 @@ import getPagesItems from "../utils/getPagesItems";
 
 const usePagination = (stopRequest) => {
 
-	const {projectsCount} = useContext(ProjectsContext);
+	const { projectsCount } = useContext(ProjectsContext);
 	
-	const [searchParams, setSearchParams] = useSearchParams();
+	const [ searchParams, setSearchParams ] = useSearchParams();
 	const pageParam = searchParams.get('page');
 	const pageSizeParam = searchParams.get('page_size');
 

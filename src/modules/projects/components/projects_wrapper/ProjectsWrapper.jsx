@@ -15,9 +15,11 @@ const ProjectsWrapper = () => {
 		<>
 			{
 				isOneViewed
-				?
+				? 
+					// Project Details or Loading
 					<Project />
 				:
+					// Projects List, Projects Header, Projects Pagination
 					<Container
 						type='section'
 						maxWidth='70rem'

@@ -1,8 +1,16 @@
 import doExist from "@common/utils/doExist";
 import projects from "@modules/projects/utils/projects";
+import getProjectsList from "./getProjectsList";
 
 // WARN: current logic is mock-data dependant
-const getProjects = (page, pageSize, maxProjectsCount) => {
+const getProjects = async (page, pageSize, maxProjectsCount) => {
+	try{
+		const { data } = await getProjectsList();
+		console.log(data);
+	} catch(error) {
+		console.error(error);
+	}
+
 	return new Promise((res, rej) => {
 		try {
 			if(!doExist(page, pageSize)) {
