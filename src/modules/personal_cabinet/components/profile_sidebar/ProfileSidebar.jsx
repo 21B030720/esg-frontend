@@ -1,7 +1,20 @@
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import AuthContext from '@contexts/AuthContext';
 import profile from '../../api/profile.png';
 import styles from './profile_sidebar.module.css';
 
+
 const ProfileSidebar = ({ user }) => {
+	const nav = useNavigate();
+	const { logout, } = useContext(AuthContext);
+
+	const onLogout = () => {
+		logout();
+
+		nav('/');
+	};
+
   return (
     <div className={styles.profileSidebar}>
       <div className={styles.profilePhoto}>
@@ -34,6 +47,8 @@ const ProfileSidebar = ({ user }) => {
         <div className={`${styles.text} ${styles.textlabel}`}>
           {user.email}
         </div>
+
+				<button onClick={onLogout}>Log out</button>
       </div>
     </div>
   );

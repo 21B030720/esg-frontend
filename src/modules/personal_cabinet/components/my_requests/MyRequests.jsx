@@ -1,12 +1,16 @@
-import { fakeRequests } from '../../api/fakeData';
+// import { fakeRequests } from '../../api/fakeData';
 import dateIcon from '@assets/icons/calendar.png';
 import titleIcon from '@assets/icons/title.png';
 import statusIcon from '@assets/icons/status.png';
 import styles from './my_requests.module.css';
 
-const MyRequests = () => {
-  // NOTE: getting requests
-  const requests = fakeRequests;
+const MyRequests = ({requests}) => {
+  // const requests = fakeRequests;
+
+	if(requests == null || requests.length === 0) {
+		return;
+	}
+
   const getStatusStyle = (status) => {
     switch (status) {
       case 'Отказано':

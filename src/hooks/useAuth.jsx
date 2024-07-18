@@ -71,8 +71,17 @@ const useAuth = () => {
 		setUser(user);
 	};
 
+	const logout = () => {
+		setAuthenticated(false);
+		setUser(userDefaultState);
+
+		localStorage.removeItem('token');
+		localStorage.removeItem('user');
+		localStorage.removeItem('isAuthenticated');
+	};
+
 	return {
-		user, isAuthenticated, register, login, restoreFromStorage,
+		user, isAuthenticated, register, login, restoreFromStorage, logout
 	};
 };
 
