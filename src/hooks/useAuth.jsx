@@ -67,7 +67,6 @@ const useAuth = () => {
 			setUser(userDefaultState);
 		}
 
-		console.log(isAuthenticated, user);
 		setAuthenticated(isAuthenticated);
 		setUser(user);
 	};

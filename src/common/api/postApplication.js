@@ -2,37 +2,39 @@ import { BACKEND_ADDRESS } from "@common/baseUrls";
 import fetchWrapper from "./fetchWrapper";
 
 const postApplication = async(form) => {
+	const formData = new FormData();
 
-    const formData = new FormData();
-    // for (let key in form) {
-    //     formData.append(key, form[key]);
-    // }
-    formData.append('name', form['client']);
-    formData.append('company', form['title']);
-    formData.append('description', form['descr']);
-    formData.append('directionID', form['direction']['id']);
-    formData.append('projectFile[]', form['file'])
+	formData.append('name', form['name']);
+	formData.append('company', form['company']);
+	formData.append('description', form['description']);
+	formData.append('directionID', form['directionID']);
+	// formData.append('projectFile[]', form['projectFile']);
+  
+	for (let i = 0; i < form['projectFile'].length; i++) {
+    formData.append('projectFile', form['projectFile'][i]);
+  }
+  
+	// formData.forEach(function(value, key) {
+	// 	console.log("FORM DATA:", key, value);
+	// });
 
-    formData.forEach(function(value, key) {
-        console.log("FORM DATA:", key, value);
-    })
+	const url = `${BACKEND_ADDRESS}/applications`;
+	const option = {
+		method: 'POST',
+		redirect: "follow",
+		headers: {
+			"Authorization": `Bearer ${localStorage.getItem('token')}`,
+		},
+		body: formData,
+	};
+	
+	try {
+		const { data, success, error } = await fetchWrapper(url, option, 'postApplication');
+		
+		return {data, success, error};
+	} catch(error) {
+		console.error("Error in postApplication: ", error);
+	}
+};
 
-
-    const url = `${BACKEND_ADDRESS}/applications`;
-    const option = {
-        method: 'POST',
-        redirect: "follow",
-        headers: {
-            "Authorization": `Bearer ${localStorage.getItem('token')}`,
-        },
-        body: formData,
-    }
-    try {
-        const { data, success, error } = await fetchWrapper(url, option, 'postApplication');
-        return {data, success, error};
-    } catch(error) {
-        console.error("Error in postApplication: ", error);
-    }
-}
-
-export default postApplication
+export default postApplication;

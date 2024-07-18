@@ -1,13 +1,12 @@
 const applyFormTemplate = {
-	title: '',
-	descr: '',
-	direction: '',
+	name: '',
+	description: '',
+	directionID: null,
+	company: '',
+	projectFile: '',
+	contacts: '',
 	budget: '',
-	task: '',
-	client: '',
-	phone: '',
 	note: '',
-	file: '',
 };
 
 export default applyFormTemplate;

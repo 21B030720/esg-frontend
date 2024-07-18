@@ -9,7 +9,7 @@ import useDirections from '@common/hooks/useDirections';
 
 const ApplyInputSelect = ({
 	label, isRequired = false,
-	name, value, onChange
+	name, onChange
 }) => {
 
 	const { directions } = useDirections();
@@ -23,11 +23,7 @@ const ApplyInputSelect = ({
 		pickedDir, setPickedDir,
 	] = useState('');
 
-	if(!doExist(name, value, onChange)) {
-		return;
-	}
-
-	if(!doExist(label)) {
+	if(!doExist(name, onChange, label)) {
 		return;
 	}
 	

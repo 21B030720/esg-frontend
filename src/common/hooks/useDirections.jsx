@@ -1,5 +1,5 @@
 import getDirections from '@common/api/getDirections';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const useDirections = () => {
     const [directions, setDirections] = useState([]);
