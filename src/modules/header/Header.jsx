@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { faGlobe, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import headerLinks from './utils/headerLinks';
 import styles from "./header.module.css";
 import { useTranslation } from 'react-i18next';
@@ -21,23 +21,23 @@ const Header = () => {
 		setMenuOpen(!menuOpen);
 	};
 
-	const setLocale = (lng) => {
-		i18n.changeLanguage(lng);
-	  };
+	// const setLocale = (lng) => {
+	// 	i18n.changeLanguage(lng);
+	//   };
 
-	const getLocaleLabel = (lng) => {
-		alert(lng)
-		switch (lng) {
-		  case "ru":
-			return t("ru_locale");
-		  case "en":
-			return t("en_locale");
-		  case "kk":
-			return t("kk_locale");
-		  default:
-			return "";
-		}
-	  };
+	// const getLocaleLabel = (lng) => {
+	// 	alert(lng)
+	// 	switch (lng) {
+	// 	  case "ru":
+	// 		return t("ru_locale");
+	// 	  case "en":
+	// 		return t("en_locale");
+	// 	  case "kk":
+	// 		return t("kk_locale");
+	// 	  default:
+	// 		return "";
+	// 	}
+	//   };
 		
 	return (
 		<nav className={styles.menu_nav}>
@@ -79,16 +79,15 @@ const Header = () => {
 						</div>		
 					</div>
 				</nav>
+
 				<div className={styles.right_side_elements}>
 					<LocalizationButton />
-					<Link to="/login">
+
+					<Link to="/profile">
 						<button>
 							<FontAwesomeIcon icon={faUser} size="2x" />
 						</button>
 					</Link>
-					{/* <button>
-						<FontAwesomeIcon icon={faGlobe} size="2x" />
-					</button> */}
 				</div>
 			</div>
 		</nav>
