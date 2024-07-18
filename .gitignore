@@ -12,7 +12,7 @@ dist
 dist-ssr
 *.local
 
-.todo.md
+.todos.md
 .env
 
 # Editor directories and files
