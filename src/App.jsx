@@ -5,6 +5,7 @@ import { registerLocale, setDefaultLocale } from "react-datepicker";
 import ru from "date-fns/locale/ru";
 import kk from "date-fns/locale/kk";
 import enGB from "date-fns/locale/en-GB";
+import { AuthProvider } from "./contexts/AuthContext";
 
 
 const App = () => {
@@ -20,7 +21,9 @@ const App = () => {
   const router = createBrowserRouter(routes);
 
   return (
-    <RouterProvider router={router} />
+    <AuthProvider>
+			<RouterProvider router={router} />
+		</AuthProvider>
   );
 };
 
