@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,10 +9,14 @@ import styles from "./header.module.css";
 import { useTranslation } from 'react-i18next';
 import LocalizationButton from '@common/components/localization_button/LocalizationButton';
 import "../../localization/i18n";
+import AuthContext from '@contexts/AuthContext';
 
 const Header = () => {
 
 	const {pathname: currentUrl} = useLocation();
+
+	const { isAuthenticated } = useContext(AuthContext);
+
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	const { t } = useTranslation();
@@ -83,7 +87,7 @@ const Header = () => {
 				<div className={styles.right_side_elements}>
 					<LocalizationButton />
 
-					<Link to="/profile">
+					<Link to={isAuthenticated ? '/profile' : '/register'}>
 						<button>
 							<FontAwesomeIcon icon={faUser} size="2x" />
 						</button>

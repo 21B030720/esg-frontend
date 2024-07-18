@@ -1,11 +1,14 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import AuthContext from "@contexts/AuthContext";
 import { validate } from "./util";
-import { BACKEND_ADDRESS } from "@common/baseUrls";
 import "./Auth.css";
 
 const Login = () => {
+	const nav = useNavigate();
+
+	const { login, } = useContext(AuthContext);
+
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -37,16 +40,8 @@ const Login = () => {
       return;
     }
 
-    axios.post(`${BACKEND_ADDRESS}/auth/sign-in`, formData, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(res => {
-				console.log(res.data);
-				
-        localStorage.setItem('token', res.data.token);
-        
+    login(formData)
+      .then(() => {
         setFormData({
           username: '',
           password: '',
@@ -56,10 +51,11 @@ const Login = () => {
           password: '',
         })
 
-        window.location.href = '/';
+				nav('/');
+        // window.location.href = '/';
       })
       .catch(err => {
-        console.log(err.response)
+        console.error(err)
       });
   };
 
