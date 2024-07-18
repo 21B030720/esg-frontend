@@ -2,20 +2,16 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { validate } from "./util";
-import "./Auth.css"
 import { BACKEND_ADDRESS } from "@common/baseUrls";
+import "./Auth.css"
 
 const Registration = () => {
-  const SERVER_ADDRESS = import.meta.env.VITE_SERVER_ADDRESS;
-
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     username: '',
-    // company: '',
-    // phonenumber: '',
     email: '',
     password: '',
     role: 'USER'
@@ -25,8 +21,6 @@ const Registration = () => {
     firstName: '',
     lastName: '',
     username: '',
-    // company: '',
-    // phonenumber: '',
     email: '',
     password: '',
     role: 'USER'
@@ -55,16 +49,6 @@ const Registration = () => {
       return;
     }
 
-    // const data = {
-    //   name: formData.firstname + ' ' + formData.lastname,
-    //   company_name: formData.company,
-    //   phone_number: formData.phonenumber,
-    //   email: formData.email,
-    //   password: formData.password,
-    // };
-
-
-    console.log(formData);
     axios.post(`${BACKEND_ADDRESS}/auth/sign-up`, formData, {
       headers: {
         'Content-Type': 'application/json'
@@ -77,8 +61,6 @@ const Registration = () => {
         firstName: '',
         lastName: '',
         username: '',
-        // company: '',
-        // phonenumber: '',
         email: '',
         password: '',
         role: 'USER'
@@ -88,8 +70,6 @@ const Registration = () => {
         firstName: '',
         lastName: '',
         username: '',
-        // company: '',
-        // phonenumber: '',
         email: '',
         password: '',
         role: 'USER'

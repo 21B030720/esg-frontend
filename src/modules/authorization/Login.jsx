@@ -1,15 +1,11 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { validate } from "./util";
-import "./Auth.css";
 import { BACKEND_ADDRESS } from "@common/baseUrls";
+import "./Auth.css";
 
 const Login = () => {
-  const SERVER_ADDRESS = import.meta.env.VITE_SERVER_ADDRESS;
-
-  const navigate = useNavigate();
-
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -41,14 +37,14 @@ const Login = () => {
       return;
     }
 
-
-
     axios.post(`${BACKEND_ADDRESS}/auth/sign-in`, formData, {
       headers: {
         'Content-Type': 'application/json'
       }
     })
       .then(res => {
+				console.log(res.data);
+				
         localStorage.setItem('token', res.data.token);
         
         setFormData({
@@ -59,8 +55,7 @@ const Login = () => {
           username: '',
           password: '',
         })
-    
-        // navigate('/')
+
         window.location.href = '/';
       })
       .catch(err => {
