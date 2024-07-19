@@ -3,7 +3,7 @@ import Project from "../project/Project";
 import Container from "@common/components/container/Container";
 import ProjectsHeader from "../header/ProjectsHeader";
 import ProjectsMain from "../main/ProjectsMain";
-import ProjectsPagination from "../pagination/ProjectsPagination";
+// import ProjectsPagination from "../pagination/ProjectsPagination";
 import ProjectsContext from "@modules/projects/contexts/ProjectsContext";
 import styles from './projects_wrapper.module.css';
 
@@ -29,7 +29,7 @@ const ProjectsWrapper = () => {
 
 						<ProjectsMain />
 
-						<ProjectsPagination />
+						{/* <ProjectsPagination /> */}
 					</Container>
 			}
 		</>

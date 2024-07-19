@@ -8,10 +8,9 @@ const postApplication = async(form) => {
 	formData.append('company', form['company']);
 	formData.append('description', form['description']);
 	formData.append('directionID', form['directionID']);
-	// formData.append('projectFile[]', form['projectFile']);
-  
+
 	for (let i = 0; i < form['projectFile'].length; i++) {
-    formData.append('projectFile', form['projectFile'][i]);
+    formData.append('projectFile[]', form['projectFile'][i]);
   }
   
 	// formData.forEach(function(value, key) {

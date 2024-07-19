@@ -3,7 +3,7 @@ const applyFormTemplate = {
 	description: '',
 	directionID: null,
 	company: '',
-	projectFile: '',
+	projectFile: null,
 	contacts: '',
 	budget: '',
 	note: '',

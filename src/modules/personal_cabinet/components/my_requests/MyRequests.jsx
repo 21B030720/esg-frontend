@@ -7,8 +7,12 @@ import styles from './my_requests.module.css';
 const MyRequests = ({requests}) => {
   // const requests = fakeRequests;
 
-	if(requests == null || requests.length === 0) {
+	if(requests == null) {
 		return;
+	}
+
+	if(requests.length === 0) {
+		return <p>Заявок нет</p>
 	}
 
   const getStatusStyle = (status) => {

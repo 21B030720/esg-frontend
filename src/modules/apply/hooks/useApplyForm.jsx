@@ -19,8 +19,6 @@ const useApplyForm = () => {
 	const onSubmit = (e) => {
 		e.preventDefault();
 
-		console.log(formData);
-
 		postApplication(formData);
 	};
 

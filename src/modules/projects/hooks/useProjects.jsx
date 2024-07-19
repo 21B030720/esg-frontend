@@ -1,56 +1,40 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import getProjectsCount from "@common/api/getProjectsCount";
-import getProjects from "@common/api/getProjects";
+import axios from "axios";
+import { BACKEND_ADDRESS } from "@common/baseUrls";
 
-const useProjects = () => { // Settings of Projects List. Returns Projects List
+const useProjects = () => {
 
-	const [searchParams] = useSearchParams();
 	const [projects, setProjects] = useState([]);
-	const [projectsCount, setProjectsCount] = useState();
-
-	const page = searchParams.get('page'); // Param #1
-	const pageSize = searchParams.get('page_size'); // Param #2
-
+	const [isError, setError] = useState(null);
 	const [isLoading, setLoading] = useState(false);
-	
+
 	useEffect(() => {
+		setError(null);
 		setLoading(true);
 
-		const p = new Promise(res => {
-			const projectsCnt = getProjectsCount();
-			projectsCnt.then(res);
-		})
-		.then(projectsCnt => {
-			setProjectsCount(projectsCnt);
+		const fetchProjects = async () => {
+			axios.get(`${BACKEND_ADDRESS}/projects`, {
+				headers: { 'Content-Type': 'application/json', }
+			})
+			.then(response => {
+				setProjects(response.data);
+				console.log(response);
+				setLoading(false);
+			})
+			.catch(error => {
+				setError(error);
+				setLoading(false);
+			})
+		};
 
-			return getProjects(page, pageSize, projectsCnt); // Get Projects List
-		})
-		.then(projects => {
-			setProjects(projects);
-		})
-		.catch(e => {
-			console.error(e);
-		})
-		.finally(() => {
-			setLoading(false);
-		});
+		fetchProjects();
 
 		return () => {
 			setLoading(false);
 		};
-	}, [page, pageSize, searchParams]);
+	}, []);
 
-	const stopRequest = () => {
-		
-	};
-
-	return {
-		projects, setProjects,
-		projectsCount,
-		isLoading, setLoading,
-		stopRequest,
-	};
+	return { projects, isLoading, isError };
 };
 
 export default useProjects;

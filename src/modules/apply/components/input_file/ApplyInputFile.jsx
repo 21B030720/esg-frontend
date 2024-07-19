@@ -5,13 +5,13 @@ import doExist from '@common/utils/doExist';
 import clipIcon from '@assets/icons/clip.svg';
 import removeLastChars from '@common/utils/removeLastChars';
 import styles from './apply_input_file.module.css';
-import arrayBufferToBase64 from '@common/utils/arrayBufferToBase64';
+// import arrayBufferToBase64 from '@common/utils/arrayBufferToBase64';
 
 const ApplyInputFile = ({
 	label, isRequired = false, onChange,
 }) => {
 
-	const [fileName, setFileName] = useState('');
+	// const [fileName, setFileName] = useState('');
 	const [error, setError] = useState('');
 
 	if(!doExist(label, onChange)) {
@@ -24,25 +24,25 @@ const ApplyInputFile = ({
 		setError('');
 
 		const files = e.target.files;
-		const file = files[0]; // might be multiple files
+		// const file = files[0]; // might be multiple files
 
-		if(file) {
-			setFileName('');
+		if(files.length > 0) {
+			// setFileName('');
 
-			const fileType = file.type;
-			const fileSize = file.size / 1e6; // Convert to MB
+			// const fileType = file.type;
+			// const fileSize = file.size / 1e6; // Convert to MB
 
-			if(fileType !== 'application/pdf') {
-				setError('Файлы должны быть в PDF формате');
-				return;
-			}
+			// if(fileType !== 'application/pdf') {
+			// 	setError('Файлы должны быть в PDF формате');
+			// 	return;
+			// }
 
-			if(fileSize > 5) {
-				setError('Размер каждого файла не должен превышать 5МБ');
-				return;
-			}
+			// if(fileSize > 5) {
+			// 	setError('Размер каждого файла не должен превышать 5МБ');
+			// 	return;
+			// }
 
-			setFileName(removeLastChars(file.name, 50));
+			// setFileName(removeLastChars(file.name, 50));
 			onChange(files);
 
 			// const reader = new FileReader();
@@ -102,19 +102,18 @@ const ApplyInputFile = ({
 					</p>
 				}
 
-				{
+				{/* {
 					fileName.length > 0 &&
 					<div className={styles.file_preview}>
 						<FaFilePdf 
 							fontSize='1.5rem'
 							color='#e95340'
 						/>
-
-									<p className={styles.file_name}>
+							<p className={styles.file_name}>
 							{fileName}
 						</p>
 					</div>
-				}
+				} */}
 			</div>
 		</div>
 	);
