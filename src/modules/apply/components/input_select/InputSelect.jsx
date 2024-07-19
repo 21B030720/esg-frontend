@@ -12,7 +12,7 @@ const ApplyInputSelect = ({
 	name, onChange
 }) => {
 
-	const { directions } = useDirections();
+	const { directions, isLoading: areDirsLoading } = useDirections();
 
 	const {	
 		value: areDirsVisible,
@@ -106,22 +106,28 @@ const ApplyInputSelect = ({
 				</div>
 
 				{
-					areDirsVisible &&
-					<Clickaway onClickAway={onClickAway}>
-						<div className={styles.dirs_wrappable}>
-							{
-								directions.map((d, i) => (
-									<p
-										key={d.id == null ? i : d.id}
-										className={styles.dir}
-										onClick={() => onPicking(d)}
-									>	
-										{d.name}
-									</p>
-								))
-							}
-						</div>
-					</Clickaway>
+					areDirsVisible ?
+						areDirsLoading ?
+							<p>Loadin...</p> :
+
+							<Clickaway onClickAway={onClickAway}>
+								<div className={styles.dirs_wrappable}>
+									{
+										directions.length > 0 ?
+											directions.map((d, i) => (
+												<p
+													key={d.id == null ? i : d.id}
+													className={styles.dir}
+													onClick={() => onPicking(d)}
+												>	
+													{d.name}
+												</p>
+											)) : 
+											<p>Направления не найдены</p>
+									}
+								</div>
+							</Clickaway>
+					: <></>
 				}
 			</div>
 		</div>
