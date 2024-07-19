@@ -108,7 +108,7 @@ const ApplyInputSelect = ({
 				{
 					areDirsVisible ?
 						areDirsLoading ?
-							<p>Loadin...</p> :
+							<p>Loading...</p> :
 
 							<Clickaway onClickAway={onClickAway}>
 								<div className={styles.dirs_wrappable}>
