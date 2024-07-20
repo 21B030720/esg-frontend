@@ -7,16 +7,10 @@ const ProjectsContext = createContext({});
 
 const ProjectsContextProvider = ({children}) => {
 
-	const {
-		projects, setProjects,
-		isLoading, setLoading,
-		projectsCount, stopRequest,
-	} = useProjects();
+	const { projects, isLoading, isError } = useProjects();
 
 	const {
-		isOneViewed, openProject,
-		projectId, closeProject,
-		project, setProject,
+		isOneViewed, openProject, projectId, closeProject, project, setProject,
 	} = useProject();
 	
 	if(children == null) {
@@ -24,12 +18,8 @@ const ProjectsContextProvider = ({children}) => {
 	}
 
 	const projectsCtxVal = {
-		projects, setProjects,
-		isLoading, setLoading,
-		projectsCount, stopRequest,
-		isOneViewed, openProject,
-		projectId, closeProject,
-		setProject, project,
+		projects, isLoading, isError, isOneViewed, openProject, projectId, 
+		closeProject, setProject, project,
 	};
 
 	return (

@@ -1,14 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import AuthContext from "@contexts/AuthContext";
 import { validate } from "./util";
 import "./Auth.css";
-import { BACKEND_ADDRESS } from "@common/baseUrls";
 
 const Login = () => {
-  const SERVER_ADDRESS = import.meta.env.VITE_SERVER_ADDRESS;
+	const nav = useNavigate();
 
-  const navigate = useNavigate();
+	const { login, } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
     username: '',
@@ -41,16 +40,8 @@ const Login = () => {
       return;
     }
 
-
-
-    axios.post(`${BACKEND_ADDRESS}/auth/sign-in`, formData, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(res => {
-        localStorage.setItem('token', res.data.token);
-        
+    login(formData)
+      .then(() => {
         setFormData({
           username: '',
           password: '',
@@ -59,12 +50,12 @@ const Login = () => {
           username: '',
           password: '',
         })
-    
-        // navigate('/')
-        window.location.href = '/';
+
+				nav('/');
+        // window.location.href = '/';
       })
       .catch(err => {
-        console.log(err.response)
+        console.error(err)
       });
   };
 

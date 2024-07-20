@@ -9,6 +9,7 @@ import Directions from '@modules/directions/DirectionsPage';
 import NotFound from '@modules/not_found/NotFound';
 import Apply from '@modules/apply/Apply';
 import ErrorBoundary from '@modules/error_boundary/ErrorBoundary';
+import ProtectedRoute from '@common/components/protected_route/ProtectedRoute';
 
 const routes = [
 	{
@@ -26,7 +27,11 @@ const routes = [
 	},
 	{
 		path: '/profile',
-		element: <PersonalCabinet />
+		element: (
+			<ProtectedRoute>
+				<PersonalCabinet />
+			</ProtectedRoute>
+		),
 	},
 	{
 		path: '/contacts',
@@ -42,7 +47,11 @@ const routes = [
 	},
 	{
 		path: '/apply',
-		element: <Apply />,
+		element: (
+			<ProtectedRoute>
+				<Apply />
+			</ProtectedRoute>
+		),
 	},
 	{
 		path: '/labs',

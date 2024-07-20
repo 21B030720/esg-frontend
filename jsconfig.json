@@ -4,6 +4,9 @@
 		"paths": {
 			"@assets/*": ["./src/assets/*"],
 			"@common/*": ["./src/common/*"],
+			"@contexts/*": ["./src/contexts/*"],
+			"@hooks/*": ["./src/hooks/*"],
+			"@localization/*": ["./src/localization/*"],
 			"@modules/*": ["./src/modules/*"],
 			"@routes/*": ["./src/routes/*"],
 		},

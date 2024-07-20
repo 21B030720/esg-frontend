@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 const ProjectsCards = () => { // Projects List
 
-	const { projects, isLoading } = useContext(ProjectsContext);
+	const { projects, isLoading, isError } = useContext(ProjectsContext);
 
 	const { t } = useTranslation();
 
@@ -34,16 +34,19 @@ const ProjectsCards = () => { // Projects List
 						className={styles.loader}
 					/>
 					:
-					projects.length > 0 
-						? 
-						projects.map((card, i) => (
-							<ProjectsCard
-								key={card.id == null ? i : card.id}
-								card={card}
-							/>
-						))
-						:
-						errorEl
+					isError 
+					? <p>Ошибка произола при получении проектов</p> 
+					:
+						projects.length > 0 
+							? 
+							projects.map((card, i) => (
+								<ProjectsCard
+									key={card.id == null ? i : card.id}
+									card={card}
+								/>
+							))
+							:
+							errorEl
 			}
 		</div>
 	);

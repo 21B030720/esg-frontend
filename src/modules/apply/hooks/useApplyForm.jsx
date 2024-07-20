@@ -1,41 +1,48 @@
-import { useState } from "react";
-import applyFormTemplate from "@modules/apply/utils/applyFormTemplate";
-import postApplication from "@common/api/postApplication";
+import { useState } from 'react';
+import postApplication from '@common/api/postApplication';
 
 const useApplyForm = () => {
+	const applyFormTemplate = {
+		name: '',
+		description: '',
+		directionID: null,
+		company: '',
+		contacts: '',
+		budget: '',
+		note: '',
+	};
 
 	const [formData, setFormData] = useState(applyFormTemplate);
-	
-	const changeFile = (name, newValue) => {
-		if(!Object.keys(formData).includes(name)) {
-			throw new Error('Input name is wrong');
-		}
-
-		setFormData(p => ({
-			...p,
-			[name]: newValue,
-		}));
-	};
+	const [files, setFiles] = useState([]);
 
 	const change = (name, newValue) => {
-		if(!Object.keys(formData).includes(name)) {
+		if (!Object.keys(formData).includes(name)) {
 			throw new Error('Input name is wrong');
 		}
 
-		setFormData(p => ({
+		setFormData((p) => ({
 			...p,
 			[name]: newValue,
 		}));
 	};
 
-	const onSubmit = () => {
-		console.log(formData);
-		postApplication(formData);
+	const onFilesChange = (newFile) => {
+		setFiles((p) => [...p, newFile]);
+	};
+
+	const onSubmit = (e) => {
+		e.preventDefault();
+
+		postApplication(formData, files);
 	};
 
 	return {
-		formData, change, changeFile, onSubmit,
-	}
+		formData,
+		files,
+		change,
+		onSubmit,
+		onFilesChange,
+	};
 };
 
 export default useApplyForm;
