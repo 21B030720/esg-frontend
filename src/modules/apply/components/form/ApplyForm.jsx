@@ -7,79 +7,76 @@ import useApplyForm from '../../hooks/useApplyForm';
 import styles from './apply_form.module.css';
 
 const ApplyForm = () => {
-
 	const { t } = useTranslation();
 
-	const {
-		formData, change, onSubmit,
-	} = useApplyForm();
+	const { formData, change, onFilesChange, onSubmit } = useApplyForm();
 
 	return (
 		<form className={styles.form} onSubmit={onSubmit}>
 			<ApplyInput
-				label={t("Request Title (Project Name)")}
-				name='name'
+				label={t('Request Title (Project Name)')}
+				name="name"
 				value={formData.name}
-				onChange={e => change('name', e.target.value)}
+				onChange={(e) => change('name', e.target.value)}
 				isRequired
 			/>
 
 			<ApplyInput
-				label={t("Purpose and Description of Request (Project)")}
-				name='description'
+				label={t('Purpose and Description of Request (Project)')}
+				name="description"
 				value={formData.description}
-				onChange={e => change('description', e.target.value)}
+				onChange={(e) => change('description', e.target.value)}
 				isMultiLine
 				isRequired
 			/>
 
 			<ApplyInputSelect
-				label={t("Request Direction (Project)")}
-				name='directionID'
-				onChange={direction => change('directionID', direction.id)}
+				label={t('Request Direction (Project)')}
+				name="directionID"
+				onChange={(direction) => change('directionID', direction.id)}
 				isRequired
 			/>
 
 			<ApplyInput
-				label={t("Budget")}
-				name='budget'
+				label={t('Budget')}
+				name="budget"
 				value={formData.budget}
-				onChange={e => change('budget', e.target.value)}
+				onChange={(e) => change('budget', e.target.value)}
 			/>
 
 			<ApplyInputFile
-				label={t("Technical Task")}
-				name='projectFile'
+				label={t('Technical Task')}
+				name="projectFile"
 				isRequired
-				onChange={files => change('projectFile', files)}
+				onChange={(newFile) => onFilesChange(newFile)}
 			/>
 
 			<ApplyInput
 				label={t("Responsible Person's Full Name from Customer")}
-				name='company'
+				name="company"
 				value={formData.company}
-				onChange={e => change('company', e.target.value)}
+				onChange={(e) => change('company', e.target.value)}
 				isRequired
 			/>
 
 			<ApplyInput
-				label={t("Contact Details of Responsible Person from Customer")}
-				name='contacts'
+				label={t('Contact Details of Responsible Person from Customer')}
+				name="contacts"
 				value={formData.contacts}
-				onChange={e => change('contacts', e.target.value)}
+				onChange={(e) => change('contacts', e.target.value)}
 			/>
 
 			<ApplyInput
-				label={t("Note")}
-				name='note'
+				label={t('Note')}
+				name="note"
 				value={formData.note}
-				onChange={e => change('note', e.target.value)}
+				onChange={(e) => change('note', e.target.value)}
 				isMultiLine
 			/>
 
 			<ButtonBlueRound
 				type="submit"
-				text={t("Save Request")}
+				text={t('Save Request')}
 				className={styles.button}
 			/>
 		</form>

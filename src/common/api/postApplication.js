@@ -1,7 +1,7 @@
 import { BACKEND_ADDRESS } from '@common/baseUrls';
 import fetchWrapper from './fetchWrapper';
 
-const postApplication = async form => {
+const postApplication = async (form, files) => {
 	const formData = new FormData();
 
 	formData.append('name', form['name']);
@@ -9,9 +9,15 @@ const postApplication = async form => {
 	formData.append('description', form['description']);
 	formData.append('directionID', form['directionID']);
 
-	for (let i = 0; i < form['projectFile'].length; i++) {
-		formData.append('projectFile[]', form['projectFile'][i]);
+	console.log(files);
+
+	for (let i = 0; i < files.length; i++) {
+		formData.append('projectFile[]', files[i]);
 	}
+
+	// formData.forEach((value, key) => {
+	// 	console.log(value, key);
+	// });
 
 	const url = `${BACKEND_ADDRESS}/applications`;
 	const option = {
