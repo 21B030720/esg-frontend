@@ -11,16 +11,16 @@ dotenv.config();
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias: {
-      "@assets": path.resolve(__dirname, "./src/assets"),
-      "@common": path.resolve(__dirname, "./src/common"),
-			"@contexts": path.resolve(__dirname, "./src/contexts"),
-			"@hooks": path.resolve(__dirname, "./src/hooks"),
-			"@localization": path.resolve(__dirname, "./src/localization"),
-      "@modules": path.resolve(__dirname, "./src/modules"),
-      "@routes": path.resolve(__dirname, "./src/routes"),
-    },
-  },
-})
+	plugins: [react()],
+	resolve: {
+		alias: {
+			'@assets': path.resolve(__dirname, './src/assets'),
+			'@http': path.resolve(__dirname, './src/http'),
+			'@services': path.resolve(__dirname, './src/services'),
+			'@common': path.resolve(__dirname, './src/common'),
+			'@localization': path.resolve(__dirname, './src/localization'),
+			'@modules': path.resolve(__dirname, './src/modules'),
+			'@routes': path.resolve(__dirname, './src/routes'),
+		},
+	},
+});
