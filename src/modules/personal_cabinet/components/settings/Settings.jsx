@@ -19,7 +19,7 @@ const Settings = ({ user }) => {
 
 	const handleChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
-		setError('');
+		setError(null);
 	};
 
 	const handleSubmit = () => {
