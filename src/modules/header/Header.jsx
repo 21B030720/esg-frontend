@@ -69,13 +69,15 @@ const Header = () => {
 
 						<div className={styles.incon2}>
 							{headerLinks.map((l) => {
-								const isActive = currentUrl === l.url;
+								{
+									/* const isActive = currentUrl === l.url; */
+								}
 
 								return (
 									<HashLink
 										key={l.id}
 										to={l.url}
-										className={isActive ? styles.active_link : ''}
+										// className={isActive ? styles.active_link : ''}
 									>
 										{t(l.name)}
 									</HashLink>

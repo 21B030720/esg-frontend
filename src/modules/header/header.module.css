@@ -10,13 +10,13 @@
 
 .main * {
 	color: white;
-} 
+}
 
 .kbtu_icon {
 	width: 146px;
 	height: 47px;
 	background-size: 100% 100%;
-	background-image: url("/src/assets/images/logo_kbtu.png");
+	background-image: url('/src/assets/images/logo_kbtu.png');
 }
 
 .navigation_buttons {
@@ -38,8 +38,7 @@
 	justify-content: space-between;
 }
 
-
-.active_link {
+/* .active_link {
 	position: relative;
 }
 
@@ -52,13 +51,13 @@
 	bottom: 0;
 	background-color: var(--color-white);
 	transform: translateY(3px);
-}
+} */
 
 .right_side_elements {
 	width: 10%;
 	display: flex;
 	justify-content: center;
-  	align-items: center; 
+	align-items: center;
 	gap: 10px;
 }
 
@@ -77,22 +76,22 @@
 	}
 
 	.navigation_buttons {
-	  display: none;
-	  position: fixed;
-	  top: 0;
-	  right: 0;
-	  bottom: 0;    
-	  width: 23rem;
-	  background-color: var(--color-blue-dark);
-	  padding: 0;
-	  margin: 0;
-	  border-bottom-left-radius: 1rem;
-	  border-bottom-right-radius: 1rem;
-	  align-items: start;
-	  z-index: 100;
+		display: none;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: 23rem;
+		background-color: var(--color-blue-dark);
+		padding: 0;
+		margin: 0;
+		border-bottom-left-radius: 1rem;
+		border-bottom-right-radius: 1rem;
+		align-items: start;
+		z-index: 100;
 	}
 
-	.incon { 
+	.incon {
 		display: flex;
 		flex-direction: column;
 		align-items: end;
@@ -121,15 +120,15 @@
 	}
 
 	.navigation_buttons.show {
-	  display: flex;
+		display: flex;
 	}
 
 	.menu_button {
-	  display: block;
+		display: block;
 	}
 
 	.right_side_elements {
-	  display: none;
+		display: none;
 	}
 }
 
@@ -148,7 +147,7 @@
 
 	.navigation_buttons * {
 		font-size: 1.4rem;
-		margin: 0.8rem;        
+		margin: 0.8rem;
 	}
 
 	.x_button {
@@ -158,7 +157,7 @@
 	}
 
 	.kbtu_icon {
-	  width: 120px;
-	  height: 39px;
+		width: 120px;
+		height: 39px;
 	}
 }
