@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { BACKEND_ADDRESS } from '@common/baseUrls';
+import ProjectsService from '@services/ProjectsService';
 
 const useProjects = () => {
 	const [projects, setProjects] = useState([]);
@@ -12,22 +11,15 @@ const useProjects = () => {
 		setLoading(true);
 
 		const fetchProjects = async () => {
-			axios
-				.get(`${BACKEND_ADDRESS}/projects`, {
-					headers: {
-						'Content-Type': 'application/json',
-						Authorization: `Bearer ${localStorage.getItem('token')}`,
-					},
+			ProjectsService.getProjects()
+				.then((projects) => {
+					setProjects(projects);
 				})
-				.then(response => {
-					setProjects(response.data);
-					console.log(response);
-					setLoading(false);
+				.catch((err) => {
+					console.error(err);
+					setError(err);
 				})
-				.catch(error => {
-					setError(error);
-					setLoading(false);
-				});
+				.finally(() => setLoading(false));
 		};
 
 		fetchProjects();
