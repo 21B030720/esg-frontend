@@ -53,9 +53,34 @@ export default class AuthService {
 		});
 	}
 
-	// static async refresh() {
-	// 	return new Promise((resolve, reject) => {
-	// 		$axios.post('/auth/refresh',)
-	// 	});
-	// }
+	static async refresh() {
+		return new Promise((resolve, reject) => {
+			$axios
+				.post(
+					'/auth/refresh',
+					{},
+					{
+						headers: {
+							Authorization: `Bearer ${localStorage.getItem('refresh_token')}`,
+						},
+					}
+				)
+				.then((response) => {
+					const accessToken = response.data.access_token;
+					const refreshToken = response.data.refresh_token;
+
+					localStorage.setItem('access_token', accessToken);
+					localStorage.setItem('refresh_token', refreshToken);
+
+					const { firstName, lastName, role, email, sub } =
+						jwtDecode(accessToken);
+					const user = { firstName, lastName, role, email, sub };
+
+					resolve(user);
+				})
+				.catch((err) => {
+					reject(err);
+				});
+		});
+	}
 }

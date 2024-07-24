@@ -45,7 +45,14 @@ const useAuth = () => {
 			.catch((err) => console.error(err));
 	};
 
-	const refresh = () => {};
+	const refresh = () => {
+		AuthService.refresh()
+			.then((user) => {
+				setUser(user);
+				setAuthenticated(true);
+			})
+			.catch((err) => console.error(err));
+	};
 
 	return {
 		user,
