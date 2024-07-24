@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,7 +12,7 @@ import headerLinks from './utils/headerLinks';
 import styles from './header.module.css';
 
 const Header = () => {
-	const { pathname: currentUrl } = useLocation();
+	// const { pathname: currentUrl } = useLocation();
 
 	const { isAuthenticated } = useContext(AuthContext);
 
