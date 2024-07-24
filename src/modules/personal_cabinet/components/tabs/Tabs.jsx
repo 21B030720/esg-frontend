@@ -23,7 +23,6 @@ const Tabs = ({ user }) => {
 				ApplicationService.getMyApplications()
 					.then((myApplications) => {
 						setItems(myApplications);
-						console.log(myApplications);
 					})
 					.finally(() => setLoading(false));
 
