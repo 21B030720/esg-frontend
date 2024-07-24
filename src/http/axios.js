@@ -21,7 +21,7 @@ $axiosPrivate.interceptors.request.use((config) => {
 
 $axiosPrivate.interceptors.response.use(
 	(response) => {
-		console.log(response);
+		return response;
 	},
 	(error) => {
 		console.error(error);

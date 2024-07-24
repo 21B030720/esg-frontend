@@ -1,6 +1,17 @@
 import { $axiosPrivate } from '@http/axios';
 
 export default class ApplicationService {
+	static async getMyApplications() {
+		return new Promise((resolve, reject) => {
+			$axiosPrivate
+				.get('/applications/my')
+				.then((response) => {
+					resolve(response.data);
+				})
+				.catch((error) => reject(error));
+		});
+	}
+
 	static async postApplication(form, files) {
 		return new Promise((resolve, reject) => {
 			const formData = new FormData();

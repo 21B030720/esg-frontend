@@ -5,8 +5,6 @@ import statusIcon from '@assets/icons/status.png';
 import styles from './my_requests.module.css';
 
 const MyRequests = ({ requests }) => {
-	// const requests = fakeRequests;
-
 	if (requests == null) {
 		return;
 	}
@@ -15,7 +13,7 @@ const MyRequests = ({ requests }) => {
 		return <p>Заявок нет</p>;
 	}
 
-	const getStatusStyle = status => {
+	const getStatusStyle = (status) => {
 		switch (status) {
 			case 'Отказано':
 				return styles.denied;
@@ -44,11 +42,11 @@ const MyRequests = ({ requests }) => {
 				</div>
 			</div>
 
-			{requests.map(request => (
+			{requests.map((request) => (
 				<div className={styles.row} key={request.id}>
-					<div className={styles.cell}>{request.date}</div>
+					<div className={styles.cell}>{request.createdAt}</div>
 
-					<div className={styles.cell}>{request.title}</div>
+					<div className={styles.cell}>{request.name}</div>
 
 					<div className={styles.cell}>
 						<div className={getStatusStyle(request.status)}>
