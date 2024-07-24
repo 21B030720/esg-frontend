@@ -5,7 +5,9 @@ export default class ProjectsService {
 		return new Promise((resolve, reject) => {
 			$axiosPrivate
 				.get('/projects')
-				.then((response) => resolve(response.data))
+				.then((response) => {
+					resolve(response?.data);
+				})
 				.catch((err) => reject(err));
 		});
 	}

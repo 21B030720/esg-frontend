@@ -6,7 +6,7 @@ export default class ApplicationService {
 			$axiosPrivate
 				.get('/applications/my')
 				.then((response) => {
-					resolve(response.data);
+					resolve(response?.data);
 				})
 				.catch((error) => reject(error));
 		});

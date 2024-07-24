@@ -3,7 +3,7 @@ import ProjectsService from '@services/ProjectsService';
 
 const useProjects = () => {
 	const [projects, setProjects] = useState([]);
-	const [isError, setError] = useState(null);
+	const [error, setError] = useState(null);
 	const [isLoading, setLoading] = useState(false);
 
 	useEffect(() => {
@@ -13,11 +13,11 @@ const useProjects = () => {
 		const fetchProjects = async () => {
 			ProjectsService.getProjects()
 				.then((projects) => {
-					setProjects(projects);
+					setProjects(projects || []);
 				})
 				.catch((err) => {
 					console.error(err);
-					setError(err);
+					setError(err?.message);
 				})
 				.finally(() => setLoading(false));
 		};
@@ -29,7 +29,7 @@ const useProjects = () => {
 		};
 	}, []);
 
-	return { projects, isLoading, isError };
+	return { projects, isLoading, error };
 };
 
 export default useProjects;

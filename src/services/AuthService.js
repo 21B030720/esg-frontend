@@ -24,8 +24,8 @@ export default class AuthService {
 					},
 				})
 				.then((response) => {
-					const accessToken = response.data.access_token;
-					const refreshToken = response.data.refresh_token;
+					const accessToken = response?.data?.access_token;
+					const refreshToken = response?.data?.refresh_token;
 
 					localStorage.setItem('access_token', accessToken);
 					localStorage.setItem('refresh_token', refreshToken);
@@ -66,8 +66,8 @@ export default class AuthService {
 					}
 				)
 				.then((response) => {
-					const accessToken = response.data.access_token;
-					const refreshToken = response.data.refresh_token;
+					const accessToken = response?.data?.access_token;
+					const refreshToken = response?.data?.refresh_token;
 
 					localStorage.setItem('access_token', accessToken);
 					localStorage.setItem('refresh_token', refreshToken);

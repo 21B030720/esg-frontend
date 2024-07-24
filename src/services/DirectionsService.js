@@ -5,7 +5,7 @@ class DirectionsService {
 		return new Promise((resolve, reject) => {
 			$axios
 				.get('/directions')
-				.then((response) => resolve(response.data))
+				.then((response) => resolve(response?.data))
 				.catch((err) => reject(err));
 		});
 	}
