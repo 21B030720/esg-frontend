@@ -51,7 +51,20 @@ const useAuth = () => {
 				setUser(user);
 				setAuthenticated(true);
 			})
-			.catch((err) => console.error(err));
+			.catch((err) => {
+				if (err.response) {
+					console.error(err);
+
+					// TODO: fix unrobust case (wild backend)
+					if (err.response.status === 403) {
+						window.location.href = '/';
+					}
+				} else if (err.request) {
+					console.error('No response received:', err.request);
+				} else {
+					console.error('Error', err.message);
+				}
+			});
 	};
 
 	return {
