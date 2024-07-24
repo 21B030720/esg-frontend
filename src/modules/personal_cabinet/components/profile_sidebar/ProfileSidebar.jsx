@@ -9,9 +9,7 @@ const ProfileSidebar = ({ user }) => {
 	const { logout } = useContext(AuthContext);
 
 	const onLogout = () => {
-		logout();
-
-		nav('/');
+		logout().then(() => nav('/'));
 	};
 
 	return (
@@ -30,7 +28,7 @@ const ProfileSidebar = ({ user }) => {
 				</div>
 
 				<div className={styles.text}>
-					{user.role === 'USER' ? 'Недропользователь' : 'Научный сотрудник'}
+					{user?.role === 'USER' ? 'Недропользователь' : 'Научный сотрудник'}
 				</div>
 
 				<div className={styles.label}>Email:</div>
