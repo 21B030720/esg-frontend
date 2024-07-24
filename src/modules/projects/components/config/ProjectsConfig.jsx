@@ -90,18 +90,24 @@ const ProjectsConfig = () => {
 				{areDirsVisible &&
 					(areDirsLoading ? (
 						<p>Загрузка...</p>
-					) : directions.length > 0 ? (
-						<Clickaway onClickAway={onClickAway}>
-							<div className={styles.dirs_wrappable}>
-								{directions.map((d, i) => (
-									<p key={d.id == null ? i : d.id} className={styles.dir}>
-										{d.name}
-									</p>
-								))}
-							</div>
-						</Clickaway>
 					) : (
-						<p>Направления не найдены</p>
+						<Clickaway onClickAway={onClickAway}>
+							{directions.length > 0 ? (
+								<div className={styles.dirs_wrappable}>
+									{directions.map((d, i) => (
+										<p key={d.id == null ? i : d.id} className={styles.dir}>
+											{d.name}
+										</p>
+									))}
+								</div>
+							) : (
+								<div className={styles.dirs_wrappable}>
+									<p className={styles.dirs_placeholder}>
+										Направления не найдены
+									</p>
+								</div>
+							)}
+						</Clickaway>
 					))}
 			</div>
 

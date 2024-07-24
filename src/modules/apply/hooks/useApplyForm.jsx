@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import postApplication from '@common/api/postApplication';
+import ApplicationService from '@services/ApplicationService';
 
 const useApplyForm = () => {
 	const applyFormTemplate = {
@@ -33,7 +33,16 @@ const useApplyForm = () => {
 	const onSubmit = (e) => {
 		e.preventDefault();
 
-		postApplication(formData, files);
+		ApplicationService.postApplication(formData, files)
+			.then(() => {
+				setFormData(applyFormTemplate);
+				setFiles([]);
+
+				alert('Заявка успешна подана!');
+			})
+			.catch((err) => {
+				console.error(err);
+			});
 	};
 
 	return {
