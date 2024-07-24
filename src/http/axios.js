@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { BACKEND_ADDRESS } from '@common/baseUrls';
+import { jwtDecode } from 'jwt-decode';
 
 const $axios = axios.create({
 	baseURL: BACKEND_ADDRESS,
@@ -24,10 +25,31 @@ $axiosPrivate.interceptors.response.use(
 		return response;
 	},
 	(error) => {
-		console.error(error);
+		const req = error.request;
 
-		// TODO: get init request and make refresh
-		// TODO: do something if it fails (is it recursion?)
+		axios
+			.post(
+				'/auth/refresh',
+				{},
+				{
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem('refresh_token')}`,
+					},
+				}
+			)
+			.then((response) => {
+				const accessToken = response?.data?.access_token;
+				const refreshToken = response?.data?.refresh_token;
+
+				localStorage.setItem('access_token', accessToken);
+				localStorage.setItem('refresh_token', refreshToken);
+
+				req();
+			})
+			.catch((err) => {
+				console.error(1);
+				// TODO: do something if it fails (is it recursion?)
+			});
 	}
 );
 
