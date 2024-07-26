@@ -4,22 +4,32 @@ import useProject from '../hooks/useProject';
 
 const ProjectsContext = createContext({});
 
-
-const ProjectsContextProvider = ({children}) => {
-
-	const { projects, isLoading, isError } = useProjects();
+const ProjectsContextProvider = ({ children }) => {
+	const { projects, isLoading, error } = useProjects();
 
 	const {
-		isOneViewed, openProject, projectId, closeProject, project, setProject,
+		isOneViewed,
+		openProject,
+		projectId,
+		closeProject,
+		project,
+		setProject,
 	} = useProject();
-	
-	if(children == null) {
+
+	if (children == null) {
 		return;
 	}
 
 	const projectsCtxVal = {
-		projects, isLoading, isError, isOneViewed, openProject, projectId, 
-		closeProject, setProject, project,
+		projects,
+		isLoading,
+		error,
+		isOneViewed,
+		openProject,
+		projectId,
+		closeProject,
+		setProject,
+		project,
 	};
 
 	return (

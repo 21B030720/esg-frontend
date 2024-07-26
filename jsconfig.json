@@ -3,9 +3,9 @@
 		"baseUrl": ".",
 		"paths": {
 			"@assets/*": ["./src/assets/*"],
+			"@http/*": ["./src/http/*"],
+			"@services/*": ["./src/services/*"],
 			"@common/*": ["./src/common/*"],
-			"@contexts/*": ["./src/contexts/*"],
-			"@hooks/*": ["./src/hooks/*"],
 			"@localization/*": ["./src/localization/*"],
 			"@modules/*": ["./src/modules/*"],
 			"@routes/*": ["./src/routes/*"],

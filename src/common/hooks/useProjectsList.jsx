@@ -1,20 +1,19 @@
 import getProjectsList from '@common/api/getProjectsList';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const useProjectsList = () => {
+	const [projectsList, setProjectsList] = useState([]);
 
-    const [ projectsList, setProjectsList ] = useState([]);
+	const fetchData = async () => {
+		const { data } = await getProjectsList();
+		setProjectsList(data);
+	};
 
-    const fetchData = async() => {
-        const { data } = await getProjectsList();
-        setProjectsList(data);
-    }
+	useEffect(() => {
+		fetchData();
+	}, []);
 
-    useEffect(() => {
-        fetchData();
-    }, [])
-
-    return { projectsList };
-}
+	return { projectsList };
+};
 
 export default useProjectsList;

@@ -1,172 +1,191 @@
-import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import AuthContext from "@contexts/AuthContext";
-import { validate } from "./util";
-import "./Auth.css"
+import { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import AuthContext from '@common/contexts/AuthContext';
+import { validate } from './util';
+import './Auth.css';
 
 const Registration = () => {
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
-	const { register, } = useContext(AuthContext);
+	const { register } = useContext(AuthContext);
 
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    username: '',
-    email: '',
-    password: '',
-    role: 'USER'
-  });
-  
-  const [error, setError] = useState({
-    firstName: '',
-    lastName: '',
-    username: '',
-    email: '',
-    password: '',
-    role: 'USER'
-  });
+	const [formData, setFormData] = useState({
+		firstName: '',
+		lastName: '',
+		username: '',
+		email: '',
+		password: '',
+		role: null,
+	});
 
-  const [formattedPhone, setFormattedPhone] = useState('');
-  
-  const handleChange = (e) => {
-    const {name, value} = e.target;
+	const [error, setError] = useState({
+		firstName: '',
+		lastName: '',
+		username: '',
+		email: '',
+		password: '',
+		role: '',
+	});
 
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }));
+	// const [formattedPhone, setFormattedPhone] = useState('');
 
-    setError(prev => ({
-      ...prev,
-      [name]: '',
-    }));
-  };
+	const handleChange = (e) => {
+		const { name, value } = e.target;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+		setFormData((prev) => ({
+			...prev,
+			[name]: value,
+		}));
 
-    if(!validate(formData, setError)){
-      return;
-    }
+		setError((prev) => ({
+			...prev,
+			[name]: '',
+		}));
+	};
 
-    register(formData)
+	const handleSubmit = (e) => {
+		e.preventDefault();
+
+		if (!validate(formData, setError)) {
+			return;
+		}
+
+		register(formData)
 			.then(() => {
 				navigate('/login');
-				
-				setFormData({
-					firstName: '',
-					lastName: '',
-					username: '',
-					email: '',
-					password: '',
-					role: 'USER'
-				});
-				
-				setError({
-					firstName: '',
-					lastName: '',
-					username: '',
-					email: '',
-					password: '',
-					role: 'USER'
-				});
 			})
-			.catch(err => {
-				console.error("Caught reg error:", err);
+			.catch((err) => {
+				console.error(err);
 			});
-  };
+	};
 
-  const handlePhone = (e) => {
-    setError(prev => ({
-      ...prev,
-      phonenumber: ''
-    }));
+	// const handlePhone = (e) => {
+	// 	setError((prev) => ({
+	// 		...prev,
+	// 		phonenumber: '',
+	// 	}));
 
-    if(e.key) {
-      if(e.key === 'Backspace'){
-        const val = e.target.value;
+	// 	if (e.key) {
+	// 		if (e.key === 'Backspace') {
+	// 			const val = e.target.value;
 
-        if(val[val.length - 1] === '-' || val[val.length - 1] === ')') {
-          setFormattedPhone(val.substring(0, val.length - 1));
-        }
-      }
+	// 			if (val[val.length - 1] === '-' || val[val.length - 1] === ')') {
+	// 				setFormattedPhone(val.substring(0, val.length - 1));
+	// 			}
+	// 		}
 
-      return;
-    }
-    
-    const num = "8" + e.target.value.replace(/\D/g, '').substring(1);
-    let s = '+7(';
-    
-    for(let i = 1; i < num.length; i++) {
-      s += num[i];
+	// 		return;
+	// 	}
 
-      if(i === 3) {
-        s += ')';
-      } else if (i === 6) {
-        s += '-';
-      }
-    }
+	// 	const num = '8' + e.target.value.replace(/\D/g, '').substring(1);
+	// 	let s = '+7(';
 
-    setFormData(prev => ({
-      ...prev,
-      phonenumber: num
-    }));
-    setFormattedPhone(s);
-  }
+	// 	for (let i = 1; i < num.length; i++) {
+	// 		s += num[i];
 
-  return (
-    <div className="content">
-      <div className="wrapper">
-        <p className="form-title">Регистрация</p>
+	// 		if (i === 3) {
+	// 			s += ')';
+	// 		} else if (i === 6) {
+	// 			s += '-';
+	// 		}
+	// 	}
 
-        <form className="form" onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="firstName">Имя</label>
+	// 	setFormData((prev) => ({
+	// 		...prev,
+	// 		phonenumber: num,
+	// 	}));
+	// 	setFormattedPhone(s);
+	// };
 
-            { error.firstName && <span className="error-msg">{error.firstName}</span> }
+	const onRole = (pickedRole) => {
+		if (!['USER', 'WORKER', 'MANAGER'].includes(pickedRole)) {
+			throw Error('Role must be USER, WORKER or MANAGER');
+		}
 
-            <input 
-              id="firstName" 
-              type="text"
-              className="form-field" 
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-            />
-          </div>
+		setFormData((p) => ({
+			...p,
+			role: pickedRole,
+		}));
+	};
 
-          <div>
-            <label htmlFor="lastName">Фамилия</label>
+	if (formData.role === null) {
+		return (
+			<div className="content">
+				<div className="wrapper btn_roles">
+					<button className="btn-submit" onClick={() => onRole('USER')}>
+						Организация
+					</button>
 
-            { error.lastName && <span className="error-msg">{error.lastName}</span> }
+					<button className="btn-submit" onClick={() => onRole('WORKER')}>
+						Научный сотрудник
+					</button>
 
-            <input 
-              id="lastName" 
-              type="text"
-              className="form-field" 
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-            />
-          </div>
+					<button className="btn-submit" onClick={() => onRole('MANAGER')}>
+						Мэнеджер (ВРЕМЕННО)
+					</button>
+				</div>
+			</div>
+		);
+	}
 
-          <div>
-            <label htmlFor="username">Имя Пользователя</label>
+	return (
+		<div className="content">
+			<div className="wrapper">
+				<p className="form-title">Регистрация</p>
 
-            { error.username && <span className="error-msg">{error.username}</span> }
+				<form className="form" onSubmit={handleSubmit}>
+					<div>
+						<label htmlFor="firstName">Имя</label>
 
-            <input 
-              id="username" 
-              type="text"
-              className="form-field" 
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-            />
-          </div>
+						{error.firstName && (
+							<span className="error-msg">{error.firstName}</span>
+						)}
 
-          {/* <div>
+						<input
+							id="firstName"
+							type="text"
+							className="form-field"
+							name="firstName"
+							value={formData.firstName}
+							onChange={handleChange}
+						/>
+					</div>
+
+					<div>
+						<label htmlFor="lastName">Фамилия</label>
+
+						{error.lastName && (
+							<span className="error-msg">{error.lastName}</span>
+						)}
+
+						<input
+							id="lastName"
+							type="text"
+							className="form-field"
+							name="lastName"
+							value={formData.lastName}
+							onChange={handleChange}
+						/>
+					</div>
+
+					<div>
+						<label htmlFor="username">Имя Пользователя</label>
+
+						{error.username && (
+							<span className="error-msg">{error.username}</span>
+						)}
+
+						<input
+							id="username"
+							type="text"
+							className="form-field"
+							name="username"
+							value={formData.username}
+							onChange={handleChange}
+						/>
+					</div>
+
+					{/* <div>
             <label htmlFor="company">Компания</label>
 
             { error.company && <span className="error-msg">{error.company}</span> }
@@ -181,7 +200,7 @@ const Registration = () => {
             />
           </div> */}
 
-          {/* <div>
+					{/* <div>
             <label htmlFor="phone-number">Номер телефона</label>
 
             { error.phonenumber && <span className="error-msg">{error.phonenumber}</span> }
@@ -199,49 +218,49 @@ const Registration = () => {
             />
           </div> */}
 
-          <div>
-            <label htmlFor="email">Email</label>
+					<div>
+						<label htmlFor="email">Email</label>
 
-            { error.email && <span className="error-msg">{error.email}</span> }
+						{error.email && <span className="error-msg">{error.email}</span>}
 
-            <input 
-              id="email" 
-              type="text"
-              className="form-field" 
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </div>
+						<input
+							id="email"
+							type="text"
+							className="form-field"
+							name="email"
+							value={formData.email}
+							onChange={handleChange}
+						/>
+					</div>
 
-          <div>
-            <label htmlFor="password">Пароль</label>
+					<div>
+						<label htmlFor="password">Пароль</label>
 
-            { error.password && <span className="error-msg">{error.password}</span> }
+						{error.password && (
+							<span className="error-msg">{error.password}</span>
+						)}
 
-            <input 
-              id="password"
-              type="password"
-              className="form-field" 
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-            />
-          </div>
+						<input
+							id="password"
+							type="password"
+							className="form-field"
+							name="password"
+							value={formData.password}
+							onChange={handleChange}
+						/>
+					</div>
 
-          <Link to='/login' className="link">
-            <button className="btn-link" type="button">
-              Войти
-            </button>
-          </Link>
-          
-          <button className="btn-submit">
-            Зарегистрироваться
-          </button>
-        </form>
-      </div>
-    </div>
-  );
+					<Link to="/login" className="link">
+						<button className="btn-link" type="button">
+							Войти
+						</button>
+					</Link>
+
+					<button className="btn-submit">Зарегистрироваться</button>
+				</form>
+			</div>
+		</div>
+	);
 };
 
 export default Registration;
