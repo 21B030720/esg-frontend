@@ -13,7 +13,7 @@ export default class ProjectsService {
 		});
 	}
 
-	static async postProject(form, filePathOnServer) {
+	static async postProject(form, fileId) {
 		return new Promise((resolve, reject) => {
 			const formData = new FormData();
 
@@ -22,12 +22,14 @@ export default class ProjectsService {
 			formData.append('directionID', form['directionID']);
 			formData.append('directionID', form['applicationID']);
 
-			FileService.downloadFile(filePathOnServer)
+			FileService.downloadFile(fileId)
 				.then((response) => {
-					console.log(response);
+					// for (let i = 0; i < files.length; i++) {
+					// 	formData.append('projectFile[]', files[i]);
+					// }
 					resolve(response);
 				})
-				.catch((err) => console.error(err));
+				.catch((err) => reject(err));
 
 			// for (let i = 0; i < files.length; i++) {
 			// 	formData.append('projectFile[]', files[i]);

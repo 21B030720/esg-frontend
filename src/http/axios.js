@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { BACKEND_ADDRESS } from '@common/baseUrls';
-import { jwtDecode } from 'jwt-decode';
 
 const $axios = axios.create({
 	baseURL: BACKEND_ADDRESS,
