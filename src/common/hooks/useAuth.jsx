@@ -33,8 +33,8 @@ const useAuth = () => {
 		});
 	};
 
-	const logout = () => {
-		AuthService.logout()
+	const logout = async () => {
+		return await AuthService.logout()
 			.then(() => {
 				setUser(userDefaultState);
 				setAuthenticated(false);
@@ -55,8 +55,10 @@ const useAuth = () => {
 				if (err.response) {
 					console.error(err);
 
-					// TODO: fix unrobust case (wild backend)
-					if (err.response.status === 403) {
+					// TODO: bind to 403 case
+					if (err?.response?.status == 403) {
+						logout();
+
 						window.location.href = '/';
 					}
 				} else if (err.request) {

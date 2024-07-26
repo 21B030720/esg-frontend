@@ -25,6 +25,12 @@ $axiosPrivate.interceptors.response.use(
 		return response;
 	},
 	(error) => {
+		const errorStatus = error?.response?.status;
+
+		if (errorStatus !== 403) {
+			return Promise.reject(error?.toJSON());
+		}
+
 		const req = error.request;
 
 		axios
@@ -44,11 +50,13 @@ $axiosPrivate.interceptors.response.use(
 				localStorage.setItem('access_token', accessToken);
 				localStorage.setItem('refresh_token', refreshToken);
 
-				req();
+				axios.request(req);
 			})
-			.catch((err) => {
-				console.error(1);
-				// TODO: do something if it fails (is it recursion?)
+			.catch(() => {
+				// TODO: improve?
+				localStorage.removeItem('access_token');
+				localStorage.removeItem('refresh_token');
+				window.location.href = '/login';
 			});
 	}
 );

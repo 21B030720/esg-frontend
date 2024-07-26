@@ -25,7 +25,13 @@ const Tabs = ({ user }) => {
 						setItems(myApplications);
 					})
 					.finally(() => setLoading(false));
-
+				break;
+			case 'applications':
+				ApplicationService.getApplications()
+					.then((applications) => {
+						setItems(applications);
+					})
+					.finally(() => setLoading(false));
 				break;
 		}
 	}, [activeTab]);
@@ -85,7 +91,7 @@ const Tabs = ({ user }) => {
 					{activeTab === 'projects' && user.role !== 'USER' && <MyProjects />}
 
 					{activeTab === 'applications' && user.role === 'MANAGER' && (
-						<Applications />
+						<Applications applications={items} />
 					)}
 
 					{activeTab === 'settings' && <Settings user={user} />}

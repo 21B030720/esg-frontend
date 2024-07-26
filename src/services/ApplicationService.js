@@ -12,6 +12,15 @@ export default class ApplicationService {
 		});
 	}
 
+	static async getApplications() {
+		return new Promise((resolve, reject) => {
+			$axiosPrivate
+				.get('/applications')
+				.then((response) => resolve(response?.data))
+				.catch((err) => reject(err));
+		});
+	}
+
 	static async postApplication(form, files) {
 		return new Promise((resolve, reject) => {
 			const formData = new FormData();

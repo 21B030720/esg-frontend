@@ -15,7 +15,7 @@ const Registration = () => {
 		username: '',
 		email: '',
 		password: '',
-		role: 'USER',
+		role: null,
 	});
 
 	const [error, setError] = useState({
@@ -24,7 +24,7 @@ const Registration = () => {
 		username: '',
 		email: '',
 		password: '',
-		role: 'USER',
+		role: '',
 	});
 
 	// const [formattedPhone, setFormattedPhone] = useState('');
@@ -55,7 +55,7 @@ const Registration = () => {
 				navigate('/login');
 			})
 			.catch((err) => {
-				console.error('Caught reg error:', err);
+				console.error(err);
 			});
 	};
 
@@ -96,6 +96,37 @@ const Registration = () => {
 	// 	}));
 	// 	setFormattedPhone(s);
 	// };
+
+	const onRole = (pickedRole) => {
+		if (!['USER', 'WORKER', 'MANAGER'].includes(pickedRole)) {
+			throw Error('Role must be USER, WORKER or MANAGER');
+		}
+
+		setFormData((p) => ({
+			...p,
+			role: pickedRole,
+		}));
+	};
+
+	if (formData.role === null) {
+		return (
+			<div className="content">
+				<div className="wrapper btn_roles">
+					<button className="btn-submit" onClick={() => onRole('USER')}>
+						Организация
+					</button>
+
+					<button className="btn-submit" onClick={() => onRole('WORKER')}>
+						Научный сотрудник
+					</button>
+
+					<button className="btn-submit" onClick={() => onRole('MANAGER')}>
+						Мэнеджер (ВРЕМЕННО)
+					</button>
+				</div>
+			</div>
+		);
+	}
 
 	return (
 		<div className="content">
