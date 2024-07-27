@@ -1,3 +1,4 @@
+import CustomError from '@common/utils/customError';
 import $axios from '@http/axios';
 import { jwtDecode } from 'jwt-decode';
 
@@ -53,8 +54,18 @@ export default class AuthService {
 		});
 	}
 
+	static isRefreshTokenExist() {
+		return localStorage.getItem('refresh_token');
+	}
+
 	static async refresh() {
 		return new Promise((resolve, reject) => {
+			if (!this.isRefreshTokenExist()) {
+				reject(
+					new CustomError(403, "Local storage doesn't have a refresh_token")
+				);
+			}
+
 			$axios
 				.post(
 					'/auth/refresh',

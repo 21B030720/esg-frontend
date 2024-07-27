@@ -1,3 +1,4 @@
+import CustomError from '@common/utils/customError';
 import { $axiosPrivate } from '@http/axios';
 
 export default class ApplicationService {
@@ -21,8 +22,31 @@ export default class ApplicationService {
 		});
 	}
 
+	static areFilesValid(files) {
+		console.log(files);
+
+		return files.every((f) => {
+			const isFilePDF = f.type === 'application/pdf';
+			const isFileSizeCorrect = f.size / 1e6 <= 15;
+
+			return isFilePDF && isFileSizeCorrect;
+		});
+	}
+
 	static async postApplication(form, files) {
 		return new Promise((resolve, reject) => {
+			if (!Array.isArray(files) || files.length === 0) {
+				reject(new Error('Files must be a non-empty array of files'));
+
+				return;
+			}
+
+			if (!this.areFilesValid(files)) {
+				reject(new Error('Each files must a PDF file with size less than 5MB'));
+
+				return;
+			}
+
 			const formData = new FormData();
 
 			formData.append('name', form['name']);

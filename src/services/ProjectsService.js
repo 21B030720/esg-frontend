@@ -27,6 +27,7 @@ export default class ProjectsService {
 					// for (let i = 0; i < files.length; i++) {
 					// 	formData.append('projectFile[]', files[i]);
 					// }
+
 					resolve(response);
 				})
 				.catch((err) => reject(err));
