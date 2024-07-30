@@ -9,8 +9,10 @@ const Applications = ({ applications }) => {
 
 	// Handicap partial logic to test backend connection
 	const postProject = async (application) => {
+		// TODO: handle multiple projectFile
 		const { id, name, description, directionID, projectFile } = application;
 		const fileId = projectFile[0]['id'];
+		const fileName = projectFile[0]['originalFileName'];
 
 		if (!doExist(id, name, description, directionID, fileId)) {
 			throw Error('Certain required fields are absent in form');
@@ -23,7 +25,7 @@ const Applications = ({ applications }) => {
 			directionID,
 		};
 
-		await ProjectsService.postProject(form, fileId)
+		await ProjectsService.postProject(form, fileId, fileName)
 			.then((response) => console.log(response))
 			.catch((err) => console.error(err));
 	};

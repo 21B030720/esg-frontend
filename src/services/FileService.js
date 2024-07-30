@@ -7,7 +7,7 @@ export default class FileService {
 				.get(`/api/files/download/${fileId}`, {
 					responseType: 'blob',
 				})
-				.then(async (response) => resolve(response))
+				.then((response) => resolve(response))
 				.catch((err) => reject(err));
 		});
 	}
