@@ -4,7 +4,7 @@ import Registration from '@modules/authorization/Registration';
 import Home from '@modules/home/Home';
 import Contacts from '@modules/contacts/Contacts';
 import Projects from '@modules/projects/Projects';
-import Laboratories from '@modules/laboratoria/LabsPage'
+import Laboratories from '@modules/laboratoria/LabsPage';
 import Directions from '@modules/directions/DirectionsPage';
 import NotFound from '@modules/not_found/NotFound';
 import Apply from '@modules/apply/Apply';
@@ -19,11 +19,11 @@ const routes = [
 	},
 	{
 		path: '/login',
-		element: <Login />
+		element: <Login />,
 	},
 	{
 		path: '/register',
-		element: <Registration />
+		element: <Registration />,
 	},
 	{
 		path: '/profile',
@@ -35,15 +35,19 @@ const routes = [
 	},
 	{
 		path: '/contacts',
-		element: <Contacts />
+		element: <Contacts />,
 	},
 	{
 		path: '/directions',
-		element: <Directions />
+		element: <Directions />,
 	},
 	{
 		path: '/projects',
-		element: <Projects />,
+		element: (
+			<ProtectedRoute>
+				<Projects />
+			</ProtectedRoute>
+		),
 	},
 	{
 		path: '/apply',
@@ -61,7 +65,7 @@ const routes = [
 	// WARN: * route goes last
 	{
 		path: '/*',
-		element: <NotFound />
+		element: <NotFound />,
 	},
 ];
 
