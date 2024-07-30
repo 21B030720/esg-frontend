@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { BACKEND_ADDRESS } from '@common/baseUrls';
-import { jwtDecode } from 'jwt-decode';
 
 const $axios = axios.create({
 	baseURL: BACKEND_ADDRESS,
@@ -56,6 +55,7 @@ $axiosPrivate.interceptors.response.use(
 				// TODO: improve?
 				localStorage.removeItem('access_token');
 				localStorage.removeItem('refresh_token');
+
 				window.location.href = '/login';
 			});
 	}

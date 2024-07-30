@@ -1,23 +1,22 @@
 .main {
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 70px;
-    padding-bottom: 70px;
-    padding-left: 40px;
-    padding-right: 40px;
-    width: 100%;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 70px;
+	padding-bottom: 70px;
+	padding-left: 40px;
+	padding-right: 40px;
+	width: 100%;
 
-    background-color: rgba(0, 53, 125, 1);
+	background-color: rgba(0, 53, 125, 1);
 }
 
-.main_content{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
-
+.main_content {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: center;
 }
 
 /* .main_content div{
@@ -25,68 +24,74 @@
     margin-bottom: auto;
 } */
 
-.main_content button{
-    color: white;
-
+.main_content button {
+	color: white;
 }
 
 .contact_icons {
-    margin-right: 100px;
-    display: flex;
-    flex-direction: column;
-    position: inherit;
-    margin-top: auto;
-    margin-bottom: auto;
+	margin-right: 100px;
+	display: flex;
+	flex-direction: column;
+	position: inherit;
+	margin-top: auto;
+	margin-bottom: auto;
 }
 
 .mini_icons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
 }
 
-.mini_icons button{
-    color: white;
-    font-size: 24px;
+.mini_icons button {
+	color: white;
+	font-size: 24px;
 }
 
 .kbtu_icon {
-    width: 146px;
-    height:47px;
-    background-size: 100% 100%;
-    background-image: url("/src/assets/images/logo_kbtu.png");
+	width: 146px;
+	height: 47px;
+	background-size: 100% 100%;
+	background-image: url('/src/assets/images/logo_kbtu.png');
 }
 
 .navigation_buttons {
-    display:flex;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
 }
 
 .navigation_buttons button {
-    margin-right: auto;
-    font-size: 16px;
+	margin-right: auto;
+	font-size: 16px;
 }
 
 .contacts {
-    padding-left: 20px;
-    padding-right: 20px;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
 }
 
 .contacts p {
-    color: rgba(0, 53, 125, 1);
-    margin-top: 15px;
-    margin-bottom: 15px;
+	color: rgba(0, 53, 125, 1);
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
 .last_content {
-    margin-top: 20px;
-    display:flex;
-    flex-direction: column;
-    color: white;
-    align-items: center;
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	color: white;
+	align-items: center;
+}
+
+@media (max-width: 480px) {
+	.main {
+		width: 100%;
+		overflow-x: hidden;
+	}
 }

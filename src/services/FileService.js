@@ -1,17 +1,13 @@
 import { $axiosPrivate } from '@http/axios';
 
 export default class FileService {
-	static async downloadFile(filePathOnServer) {
+	static async downloadFile(fileId) {
 		return new Promise((resolve, reject) => {
-			// const encodedFilePathOnServer = encodeURIComponent(filePathOnServer);
-
 			$axiosPrivate
-				.get(`/api/files/download/{id}`, {
-					params: {
-						id: filePathOnServer,
-					},
+				.get(`/api/files/download/${fileId}`, {
+					responseType: 'blob',
 				})
-				.then((response) => resolve(response))
+				.then(async (response) => resolve(response))
 				.catch((err) => reject(err));
 		});
 	}

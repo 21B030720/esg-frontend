@@ -13,7 +13,7 @@ export default class ProjectsService {
 		});
 	}
 
-	static async postProject(form, filePathOnServer) {
+	static async postProject(form, fileId) {
 		return new Promise((resolve, reject) => {
 			const formData = new FormData();
 
@@ -22,21 +22,21 @@ export default class ProjectsService {
 			formData.append('directionID', form['directionID']);
 			formData.append('directionID', form['applicationID']);
 
-			FileService.downloadFile(filePathOnServer)
+			FileService.downloadFile(fileId)
 				.then((response) => {
-					console.log(response);
-					resolve(response);
+					const filesBlob = response?.data;
+
+					for (let i = 0; i < filesBlob.length; i++) {
+						formData.append('projectFile[]', filesBlob[i]);
+					}
+
+					resolve(filesBlob);
+					// $axiosPrivate
+					// 	.post('/projects', formData)
+					// 	.then((response) => resolve(response))
+					// 	.catch((err) => reject(err));
 				})
-				.catch((err) => console.error(err));
-
-			// for (let i = 0; i < files.length; i++) {
-			// 	formData.append('projectFile[]', files[i]);
-			// }
-
-			// $axiosPrivate
-			// 	.post('/projects', formData)
-			// 	.then((response) => resolve(response))
-			// 	.catch((err) => reject(err));
+				.catch((err) => reject(err));
 		});
 	}
 }

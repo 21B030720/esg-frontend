@@ -46,16 +46,30 @@ const useAuth = () => {
 	};
 
 	const refresh = () => {
+		if (!AuthService.isRefreshTokenExist()) {
+			if (!sessionStorage.getItem('hasBeenPageReloaded')) {
+				sessionStorage.setItem('hasBeenPageReloaded', 'true');
+
+				logout();
+				window.location.href = '/';
+			}
+		}
+
 		AuthService.refresh()
 			.then((user) => {
 				setUser(user);
 				setAuthenticated(true);
 			})
 			.catch((err) => {
-				if (err.response) {
-					console.error(err);
+				// if (err?.status === 403) {
+				// logout();
 
+				// window.location.href = '/';
+				// }
+
+				if (err.response) {
 					// TODO: bind to 403 case
+					// TODO: check for infinite redirect
 					if (err?.response?.status == 403) {
 						logout();
 
