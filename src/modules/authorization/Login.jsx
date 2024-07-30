@@ -3,9 +3,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '@common/contexts/AuthContext';
 import { validate } from './util';
 import './Auth.css';
+import Header from '@modules/header/Header';
+import { useMediaQuery } from 'react-responsive';
+import Footer from '@modules/footer/Footer';
 
 const Login = () => {
 	const nav = useNavigate();
+
+	const isMobile = useMediaQuery({ maxWidth: 480 });
 
 	const { login } = useContext(AuthContext);
 
@@ -51,6 +56,13 @@ const Login = () => {
 
 	return (
 		<div className="content">
+			{isMobile ? (
+				<>
+					<Header />
+				</>
+			) : (
+				<></>
+			)}
 			<div className="wrapper">
 				<p className="form-title">Личный кабинет</p>
 
@@ -100,6 +112,14 @@ const Login = () => {
 					</button>
 				</form>
 			</div>
+
+			{isMobile ? (
+				<>
+					<Footer />
+				</>
+			) : (
+				<></>
+			)}
 		</div>
 	);
 };

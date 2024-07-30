@@ -3,9 +3,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '@common/contexts/AuthContext';
 import { validate } from './util';
 import './Auth.css';
+import Header from '@modules/header/Header';
+import { useMediaQuery } from 'react-responsive';
+import Footer from '@modules/footer/Footer';
 
 const Registration = () => {
 	const navigate = useNavigate();
+
+	const isMobile = useMediaQuery({ maxWidth: 480 });
 
 	const { register } = useContext(AuthContext);
 
@@ -111,6 +116,14 @@ const Registration = () => {
 	if (formData.role === null) {
 		return (
 			<div className="content">
+				{isMobile ? (
+					<>
+						<Header />
+					</>
+				) : (
+					<></>
+				)}
+
 				<div className="wrapper btn_roles">
 					<button className="btn-submit" onClick={() => onRole('USER')}>
 						Организация
@@ -240,14 +253,29 @@ const Registration = () => {
 							<span className="error-msg">{error.password}</span>
 						)}
 
-						<input
-							id="password"
-							type="password"
-							className="form-field"
-							name="password"
-							value={formData.password}
-							onChange={handleChange}
-						/>
+						{isMobile ? (
+							<>
+								<input
+									id="password"
+									type="password"
+									className="form-field-last"
+									name="password"
+									value={formData.password}
+									onChange={handleChange}
+								/>
+							</>
+						) : (
+							<>
+								<input
+									id="password"
+									type="password"
+									className="form-field"
+									name="password"
+									value={formData.password}
+									onChange={handleChange}
+								/>
+							</>
+						)}
 					</div>
 
 					<Link to="/login" className="link">
@@ -259,6 +287,14 @@ const Registration = () => {
 					<button className="btn-submit">Зарегистрироваться</button>
 				</form>
 			</div>
+
+			{isMobile ? (
+				<>
+					<Footer />
+				</>
+			) : (
+				<></>
+			)}
 		</div>
 	);
 };

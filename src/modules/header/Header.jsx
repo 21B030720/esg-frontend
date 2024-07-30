@@ -84,18 +84,27 @@ const Header = () => {
 								);
 							})}
 						</div>
+
+						{menuOpen && (
+							<div className={styles.menu_profile_link}>
+								<Link to={isAuthenticated ? '/profile' : '/register'}>
+									<button>Личный кабинет</button>
+								</Link>
+							</div>
+						)}
 					</div>
 				</nav>
 
-				<div className={styles.right_side_elements}>
-					<LocalizationButton />
-
-					<Link to={isAuthenticated ? '/profile' : '/register'}>
-						<button>
-							<FontAwesomeIcon icon={faUser} size="2x" />
-						</button>
-					</Link>
-				</div>
+				{!menuOpen && (
+					<div className={styles.right_side_elements}>
+						<LocalizationButton />
+						<Link to={isAuthenticated ? '/profile' : '/register'}>
+							<button>
+								<FontAwesomeIcon icon={faUser} size="2x" />
+							</button>
+						</Link>
+					</div>
+				)}
 			</div>
 		</nav>
 	);

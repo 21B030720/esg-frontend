@@ -4,3 +4,10 @@
 	height: 25rem;
 	border: 0;
 }
+
+@media (max-width: 480px) {
+	.map {
+		margin-block-start: 0;
+		padding: 1.5rem;
+	}
+}
