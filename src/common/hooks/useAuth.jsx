@@ -47,7 +47,12 @@ const useAuth = () => {
 
 	const refresh = () => {
 		if (!AuthService.isRefreshTokenExist()) {
-			return;
+			if (!sessionStorage.getItem('hasBeenPageReloaded')) {
+				sessionStorage.setItem('hasBeenPageReloaded', 'true');
+
+				logout();
+				window.location.href = '/';
+			}
 		}
 
 		AuthService.refresh()
@@ -64,6 +69,7 @@ const useAuth = () => {
 
 				if (err.response) {
 					// TODO: bind to 403 case
+					// TODO: check for infinite redirect
 					if (err?.response?.status == 403) {
 						logout();
 

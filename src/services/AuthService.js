@@ -89,9 +89,7 @@ export default class AuthService {
 
 					resolve(user);
 				})
-				.catch((err) => {
-					reject(err);
-				});
+				.catch((err) => reject(err));
 		});
 	}
 }

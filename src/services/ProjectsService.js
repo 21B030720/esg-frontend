@@ -24,22 +24,19 @@ export default class ProjectsService {
 
 			FileService.downloadFile(fileId)
 				.then((response) => {
-					// for (let i = 0; i < files.length; i++) {
-					// 	formData.append('projectFile[]', files[i]);
-					// }
+					const filesBlob = response?.data;
 
-					resolve(response);
+					for (let i = 0; i < filesBlob.length; i++) {
+						formData.append('projectFile[]', filesBlob[i]);
+					}
+
+					resolve(filesBlob);
+					// $axiosPrivate
+					// 	.post('/projects', formData)
+					// 	.then((response) => resolve(response))
+					// 	.catch((err) => reject(err));
 				})
 				.catch((err) => reject(err));
-
-			// for (let i = 0; i < files.length; i++) {
-			// 	formData.append('projectFile[]', files[i]);
-			// }
-
-			// $axiosPrivate
-			// 	.post('/projects', formData)
-			// 	.then((response) => resolve(response))
-			// 	.catch((err) => reject(err));
 		});
 	}
 }

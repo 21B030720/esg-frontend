@@ -23,8 +23,6 @@ export default class ApplicationService {
 	}
 
 	static areFilesValid(files) {
-		console.log(files);
-
 		return files.every((f) => {
 			const isFilePDF = f.type === 'application/pdf';
 			const isFileSizeCorrect = f.size / 1e6 <= 15;
