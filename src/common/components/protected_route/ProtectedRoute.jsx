@@ -7,7 +7,7 @@ const ProtectedRoute = ({ children }) => {
 	const { isAuthenticated } = useContext(AuthContext);
 
 	useEffect(() => {
-		if (isAuthenticated != null && isAuthenticated === false) {
+		if (!isAuthenticated) {
 			redirect('/register');
 		}
 	}, [isAuthenticated]);
