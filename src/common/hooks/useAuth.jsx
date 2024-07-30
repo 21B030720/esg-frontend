@@ -11,6 +11,7 @@ const useAuth = () => {
 	};
 	const [user, setUser] = useState(userDefaultState);
 	const [isAuthenticated, setAuthenticated] = useState(null);
+	const [isFirstRefreshOver, setFirstRefreshOver] = useState(false);
 
 	const register = (regFormData) => {
 		return new Promise((resolve, reject) => {
@@ -53,6 +54,8 @@ const useAuth = () => {
 				logout();
 				window.location.href = '/';
 			}
+
+			setFirstRefreshOver(true);
 		}
 
 		AuthService.refresh()
@@ -61,12 +64,6 @@ const useAuth = () => {
 				setAuthenticated(true);
 			})
 			.catch((err) => {
-				// if (err?.status === 403) {
-				// logout();
-
-				// window.location.href = '/';
-				// }
-
 				if (err.response) {
 					// TODO: bind to 403 case
 					// TODO: check for infinite redirect
@@ -80,11 +77,13 @@ const useAuth = () => {
 				} else {
 					console.error('Error', err.message);
 				}
-			});
+			})
+			.finally(() => setFirstRefreshOver(true));
 	};
 
 	return {
 		user,
+		isFirstRefreshOver,
 		isAuthenticated,
 		register,
 		login,
