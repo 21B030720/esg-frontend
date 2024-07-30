@@ -4,13 +4,13 @@ import AuthContext from '@common/contexts/AuthContext';
 
 const ProtectedRoute = ({ children }) => {
 	const redirect = useNavigate();
-	const { isAuthenticated } = useContext(AuthContext);
+	const { isAuthenticated, isFirstRefreshOver } = useContext(AuthContext);
 
 	useEffect(() => {
-		if (!isAuthenticated) {
+		if (isFirstRefreshOver && !isAuthenticated) {
 			redirect('/register');
 		}
-	}, [isAuthenticated]);
+	}, [isAuthenticated, isFirstRefreshOver]);
 
 	return <>{children}</>;
 };

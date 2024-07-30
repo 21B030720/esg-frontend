@@ -4,11 +4,20 @@ import useAuth from '@common/hooks/useAuth';
 const AuthContext = createContext({});
 
 const AuthProvider = ({ children }) => {
-	const { user, isAuthenticated, register, login, refresh, logout } = useAuth();
+	const {
+		user,
+		isAuthenticated,
+		isFirstRefreshOver,
+		register,
+		login,
+		refresh,
+		logout,
+	} = useAuth();
 
 	const ctxValue = {
 		user,
 		isAuthenticated,
+		isFirstRefreshOver,
 		register,
 		login,
 		logout,
