@@ -13,7 +13,7 @@ export default class ProjectsService {
 		});
 	}
 
-	static async postProject(form, fileId) {
+	static async postProject(form, fileId, fileName) {
 		return new Promise((resolve, reject) => {
 			const formData = new FormData();
 
@@ -22,19 +22,20 @@ export default class ProjectsService {
 			formData.append('directionID', form['directionID']);
 			formData.append('directionID', form['applicationID']);
 
+			// TODO: handle multiple files in response
 			FileService.downloadFile(fileId)
 				.then((response) => {
 					const filesBlob = response?.data;
+					const file = new File([filesBlob], fileName, {
+						type: 'application/pdf',
+					});
 
-					for (let i = 0; i < filesBlob.length; i++) {
-						formData.append('projectFile[]', filesBlob[i]);
-					}
+					formData.append('file', file);
 
-					resolve(filesBlob);
-					// $axiosPrivate
-					// 	.post('/projects', formData)
-					// 	.then((response) => resolve(response))
-					// 	.catch((err) => reject(err));
+					$axiosPrivate
+						.post('/projects', formData)
+						.then((response) => resolve(response))
+						.catch((err) => reject(err));
 				})
 				.catch((err) => reject(err));
 		});
