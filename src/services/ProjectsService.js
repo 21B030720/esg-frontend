@@ -20,24 +20,22 @@ export default class ProjectsService {
 			formData.append('name', form['name']);
 			formData.append('description', form['description']);
 			formData.append('directionID', form['directionID']);
-			formData.append('directionID', form['applicationID']);
+			formData.append('applicationID', form['applicationID']);
 
 			// TODO: handle multiple files in response
 			FileService.downloadFile(fileId)
 				.then((response) => {
-					resolve(response);
+					const filesBlob = response?.data;
+					const file = new File([filesBlob], fileName, {
+						type: 'application/pdf',
+					});
 
-					// const filesBlob = response?.data;
-					// const file = new File([filesBlob], fileName, {
-					// 	type: 'application/pdf',
-					// });
+					formData.append('file', file);
 
-					// formData.append('file', file);
-
-					// $axiosPrivate
-					// 	.post('/projects', formData)
-					// 	.then((response) => resolve(response))
-					// 	.catch((err) => reject(err));
+					$axiosPrivate
+						.post('/projects', formData)
+						.then((response) => resolve(response))
+						.catch((err) => reject(err));
 				})
 				.catch((err) => reject(err));
 		});
