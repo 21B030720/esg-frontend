@@ -5,7 +5,6 @@ import ApplyInputFile from '../input_file/ApplyInputFile';
 import ApplyInputSelect from '../input_select/InputSelect';
 import useApplyForm from '../../hooks/useApplyForm';
 import styles from './apply_form.module.css';
-import { useState } from 'react';
 
 const ApplyForm = () => {
 	const { t } = useTranslation();
