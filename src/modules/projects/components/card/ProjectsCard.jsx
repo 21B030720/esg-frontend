@@ -1,61 +1,42 @@
-import { useContext } from 'react';
-import ProjectsContext from '@modules/projects/contexts/ProjectsContext';
-import styles from './projects_card.module.css';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import styles from './projects_card.module.css';
+import doExist from '@common/utils/doExist';
 
-const ProjectsCard = ({card}) => { // Card in Projects List
-
+const ProjectsCard = ({ card }) => {
+	// Card in Projects List
+	const nav = useNavigate();
 	const { t } = useTranslation();
 
-	const { openProject } = useContext(ProjectsContext);
-
-	if(card == null) {
+	if (card == null) {
 		return;
 	}
 
-	const {
-		id, title, descr, client, direction
-	} = card;
+	const { id, name, description, directionID, applicationID } = card;
 
-	if(!title || !descr || !client || !direction) {
+	if (!doExist(id, name, description, directionID, applicationID)) {
 		return;
 	}
-	
-	const navToProject = () => {
-		openProject(id);
-	};
 
 	return (
-		<div className={styles.card} onClick={navToProject}>
+		<div className={styles.card} onClick={() => nav(`/projects/${id}`)}>
 			<div className={styles.front}>
-				<h3 className={styles.title}>
-					{title}
-				</h3>
+				<h3 className={styles.title}>{name}</h3>
 
-				<p className={styles.descr}>
-					{descr}
-				</p>	
+				<p className={styles.descr}>{description}</p>
 			</div>
 
 			<div className={styles.info}>
 				<div className={styles.info_box}>
-					<p className={styles.info_label}>
-						{t("Customer")}
-					</p>
+					<p className={styles.info_label}>{t('Customer')}</p>
 
-					<p className={styles.info_main}>
-						{client}
-					</p>
+					<p className={styles.info_main}>{applicationID}</p>
 				</div>
 
 				<div className={styles.info_box}>
-					<p className={styles.info_label}>
-						{t("Task direction")}
-					</p>
+					<p className={styles.info_label}>{t('Task direction')}</p>
 
-					<p className={styles.info_main}>
-						{direction}
-					</p>
+					<p className={styles.info_main}>{directionID}</p>
 				</div>
 			</div>
 		</div>

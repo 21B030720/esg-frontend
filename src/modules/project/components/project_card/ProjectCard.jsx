@@ -3,46 +3,43 @@ import downloadIcon from '@assets/icons/download.svg';
 import styles from './project_card.module.css';
 import { useTranslation } from 'react-i18next';
 
-const ProjectCard = ({project}) => { // Project Details
+const ProjectCard = ({ project }) => {
+	// Project Details
 
 	const { t } = useTranslation();
-	
-	const {
-		title, descr, client, 
-		status, direction, phone, 
-		note, clientName
-	} = project;
+
+	console.log(project);
+	const { title, descr, client, status, direction, phone, note, clientName } =
+		project;
 
 	return (
 		<div className={styles.card}>
-			<h2 className={styles.title}>
-				{title || 'Заголовок отсутствует'}
-			</h2>
+			<h2 className={styles.title}>{title || 'Заголовок отсутствует'}</h2>
 
 			<div className={styles.fields}>
 				<ProjectCardField
-					label={t("Customer")}
+					label={t('Customer')}
 					value={client || 'Заказчик неизвестен'}
 				/>
 
 				<ProjectCardField
-					label={t("Request Status")}
+					label={t('Request Status')}
 					value={status || 'Статус отсутствует'}
 				/>
 
 				<ProjectCardField
-					label={t("Technical Task")}
-					value='Техническое задание'
+					label={t('Technical Task')}
+					value="Техническое задание"
 					icon={downloadIcon}
 				/>
 
 				<ProjectCardField
-					label={t("Direction")}
+					label={t('Direction')}
 					value={direction || 'Направление неизвестно'}
 				/>
 
 				<ProjectCardField
-					label={t("Description")}
+					label={t('Description')}
 					value={descr || 'Описание отсутствует'}
 				/>
 
@@ -52,12 +49,12 @@ const ProjectCard = ({project}) => { // Project Details
 				/>
 
 				<ProjectCardField
-					label={t("Contact Details of Responsible Person from Customer")}
+					label={t('Contact Details of Responsible Person from Customer')}
 					value={phone || 'Телефон отсутствует'}
 				/>
 
 				<ProjectCardField
-					label={t("Note")}
+					label={t('Note')}
 					value={note || 'Примечание отсутствует'}
 				/>
 			</div>
