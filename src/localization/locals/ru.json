@@ -1,94 +1,91 @@
 {
-    "translation": {
-      "ru_locale": "RUS",
-      "en_locale": "ENG",
-      "kk_locale": "KAZ",
+	"translation": {
+		"ru_locale": "RUS",
+		"en_locale": "ENG",
+		"kk_locale": "KAZ",
 
-      "about_us": "О нас",
-      "projects": "Проекты",
-      "directions": "Направления",
-      "send_application": "Отправить заявку",
-      "laboratories": "Лаборатории",
-      "contacts": "Контакты",
-      "Kazakh-British Technical University. Innovation and Expertise for Kazakhstan's Industry": "Казахстанско-Британский технический университет. Инновации и Экспертиза для промышленности Казахстана",
-      "Submit an Application": "Подать заявку",
+		"about_us": "О нас",
+		"projects": "Проекты",
+		"directions": "Направления",
+		"send_application": "Отправить заявку",
+		"laboratories": "Лаборатории",
+		"contacts": "Контакты",
+		"Kazakh-British Technical University. Innovation and Expertise for Kazakhstan's Industry": "Казахстанско-Британский технический университет. Инновации и Экспертиза для промышленности Казахстана",
+		"Submit an Application": "Подать заявку",
 
-      "High Status": "Высокий статус",
-      "KBTU is a unique educational and scientific center in the region, embodying the unity of Kazakhstan's history and breakthrough technological innovations.": "КБТУ является уникальным образовательным и научным центром региона, воплощающим единство истории Казахстана и прорывные технологические инновации.",
-      "The university prides itself on its accredited institutes, laboratories, and centers, providing advanced research in geology, petrochemistry, materials science, and information technology.": "Университет гордится своими аккредитованными институтами, лабораториями и центрами, обеспечивающими передовые исследования в области геологии, нефтехимии, материаловедения и информационных технологий.",
-      "KBTU brings together renowned scientists and highly qualified researchers whose achievements are recognized not only in Kazakhstan but also in the global scientific community.": "КБТУ объединяет именитых учёных и высококвалифицированных научных работников, чьи достижения признаны не только в Казахстане, но и в мировой научной среде.",
+		"High Status": "Высокий статус",
+		"KBTU is a unique educational and scientific center in the region, embodying the unity of Kazakhstan's history and breakthrough technological innovations.": "КБТУ является уникальным образовательным и научным центром региона, воплощающим единство истории Казахстана и прорывные технологические инновации.",
+		"The university prides itself on its accredited institutes, laboratories, and centers, providing advanced research in geology, petrochemistry, materials science, and information technology.": "Университет гордится своими аккредитованными институтами, лабораториями и центрами, обеспечивающими передовые исследования в области геологии, нефтехимии, материаловедения и информационных технологий.",
+		"KBTU brings together renowned scientists and highly qualified researchers whose achievements are recognized not only in Kazakhstan but also in the global scientific community.": "КБТУ объединяет именитых учёных и высококвалифицированных научных работников, чьи достижения признаны не только в Казахстане, но и в мировой научной среде.",
 
-      "Unique Collaboration Opportunities": "Уникальные возможности сотрудничества",
-      "KBTU's extensive experience and broad network of technological partners, including international ones, provide you access to cutting-edge scientific developments and innovative products.": "Богатый опыт КБТУ и широкая сеть технологических партнёров, в том числе и международных, открывает вам доступ к передовым научным разработкам и инновационным продуктам.",
-      "Implementation of projects at your request is possible through direct contracts or within the framework of 1% R&D funding, in accordance with the requirements of the legislation of the Republic of Kazakhstan for subsoil users.": "Реализация проектов по Вашему запросу возможна как путём заключения прямых договоров, так и в рамках 1% финансирования НИОКР, согласно требованиям законодательства Республики Казахстан для недропользователей.",
+		"Unique Collaboration Opportunities": "Уникальные возможности сотрудничества",
+		"KBTU's extensive experience and broad network of technological partners, including international ones, provide you access to cutting-edge scientific developments and innovative products.": "Богатый опыт КБТУ и широкая сеть технологических партнёров, в том числе и международных, открывает вам доступ к передовым научным разработкам и инновационным продуктам.",
+		"Implementation of projects at your request is possible through direct contracts or within the framework of 1% R&D funding, in accordance with the requirements of the legislation of the Republic of Kazakhstan for subsoil users.": "Реализация проектов по Вашему запросу возможна как путём заключения прямых договоров, так и в рамках 1% финансирования НИОКР, согласно требованиям законодательства Республики Казахстан для недропользователей.",
 
-      "Advantages for Subsoil Users and Industrial Enterprises": "Преимущества для Недропользователей и промышленных предприятий",
-      "Direct access to innovations and products of cutting-edge scientific research;": "Прямой доступ к инновациям и продуктам новейших научных исследований;",
-      "Rich experience in creating optimal solutions tailored to modern needs;": "Богатый опыт в создании оптимальных решений, ориентированных на современные потребности;",
-      "Expert opinions, consultations, and ready-made products in the fields of scientific research, materials and technology production, IT solution digitalization to enhance your business competitiveness;": "Экспертное мнение, консультации и готовые продукты в сфере научных исследований, производства материалов и технологий, цифровизации ИТ-решений для повышения конкурентоспособности Вашего бизнеса;",
-      
-      "Our mission": "Наша миссия",
-      "Joint development and implementation of innovations to enhance the efficiency of subsoil use and industry.": "Совместная разработка и внедрение инноваций для повышения эффективности недропользования и промышленности.",
+		"Advantages for Subsoil Users and Industrial Enterprises": "Преимущества для Недропользователей и промышленных предприятий",
+		"Direct access to innovations and products of cutting-edge scientific research;": "Прямой доступ к инновациям и продуктам новейших научных исследований;",
+		"Rich experience in creating optimal solutions tailored to modern needs;": "Богатый опыт в создании оптимальных решений, ориентированных на современные потребности;",
+		"Expert opinions, consultations, and ready-made products in the fields of scientific research, materials and technology production, IT solution digitalization to enhance your business competitiveness;": "Экспертное мнение, консультации и готовые продукты в сфере научных исследований, производства материалов и технологий, цифровизации ИТ-решений для повышения конкурентоспособности Вашего бизнеса;",
 
-      "Directions": "Направления",
-      "Business Education": "Бизнес-обучение",
-      "Chemical Developments": "Химические разработки",
-      "Optimization and Energy Efficiency": "Оптимизация и энергоэффективность",
-      "Ecology and ESG": "Экология и ESG",
-      "Industrial Safety": "Промышленная безопасность",
-      "Enhanced Oil Recovery": "Повышение нефтеотдачи",
-      "IT/Digitalization": "ИТ/Цифровизация",
-      "Geology and Seismology": "Геология и сейсмология",
-      "Hydrogen Energy": "Водородная энергетика",
-      "Corrosion Issues": "Проблемы коррозии",
-      "Technologies and Modeling": "Технологии и моделирование",
-      "Materials Science": "Материаловедение",
+		"Our mission": "Наша миссия",
+		"Joint development and implementation of innovations to enhance the efficiency of subsoil use and industry.": "Совместная разработка и внедрение инноваций для повышения эффективности недропользования и промышленности.",
 
-      "Partners": "Партнеры",
-      "Our partners": "Наши партнеры",
-      "Project Management Office": "Офис управления проектами",
-      "Number": "Номер",
-      "Email": "Почта",
-      "Kazakh-British Technical University 2024": "Казахстанско-Британский Технический Университет 2024",
-      "All rights reserved": "Все права защищены",
-      "Projects not found": "Проекты не найдены",
-      "Projects are tasks related to the development, implementation, and improvement of new technologies, products, and processes.": "Проекты - это задачи, связанные с разработкой, внедрением и совершенствованием новых технологий, продуктов и процессов.",
+		"Directions": "Направления",
+		"Business Education": "Бизнес-обучение",
+		"Chemical Developments": "Химические разработки",
+		"Optimization and Energy Efficiency": "Оптимизация и энергоэффективность",
+		"Ecology and ESG": "Экология и ESG",
+		"Industrial Safety": "Промышленная безопасность",
+		"Enhanced Oil Recovery": "Повышение нефтеотдачи",
+		"IT/Digitalization": "ИТ/Цифровизация",
+		"Geology and Seismology": "Геология и сейсмология",
+		"Hydrogen Energy": "Водородная энергетика",
+		"Corrosion Issues": "Проблемы коррозии",
+		"Technologies and Modeling": "Технологии и моделирование",
+		"Materials Science": "Материаловедение",
 
-      "Customer": "Заказчик",
-      "Request Status": "Статус заявки",
-      "Technical Task": "Техническое задание",
-      "Direction": "Направление",
-      "Description": "Описание",
-      "Responsible Person's Full Name from Customer": "ФИО ответственного лица от заказчика",
-      "Contact Details of Responsible Person from Customer": "Контакты ответственного лица от заказчика",
-      "Note": "Примечание",
+		"Partners": "Партнеры",
+		"Our partners": "Наши партнеры",
+		"Project Management Office": "Офис управления проектами",
+		"Number": "Номер",
+		"Email": "Почта",
+		"Kazakh-British Technical University 2024": "Казахстанско-Британский Технический Университет 2024",
+		"All rights reserved": "Все права защищены",
+		"Projects not found": "Проекты не найдены",
+		"Projects are tasks related to the development, implementation, and improvement of new technologies, products, and processes.": "Проекты - это задачи, связанные с разработкой, внедрением и совершенствованием новых технологий, продуктов и процессов.",
 
-      "Create Request": "Создать заявку",
+		"Customer": "Заказчик",
+		"Request Status": "Статус заявки",
+		"Technical Task": "Техническое задание",
+		"Direction": "Направление",
+		"Description": "Описание",
+		"Responsible Person's Full Name from Customer": "ФИО ответственного лица от заказчика",
+		"Contact Details of Responsible Person from Customer": "Контакты ответственного лица от заказчика",
+		"Note": "Примечание",
 
-      "Request Title (Project Name)": "Наименование заявки (проекта)",
-      "Purpose and Description of Request (Project)": "Цель и описание заявки (проекта)",
-      "Request Direction (Project)": "Направление заявки (проекта)",
-      "Budget": "Бюджет",
-      "Save Request": "Сохранить заявку",
+		"Create Request": "Создать заявку",
 
-      "Laboratories": "Лаборатории",
-      "Contact Details": "Контактные данные",
+		"Request Title (Project Name)": "Наименование заявки (проекта)",
+		"Purpose and Description of Request (Project)": "Цель и описание заявки (проекта)",
+		"Request Direction (Project)": "Направление заявки (проекта)",
+		"Budget": "Бюджет",
+		"Save Request": "Сохранить заявку",
 
-      "Business Training": "Бизнес обучение",
+		"Laboratories": "Лаборатории",
+		"Contact Details": "Контактные данные",
 
-      "Task direction": "Направление задачи"
+		"Business Training": "Бизнес обучение",
 
+		"Task direction": "Направление задачи",
 
-
-
-
-
-
-
-
-
-
-
-
-    }
-  }
+		"Search by name": "Поиск по названию",
+		"Request direction": "Направление заявки",
+		"Choose": "Выберите",
+		"Application status": "Статус заявки",
+		"All": "Все",
+		"Offers gathering": "Сбор предложений",
+		"Finished": "Завершено",
+		"Apply filter": "Применить фильтр",
+		"Directions not found": "Направления не найдены"
+	}
+}
