@@ -5,11 +5,19 @@ import ApplyInputFile from '../input_file/ApplyInputFile';
 import ApplyInputSelect from '../input_select/InputSelect';
 import useApplyForm from '../../hooks/useApplyForm';
 import styles from './apply_form.module.css';
+import { useState } from 'react';
 
 const ApplyForm = () => {
 	const { t } = useTranslation();
 
-	const { formData, change, onFilesChange, onSubmit } = useApplyForm();
+	const {
+		formData,
+		change,
+		userLoadedFilesPreview,
+		setUserLoadedFilesPreview,
+		onFilesChange,
+		onSubmit,
+	} = useApplyForm();
 
 	return (
 		<form className={styles.form} onSubmit={onSubmit}>
@@ -47,7 +55,9 @@ const ApplyForm = () => {
 			<ApplyInputFile
 				label={t('Technical Task')}
 				name="projectFile"
+				userLoadedFilesPreview={userLoadedFilesPreview}
 				isRequired
+				setUserLoadedFilesPreview={setUserLoadedFilesPreview}
 				onChange={(newFile) => onFilesChange(newFile)}
 			/>
 
