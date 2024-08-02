@@ -52,7 +52,7 @@ const Tabs = ({ user }) => {
 					<>
 						<button
 							className={`${styles.tabButton} ${
-								activeTab === 'requests' ? styles.active : ''
+								activeTab === 'my_applications' ? styles.active : ''
 							}`}
 							onClick={() => setActiveTab('requests')}
 						>
@@ -86,7 +86,9 @@ const Tabs = ({ user }) => {
 				<p>Loading...</p>
 			) : (
 				<div className={styles.tabContent}>
-					{activeTab === 'requests' && <MyApplications applications={items} />}
+					{activeTab === 'my_applications' && (
+						<MyApplications applications={items} />
+					)}
 
 					{activeTab === 'projects' && user.role !== 'USER' && <MyProjects />}
 

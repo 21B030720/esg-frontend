@@ -1,6 +1,8 @@
 import ProjectsService from '@services/ProjectsService';
 import styles from './application.module.css';
 import doExist from '@common/utils/doExist';
+import getDateFromServerString from '@modules/personal_cabinet/utils/getDateFromServerString';
+import Status from '../status/Status';
 
 const Applications = ({ applications }) => {
 	if (applications == null || applications.length === 0) {
@@ -44,11 +46,16 @@ const Applications = ({ applications }) => {
 				{applications.map((a, i) => {
 					return (
 						<div key={i} className={styles.row}>
-							<p>{a?.createdAt}</p>
+							<p>{getDateFromServerString(a?.createdAt)}</p>
 							<p>{a?.name}</p>
 							<p>{a?.company}</p>
-							<p>{a?.status}</p>
-							<button onClick={() => postProject(a)}>Действие</button>
+							<Status statusStringFromServer={a?.status} />
+							<button
+								onClick={() => postProject(a)}
+								className={styles.btn_action}
+							>
+								Посмотреть
+							</button>
 						</div>
 					);
 				})}
