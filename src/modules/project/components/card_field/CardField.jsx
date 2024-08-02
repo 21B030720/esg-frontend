@@ -1,6 +1,6 @@
-import styles from './project_card_field.module.css';
+import styles from './card_field.module.css';
 
-const ProjectCardField = ({ label, value, icon }) => {
+const CardField = ({ label, value, icon }) => {
 	const isIcon = icon != null;
 
 	const onClick = (e) => {
@@ -24,4 +24,4 @@ const ProjectCardField = ({ label, value, icon }) => {
 	);
 };
 
-export default ProjectCardField;
+export default CardField;

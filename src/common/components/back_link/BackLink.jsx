@@ -2,11 +2,11 @@ import { useTranslation } from 'react-i18next';
 import arrowLeft from '@assets/icons/arrow_left.svg';
 import styles from './back_link.module.css';
 
-const BackLink = () => {
+const BackLink = ({ onClick = () => {} }) => {
 	const { t } = useTranslation();
 
 	return (
-		<div className={styles.box}>
+		<div className={styles.box} onClick={onClick}>
 			<img
 				src={arrowLeft}
 				alt="arrow to the left"

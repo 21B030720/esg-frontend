@@ -8,11 +8,22 @@ const useProject = () => {
 
 	// TODO: integrate API
 	const fetchProject = async () => {
-		setTimeout(() => setProject(mockProject), 2000);
+		return new Promise((resolve, reject) => {
+			try {
+				setTimeout(() => resolve(mockProject), 2000);
+			} catch (error) {
+				reject(error);
+			}
+		});
 	};
 
 	useEffect(() => {
-		fetchProject();
+		setLoading(true);
+
+		fetchProject()
+			.then((project) => setProject(project))
+			.catch((error) => setError(error))
+			.finally(() => setLoading(false));
 	}, []);
 
 	return { project, isLoading, error };
