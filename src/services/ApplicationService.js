@@ -22,6 +22,15 @@ export default class ApplicationService {
 		});
 	}
 
+	static async getApplicationById(id) {
+		return new Promise((resolve, reject) => {
+			$axiosPrivate
+				.get(`/applications/${id}`)
+				.then((response) => resolve(response?.data))
+				.catch((error) => reject(error));
+		});
+	}
+
 	static areFilesValid(files) {
 		return files.every((f) => {
 			const isFilePDF = f.type === 'application/pdf';

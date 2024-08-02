@@ -1,36 +1,14 @@
-import ProjectsService from '@services/ProjectsService';
-import styles from './application.module.css';
-import doExist from '@common/utils/doExist';
-import getDateFromServerString from '@modules/personal_cabinet/utils/getDateFromServerString';
+import { useNavigate } from 'react-router-dom';
 import Status from '../status/Status';
+import getDateFromServerString from '@modules/personal_cabinet/utils/getDateFromServerString';
+import styles from './application.module.css';
 
 const Applications = ({ applications }) => {
+	const nav = useNavigate();
+
 	if (applications == null || applications.length === 0) {
 		return <></>;
 	}
-
-	// Handicap partial logic to test backend connection
-	const postProject = async (application) => {
-		// TODO: handle multiple projectFile
-		const { id, name, description, directionID, projectFile } = application;
-		const fileId = projectFile[0]['id'];
-		const fileName = projectFile[0]['originalFileName'];
-
-		if (!doExist(id, name, description, directionID, fileId)) {
-			throw Error('Certain required fields are absent in form');
-		}
-
-		const form = {
-			applicationID: id,
-			name,
-			description,
-			directionID,
-		};
-
-		await ProjectsService.postProject(form, fileId, fileName)
-			.then((response) => console.log(response))
-			.catch((err) => console.error(err));
-	};
 
 	return (
 		<div className={styles.table}>
@@ -51,7 +29,7 @@ const Applications = ({ applications }) => {
 							<p>{a?.company}</p>
 							<Status statusStringFromServer={a?.status} />
 							<button
-								onClick={() => postProject(a)}
+								onClick={() => nav(`/applications/${a?.id}`)}
 								className={styles.btn_action}
 							>
 								Посмотреть
