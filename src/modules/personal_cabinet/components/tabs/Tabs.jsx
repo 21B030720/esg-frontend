@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import MyRequests from '../my_requests/MyRequests';
 import MyProjects from '../my_projects/MyProjects';
 import Settings from '../settings/Settings';
 import Applications from '../applications/Applications';
+import MyApplications from '../my_requests/MyApplications';
 import ApplicationService from '@services/ApplicationService';
 import styles from './tabs.module.css';
 
@@ -86,7 +86,7 @@ const Tabs = ({ user }) => {
 				<p>Loading...</p>
 			) : (
 				<div className={styles.tabContent}>
-					{activeTab === 'requests' && <MyRequests requests={items} />}
+					{activeTab === 'requests' && <MyApplications applications={items} />}
 
 					{activeTab === 'projects' && user.role !== 'USER' && <MyProjects />}
 

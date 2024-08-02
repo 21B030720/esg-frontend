@@ -85,6 +85,11 @@
 		"Apply filter": "Apply filter",
 		"Directions not found": "Directions not found",
 
-		"Back": "Back"
+		"Back": "Back",
+
+		"Status_accepted": "Published",
+		"Status_progress": "In progress",
+		"Status_rejected": "Denied",
+		"Status_unknown": "Unknown"
 	}
 }

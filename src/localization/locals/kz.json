@@ -84,6 +84,11 @@
 		"Apply filter": "Сүзгіні қолдану",
 		"Directions not found": "Бағыттар табылмады",
 
-		"Back": "Артқа"
+		"Back": "Артқа",
+
+		"Status_accepted": "Жарияланды",
+		"Status_progress": "Қарау барысында",
+		"Status_rejected": "Қабылданбады",
+		"Status_unknown": "Белгісіз"
 	}
 }
