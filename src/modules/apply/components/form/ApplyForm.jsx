@@ -9,7 +9,14 @@ import styles from './apply_form.module.css';
 const ApplyForm = () => {
 	const { t } = useTranslation();
 
-	const { formData, change, onFilesChange, onSubmit } = useApplyForm();
+	const {
+		formData,
+		change,
+		userLoadedFilesPreview,
+		setUserLoadedFilesPreview,
+		onFilesChange,
+		onSubmit,
+	} = useApplyForm();
 
 	return (
 		<form className={styles.form} onSubmit={onSubmit}>
@@ -47,7 +54,9 @@ const ApplyForm = () => {
 			<ApplyInputFile
 				label={t('Technical Task')}
 				name="projectFile"
+				userLoadedFilesPreview={userLoadedFilesPreview}
 				isRequired
+				setUserLoadedFilesPreview={setUserLoadedFilesPreview}
 				onChange={(newFile) => onFilesChange(newFile)}
 			/>
 

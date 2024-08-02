@@ -14,6 +14,7 @@ const useApplyForm = () => {
 
 	const [formData, setFormData] = useState(applyFormTemplate);
 	const [files, setFiles] = useState([]);
+	const [userLoadedFilesPreview, setUserLoadedFilesPreview] = useState([]);
 
 	const change = (name, newValue) => {
 		if (!Object.keys(formData).includes(name)) {
@@ -37,6 +38,7 @@ const useApplyForm = () => {
 			.then(() => {
 				setFormData(applyFormTemplate);
 				setFiles([]);
+				setUserLoadedFilesPreview([]);
 
 				alert('Заявка успешна подана!');
 			})
@@ -46,6 +48,8 @@ const useApplyForm = () => {
 	return {
 		formData,
 		files,
+		userLoadedFilesPreview,
+		setUserLoadedFilesPreview,
 		change,
 		onSubmit,
 		onFilesChange,

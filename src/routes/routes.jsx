@@ -10,6 +10,8 @@ import NotFound from '@modules/not_found/NotFound';
 import Apply from '@modules/apply/Apply';
 import ErrorBoundary from '@modules/error_boundary/ErrorBoundary';
 import ProtectedRoute from '@common/components/protected_route/ProtectedRoute';
+import Project from '@modules/project/Project';
+import Application from '@modules/application/Application';
 
 const routes = [
 	{
@@ -42,6 +44,14 @@ const routes = [
 		element: <Directions />,
 	},
 	{
+		path: '/projects/:id',
+		element: (
+			<ProtectedRoute>
+				<Project />
+			</ProtectedRoute>
+		),
+	},
+	{
 		path: '/projects',
 		element: (
 			<ProtectedRoute>
@@ -54,6 +64,14 @@ const routes = [
 		element: (
 			<ProtectedRoute>
 				<Apply />
+			</ProtectedRoute>
+		),
+	},
+	{
+		path: '/applications/:id',
+		element: (
+			<ProtectedRoute>
+				<Application />
 			</ProtectedRoute>
 		),
 	},

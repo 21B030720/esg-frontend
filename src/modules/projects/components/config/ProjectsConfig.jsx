@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Select from '@common/components/select/Select';
 import Clickaway from '@common/components/clickaway/Clickaway';
 import useStatusFilters from '@modules/projects/hooks/useStatusFilters';
@@ -10,6 +11,8 @@ import styles from './projects_config.module.css';
 
 const ProjectsConfig = () => {
 	const { directions, isLoading: areDirsLoading } = useDirections();
+
+	const { t } = useTranslation();
 
 	const {
 		processing,
@@ -59,13 +62,13 @@ const ProjectsConfig = () => {
 				<input
 					type="text"
 					value={search}
-					placeholder="Поиск по названию"
+					placeholder={t('Search by name')}
 					className={styles.searchbar_input}
 					onChange={(e) => onSearchChange(e.target.value)}
 				/>
 			</div>
 
-			<p className={styles.label}>Направление заявки:</p>
+			<p className={styles.label}>{t('Request direction')}:</p>
 
 			<div className={styles.dirs}>
 				<div
@@ -75,7 +78,7 @@ const ProjectsConfig = () => {
 					onClick={() => setDirsVisible(true)}
 				>
 					<p id="projects_config_dirs_ph" className={styles.dirs_placeholder}>
-						Выберите
+						{t('Choose')}
 					</p>
 
 					<img
@@ -103,7 +106,7 @@ const ProjectsConfig = () => {
 							) : (
 								<div className={styles.dirs_wrappable}>
 									<p className={styles.dirs_placeholder}>
-										Направления не найдены
+										{t('Directions not found')}
 									</p>
 								</div>
 							)}
@@ -111,29 +114,29 @@ const ProjectsConfig = () => {
 					))}
 			</div>
 
-			<p className={styles.label}>Статус заявки:</p>
+			<p className={styles.label}>{t('Application status')}:</p>
 
 			<div className={styles.radios}>
 				<div className={styles.radio_box} onClick={toggleProcessing}>
 					<Select isSelected={processing} />
 
-					<p className={styles.radio_label}>Все</p>
+					<p className={styles.radio_label}>{t('All')}</p>
 				</div>
 
 				<div className={styles.radio_box} onClick={toggleAccepted}>
 					<Select isSelected={accepted} />
 
-					<p className={styles.radio_label}>Сбор предложений</p>
+					<p className={styles.radio_label}>{t('Offers gathering')}</p>
 				</div>
 
 				<div className={styles.radio_box} onClick={toggleDenied}>
 					<Select isSelected={denied} />
 
-					<p className={styles.radio_label}>Завершено</p>
+					<p className={styles.radio_label}>{t('Finished')}</p>
 				</div>
 			</div>
 
-			<button className={styles.button}>Применить фильтр</button>
+			<button className={styles.button}>{t('Apply filter')}</button>
 		</div>
 	);
 };

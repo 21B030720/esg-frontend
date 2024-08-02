@@ -3,3 +3,37 @@
 	grid-template-columns: 2.5fr 1fr;
 	gap: 1.875rem;
 }
+
+.pagination_container {
+	margin-top: 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+	list-style: none;
+}
+
+.pagination_item {
+	--size: 2rem;
+	width: var(--size);
+	height: var(--size);
+	padding: 0.2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 500;
+	border: 1px solid #e3e7eb;
+	border-radius: 0.4rem;
+	cursor: pointer;
+}
+
+.pagination_item_active {
+	color: #00357d;
+	border-color: #00357d;
+}
+
+.pagination_item_arrow {
+	color: white;
+	background-color: #c8cfd5;
+	border-color: #c8cfd5;
+}

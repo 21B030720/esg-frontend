@@ -5,7 +5,6 @@ import ProjectsWrapper from './components/projects_wrapper/ProjectsWrapper';
 import { ProjectsContextProvider } from './contexts/ProjectsContext';
 
 const Projects = () => {
-
 	return (
 		<Container>
 			<Header />

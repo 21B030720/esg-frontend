@@ -7,11 +7,18 @@ import removeLastChars from '@common/utils/removeLastChars';
 import styles from './apply_input_file.module.css';
 import generateId from '@common/utils/generateId';
 
-const ApplyInputFile = ({ label, isRequired = false, onChange }) => {
-	const [files, setFiles] = useState([]);
+const ApplyInputFile = ({
+	label,
+	isRequired = false,
+	userLoadedFilesPreview,
+	setUserLoadedFilesPreview,
+	onChange,
+}) => {
 	const [error, setError] = useState('');
 
-	if (!doExist(label, onChange)) {
+	if (
+		!doExist(label, onChange, userLoadedFilesPreview, setUserLoadedFilesPreview)
+	) {
 		return;
 	}
 
@@ -37,7 +44,7 @@ const ApplyInputFile = ({ label, isRequired = false, onChange }) => {
 			}
 
 			// update files ds for preview
-			setFiles((p) => {
+			setUserLoadedFilesPreview((p) => {
 				return [
 					...p,
 					{
@@ -54,9 +61,11 @@ const ApplyInputFile = ({ label, isRequired = false, onChange }) => {
 	};
 
 	const onFileDelete = (fileId) => {
-		const updatedFiles = files.filter((file) => file.id !== fileId);
+		const updatedFiles = userLoadedFilesPreview.filter(
+			(file) => file.id !== fileId
+		);
 
-		setFiles(updatedFiles);
+		setUserLoadedFilesPreview(updatedFiles);
 	};
 
 	return (
@@ -83,7 +92,7 @@ const ApplyInputFile = ({ label, isRequired = false, onChange }) => {
 				</div>
 
 				<div className={styles.files}>
-					{files.map((file) => {
+					{userLoadedFilesPreview.map((file) => {
 						return (
 							<div
 								key={file.id}
