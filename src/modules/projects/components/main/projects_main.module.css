@@ -5,7 +5,9 @@
 }
 
 .pagination_container {
+	margin-top: 2rem;
 	display: flex;
+	justify-content: center;
 	align-items: center;
 	gap: 0.5rem;
 	list-style: none;
@@ -22,10 +24,16 @@
 	font-weight: 500;
 	border: 1px solid #e3e7eb;
 	border-radius: 0.4rem;
+	cursor: pointer;
 }
 
 .pagination_item_active {
-	--active-color: #00357d;
-	color: var(--active-color);
-	border-color: var(--active-color);
+	color: #00357d;
+	border-color: #00357d;
+}
+
+.pagination_item_arrow {
+	color: white;
+	background-color: #c8cfd5;
+	border-color: #c8cfd5;
 }

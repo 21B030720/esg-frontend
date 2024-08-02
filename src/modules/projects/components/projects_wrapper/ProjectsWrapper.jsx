@@ -9,8 +9,6 @@ const ProjectsWrapper = () => {
 			<ProjectsHeader />
 
 			<ProjectsMain />
-
-			{/* <ProjectsPagination /> */}
 		</Container>
 	);
 };
