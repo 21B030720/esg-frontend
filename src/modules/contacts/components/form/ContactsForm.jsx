@@ -3,70 +3,66 @@ import useContactForm from '@modules/contacts/hooks/useContactForm';
 import ContactsInput from '../input/ContactsInput';
 import styles from './contacts_form.module.css';
 
-
 // TODO: form validation & verification
 // NOTE: does message input transform into a textbox?
 const ContactsForm = () => {
-
-	const {
-		formData, errors, onFormChange, onSubmit
-	} = useContactForm();
+	const { formData, errors, onFormChange, onSubmit } = useContactForm();
 
 	return (
 		<form className={styles.form}>
 			<div className={styles.row}>
 				<ContactsInput
-					name='name'
-					labelName='Имя'
-					value={formData.name}
+					name="firstName"
+					labelName="Имя"
+					value={formData.firstName}
 					onChange={onFormChange}
-					errorMessage={errors.name}
+					errorMessage={errors.firstName}
 				/>
 
 				<ContactsInput
-					name='surname'
-					labelName='Фамилия'
-					value={formData.surname}
+					name="lastName"
+					labelName="Фамилия"
+					value={formData.lastName}
 					onChange={onFormChange}
-					errorMessage={errors.surname}
+					errorMessage={errors.lastName}
 				/>
 			</div>
 
 			<div className={styles.row}>
 				<ContactsInput
-					name='email'
-					labelName='Email'
-					inputType='email'
+					name="email"
+					labelName="Email"
+					inputType="email"
 					value={formData.email}
 					onChange={onFormChange}
 					errorMessage={errors.email}
 				/>
 
 				<ContactsInput
-					name='phone'
-					labelName='Номер телефона'
-					value={formData.phone}
+					name="phoneNumber"
+					labelName="Номер телефона"
+					value={formData.phoneNumber}
 					onChange={onFormChange}
-					errorMessage={errors.phone}
+					errorMessage={errors.phoneNumber}
 				/>
 			</div>
 
 			<div className={styles.row}>
 				<ContactsInput
-					name='topic'
-					labelName='Тема'
-					placeholder='Напишите тему...'
-					value={formData.topic}
+					name="title"
+					labelName="Тема"
+					placeholder="Напишите тему..."
+					value={formData.title}
 					onChange={onFormChange}
-					errorMessage={errors.topic}
+					errorMessage={errors.title}
 				/>
 			</div>
 
 			<div className={styles.row}>
 				<ContactsInput
-					name='message'
-					labelName='Сообщение'
-					placeholder='Напишите сообщение...'
+					name="message"
+					labelName="Сообщение"
+					placeholder="Напишите сообщение..."
 					value={formData.message}
 					onChange={onFormChange}
 					errorMessage={errors.message}
@@ -74,7 +70,7 @@ const ContactsForm = () => {
 			</div>
 
 			<ButtonBlueRound
-				text='Отправить'
+				text="Отправить"
 				className={styles.button}
 				onClick={onSubmit}
 			/>

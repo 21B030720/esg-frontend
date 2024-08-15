@@ -1,7 +1,10 @@
 const dataTemplate = {
-	name: '', surname: '',
-	email: '', phone: '',
-	topic: '', message: '',
+	firstName: '',
+	lastName: '',
+	email: '',
+	phoneNumber: '',
+	title: '',
+	message: '',
 };
 
 export default dataTemplate;

@@ -2,25 +2,25 @@ import { useState } from 'react';
 import validateForm from '../utils/validateForm';
 import isObjectEmpty from '@common/utils/isObjectEmpty';
 import dataTemplate from '../utils/dataTemplate';
+import ContactsService from '@services/ContactsService';
 
 const useContactForm = () => {
-
 	const [formData, setFormData] = useState(dataTemplate);
 	const [errors, setErrors] = useState(dataTemplate);
 
 	const onFormChange = (e) => {
 		const inputName = e.target.name;
 		const newValue = e.target.value;
-		
-		if(!Object.keys(formData).includes(inputName)) {
+
+		if (!Object.keys(formData).includes(inputName)) {
 			console.error('Provided input name is invalid');
 		}
 
-		setFormData(prev => {
+		setFormData((prev) => {
 			return {
 				...prev,
 				[inputName]: newValue,
-			}
+			};
 		});
 	};
 
@@ -28,17 +28,20 @@ const useContactForm = () => {
 		e.preventDefault();
 		setErrors(dataTemplate);
 
-		const {
-			name, surname, email,
-			phone, topic, message
-		} = formData;
+		const { firstName, lastName, email, phoneNumber, title, message } =
+			formData;
 
 		const errors = validateForm(
-			name, surname, email, phone, topic, message
+			firstName,
+			lastName,
+			email,
+			phoneNumber,
+			title,
+			message
 		);
 
-		if(!isObjectEmpty(errors)) {
-			setErrors(p => ({
+		if (!isObjectEmpty(errors)) {
+			setErrors((p) => ({
 				...p,
 				...errors,
 			}));
@@ -46,11 +49,10 @@ const useContactForm = () => {
 			return;
 		}
 
-		// TODO: submit form logic below
-		console.log('Form submit button\'s triggered');
+		ContactsService.postContacts(formData).then((res) => console.log(res));
 	};
 
-	return {formData, errors, onFormChange, onSubmit};
+	return { formData, errors, onFormChange, onSubmit };
 };
 
 export default useContactForm;
