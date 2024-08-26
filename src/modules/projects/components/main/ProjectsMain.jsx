@@ -9,7 +9,7 @@ import mergeStrings from '@common/utils/mergeStrings';
 const ProjectsMain = () => {
 	const {
 		projects,
-		totalProjectsCount,
+		totalPagesCount,
 		perPage,
 		setPage,
 		fetchProjects,
@@ -17,13 +17,11 @@ const ProjectsMain = () => {
 		error,
 	} = useContext(ProjectsContext);
 
-	const pageCount = Math.ceil(totalProjectsCount / perPage);
-
 	const handlePageClick = (event) => {
 		const selectedPage = event.selected + 1;
 
 		setPage(selectedPage);
-		fetchProjects(selectedPage, perPage);
+		fetchProjects(selectedPage);
 	};
 
 	return (
@@ -35,26 +33,28 @@ const ProjectsMain = () => {
 					error={error}
 				/>
 
-				<ReactPaginate
-					breakLabel="..."
-					previousLabel="<"
-					nextLabel=">"
-					pageRangeDisplayed={perPage}
-					pageCount={pageCount}
-					renderOnZeroPageCount={null}
-					containerClassName={styles.pagination_container}
-					pageClassName={styles.pagination_item}
-					activeClassName={styles.pagination_item_active}
-					nextClassName={mergeStrings(
-						styles.pagination_item,
-						styles.pagination_item_arrow
-					)}
-					previousClassName={mergeStrings(
-						styles.pagination_item,
-						styles.pagination_item_arrow
-					)}
-					onPageChange={handlePageClick}
-				/>
+				{totalPagesCount != null && (
+					<ReactPaginate
+						breakLabel="..."
+						previousLabel="<"
+						nextLabel=">"
+						pageRangeDisplayed={perPage}
+						pageCount={totalPagesCount}
+						renderOnZeroPageCount={null}
+						containerClassName={styles.pagination_container}
+						pageClassName={styles.pagination_item}
+						activeClassName={styles.pagination_item_active}
+						nextClassName={mergeStrings(
+							styles.pagination_item,
+							styles.pagination_item_arrow
+						)}
+						previousClassName={mergeStrings(
+							styles.pagination_item,
+							styles.pagination_item_arrow
+						)}
+						onPageChange={handlePageClick}
+					/>
+				)}
 			</div>
 
 			<ProjectsConfig />

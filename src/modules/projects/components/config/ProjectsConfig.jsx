@@ -12,7 +12,8 @@ import styles from './projects_config.module.css';
 const ProjectsConfig = () => {
 	const { t } = useTranslation();
 
-	const { statusFilter, setStatusFilter } = useContext(ProjectsContext);
+	const { statusFilter, setStatusFilter, search, onSearchChange } =
+		useContext(ProjectsContext);
 	const { directions, isLoading: areDirsLoading } = useDirections();
 	const { value: areDirsVisible, setValue: setDirsVisible } = useToggle(false);
 
@@ -49,10 +50,10 @@ const ProjectsConfig = () => {
 
 				<input
 					type="text"
-					value={''}
+					value={search}
 					placeholder={t('Search by name')}
 					className={styles.searchbar_input}
-					onChange={(e) => console.log(e)}
+					onChange={(e) => onSearchChange(e.target.value)}
 				/>
 			</div>
 

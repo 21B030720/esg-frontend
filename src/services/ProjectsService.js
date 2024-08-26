@@ -2,10 +2,8 @@ import { $axiosPrivate } from '@http/axios';
 import FileService from './FileService';
 
 export default class ProjectsService {
-	static async getProjects(page, perPage, filters) {
+	static async getProjects(page, perPage, filters, signal) {
 		const { name, direction, status } = filters;
-
-		console.log(status);
 
 		const params = {
 			page: page,
@@ -15,10 +13,13 @@ export default class ProjectsService {
 		if (direction != null) params.direction = direction;
 		if (status != null) params.status = status;
 
+		console.log(params);
+
 		return new Promise((resolve, reject) => {
 			$axiosPrivate
 				.get('/projects', {
 					params: params,
+					signal: signal,
 				})
 				.then((response) => {
 					resolve(response?.data);

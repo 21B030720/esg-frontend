@@ -27,7 +27,7 @@ $axiosPrivate.interceptors.response.use(
 		const errorStatus = error?.response?.status;
 
 		if (errorStatus !== 403) {
-			return Promise.reject(error?.toJSON());
+			return Promise.reject(error);
 		}
 
 		const req = error.request;
