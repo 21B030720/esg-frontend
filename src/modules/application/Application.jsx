@@ -49,7 +49,7 @@ const Application = () => {
 
 						<div className={styles.btns}>
 							<button className={mergeStrings(styles.btn, styles.btn_cancel)}>
-								Отправить на доработку
+								Отправить на доработку (в разработке)
 							</button>
 
 							<button

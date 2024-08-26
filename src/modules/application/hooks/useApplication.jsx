@@ -25,7 +25,7 @@ const useApplication = (applicationId) => {
 		// const fileName = projectFile[0]['originalFileName'];
 
 		if (!doExist(id, name, description, direction)) {
-			setPostingProjectError('Certain required fields are absent in form');
+			setPostingProjectError('Некоторая информация о заявке отсутствует');
 			return;
 		}
 
@@ -37,8 +37,7 @@ const useApplication = (applicationId) => {
 		};
 
 		await ProjectsService.postProject(form, projectFile)
-			.then((response) => {
-				console.log(response);
+			.then(() => {
 				alert('Project has been created! Проект был создан!');
 			})
 			.catch((err) => {
