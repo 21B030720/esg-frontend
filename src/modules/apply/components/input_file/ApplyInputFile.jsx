@@ -1,21 +1,21 @@
-import { useState } from 'react';
 import { FaFilePdf } from 'react-icons/fa';
 import RequirementStar from '@common/components/requirement_star/RequirementStar';
 import doExist from '@common/utils/doExist';
 import clipIcon from '@assets/icons/clip.svg';
 import removeLastChars from '@common/utils/removeLastChars';
 import styles from './apply_input_file.module.css';
-import generateId from '@common/utils/generateId';
 
 const ApplyInputFile = ({
 	label,
 	isRequired = false,
 	userLoadedFilesPreview,
 	setUserLoadedFilesPreview,
+	files,
+	setFiles,
+	fileError,
+	setFileError,
 	onChange,
 }) => {
-	const [error, setError] = useState('');
-
 	if (
 		!doExist(label, onChange, userLoadedFilesPreview, setUserLoadedFilesPreview)
 	) {
@@ -23,7 +23,7 @@ const ApplyInputFile = ({
 	}
 
 	const loadFile = (e) => {
-		setError('');
+		setFileError('');
 
 		const newFile = e.target.files[0];
 
@@ -32,13 +32,13 @@ const ApplyInputFile = ({
 			const newFileSize = newFile.size / 1e6;
 
 			if (newFileType !== 'application/pdf') {
-				setError('Файлы должны быть типа PDF');
+				setFileError('Файлы должны быть типа PDF');
 
 				return;
 			}
 
 			if (newFileSize > 5) {
-				setError('Файл не должен превышать размера 5МБ');
+				setFileError('Файл не должен превышать размера 5МБ');
 
 				return;
 			}
@@ -48,7 +48,7 @@ const ApplyInputFile = ({
 				return [
 					...p,
 					{
-						id: generateId(),
+						id: `${newFile.lastModified}_${newFile.name}`,
 						name: removeLastChars(newFile.name, 20),
 					},
 				];
@@ -56,16 +56,22 @@ const ApplyInputFile = ({
 
 			onChange(newFile);
 		} else {
-			setError('Файл должны быть загружены');
+			setFileError('Файл должны быть загружены');
 		}
 	};
 
 	const onFileDelete = (fileId) => {
-		const updatedFiles = userLoadedFilesPreview.filter(
+		const updatedLoadedPreviewFiles = userLoadedFilesPreview.filter(
 			(file) => file.id !== fileId
 		);
+		const updatedFiles = files.filter((file) => {
+			const constructedId = `${file.lastModified}_${file.name}`;
 
-		setUserLoadedFilesPreview(updatedFiles);
+			return constructedId !== fileId;
+		});
+
+		setUserLoadedFilesPreview(updatedLoadedPreviewFiles);
+		setFiles(updatedFiles);
 	};
 
 	return (
@@ -108,7 +114,7 @@ const ApplyInputFile = ({
 				</div>
 			</div>
 
-			{error.length > 0 && <p className={styles.error}>{error}</p>}
+			{fileError.length > 0 && <p className={styles.error}>{fileError}</p>}
 		</div>
 	);
 };

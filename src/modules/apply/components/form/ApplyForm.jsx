@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import ButtonBlueRound from '@common/components/buttons/button_blue_round/ButtonBlueRound';
 import ApplyInput from '../input/ApplyInput';
@@ -12,11 +13,15 @@ const ApplyForm = () => {
 	const {
 		formData,
 		change,
+		files,
 		userLoadedFilesPreview,
 		setUserLoadedFilesPreview,
+		setFiles,
 		onFilesChange,
 		onSubmit,
 	} = useApplyForm();
+
+	const [fileError, setFileError] = useState('');
 
 	return (
 		<form className={styles.form} onSubmit={onSubmit}>
@@ -54,9 +59,13 @@ const ApplyForm = () => {
 			<ApplyInputFile
 				label={t('Technical Task')}
 				name="projectFile"
-				userLoadedFilesPreview={userLoadedFilesPreview}
 				isRequired
+				userLoadedFilesPreview={userLoadedFilesPreview}
 				setUserLoadedFilesPreview={setUserLoadedFilesPreview}
+				files={files}
+				setFiles={setFiles}
+				fileError={fileError}
+				setFileError={setFileError}
 				onChange={(newFile) => onFilesChange(newFile)}
 			/>
 

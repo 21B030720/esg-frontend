@@ -50,6 +50,7 @@ const useApplyForm = () => {
 		files,
 		userLoadedFilesPreview,
 		setUserLoadedFilesPreview,
+		setFiles,
 		change,
 		onSubmit,
 		onFilesChange,
