@@ -41,7 +41,7 @@ const Login = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		if (!validate(formData, setError)) {
+		if (!validate(formData, null, setError, true)) {
 			return;
 		}
 
@@ -56,13 +56,8 @@ const Login = () => {
 
 	return (
 		<div className="content">
-			{isMobile ? (
-				<>
-					<Header />
-				</>
-			) : (
-				<></>
-			)}
+			{isMobile && <Header />}
+
 			<div className="wrapper">
 				<p className="form-title">Личный кабинет</p>
 
@@ -113,13 +108,7 @@ const Login = () => {
 				</form>
 			</div>
 
-			{isMobile ? (
-				<>
-					<Footer />
-				</>
-			) : (
-				<></>
-			)}
+			{isMobile && <Footer />}
 		</div>
 	);
 };

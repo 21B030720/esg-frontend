@@ -21,6 +21,9 @@ const Registration = () => {
 		email: '',
 		password: '',
 		role: null,
+		bin: '',
+		iin: '',
+		companyName: '',
 	});
 
 	const [error, setError] = useState({
@@ -30,9 +33,12 @@ const Registration = () => {
 		email: '',
 		password: '',
 		role: '',
+		bin: '',
+		iin: '',
+		companyName: '',
 	});
 
-	// const [formattedPhone, setFormattedPhone] = useState('');
+	const [formattedPhone, setFormattedPhone] = useState('');
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -51,9 +57,7 @@ const Registration = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		if (!validate(formData, setError)) {
-			return;
-		}
+		if (!validate(formData, formattedPhone, setError)) return;
 
 		register(formData)
 			.then(() => {
@@ -64,43 +68,43 @@ const Registration = () => {
 			});
 	};
 
-	// const handlePhone = (e) => {
-	// 	setError((prev) => ({
-	// 		...prev,
-	// 		phonenumber: '',
-	// 	}));
+	const handlePhone = (e) => {
+		setError((prev) => ({
+			...prev,
+			phonenumber: '',
+		}));
 
-	// 	if (e.key) {
-	// 		if (e.key === 'Backspace') {
-	// 			const val = e.target.value;
+		if (e.key) {
+			if (e.key === 'Backspace') {
+				const val = e.target.value;
 
-	// 			if (val[val.length - 1] === '-' || val[val.length - 1] === ')') {
-	// 				setFormattedPhone(val.substring(0, val.length - 1));
-	// 			}
-	// 		}
+				if (val[val.length - 1] === '-' || val[val.length - 1] === ')') {
+					setFormattedPhone(val.substring(0, val.length - 1));
+				}
+			}
 
-	// 		return;
-	// 	}
+			return;
+		}
 
-	// 	const num = '8' + e.target.value.replace(/\D/g, '').substring(1);
-	// 	let s = '+7(';
+		const num = '8' + e.target.value.replace(/\D/g, '').substring(1);
+		let s = '+7(';
 
-	// 	for (let i = 1; i < num.length; i++) {
-	// 		s += num[i];
+		for (let i = 1; i < num.length; i++) {
+			s += num[i];
 
-	// 		if (i === 3) {
-	// 			s += ')';
-	// 		} else if (i === 6) {
-	// 			s += '-';
-	// 		}
-	// 	}
+			if (i === 3) {
+				s += ')';
+			} else if (i === 6) {
+				s += '-';
+			}
+		}
 
-	// 	setFormData((prev) => ({
-	// 		...prev,
-	// 		phonenumber: num,
-	// 	}));
-	// 	setFormattedPhone(s);
-	// };
+		setFormData((prev) => ({
+			...prev,
+			phoneNumber: num,
+		}));
+		setFormattedPhone(s);
+	};
 
 	const onRole = (pickedRole) => {
 		if (!['USER', 'WORKER', 'MANAGER'].includes(pickedRole)) {
@@ -116,13 +120,7 @@ const Registration = () => {
 	if (formData.role === null) {
 		return (
 			<div className="content">
-				{isMobile ? (
-					<>
-						<Header />
-					</>
-				) : (
-					<></>
-				)}
+				{isMobile && <Header />}
 
 				<div className="wrapper btn_roles">
 					<button className="btn-submit" onClick={() => onRole('USER')}>
@@ -147,6 +145,57 @@ const Registration = () => {
 				<p className="form-title">Регистрация</p>
 
 				<form className="form" onSubmit={handleSubmit}>
+					{formData.role === 'USER' ? (
+						<>
+							<div>
+								<label htmlFor="firstName">БИН</label>
+
+								{error.bin && <span className="error-msg">{error.bin}</span>}
+
+								<input
+									id="bin"
+									type="text"
+									className="form-field"
+									name="bin"
+									value={formData.bin}
+									onChange={handleChange}
+								/>
+							</div>
+
+							<div>
+								<label htmlFor="firstName">Компания</label>
+
+								{error.companyName && (
+									<span className="error-msg">{error.companyName}</span>
+								)}
+
+								<input
+									id="companyName"
+									type="text"
+									className="form-field"
+									name="companyName"
+									value={formData.companyName}
+									onChange={handleChange}
+								/>
+							</div>
+						</>
+					) : (
+						<div>
+							<label htmlFor="firstName">ИИН</label>
+
+							{error.iin && <span className="error-msg">{error.iin}</span>}
+
+							<input
+								id="iin"
+								type="text"
+								className="form-field"
+								name="iin"
+								value={formData.iin}
+								onChange={handleChange}
+							/>
+						</div>
+					)}
+
 					<div>
 						<label htmlFor="firstName">Имя</label>
 
@@ -182,7 +231,7 @@ const Registration = () => {
 					</div>
 
 					<div>
-						<label htmlFor="username">Имя Пользователя</label>
+						<label htmlFor="username">Имя пользователя</label>
 
 						{error.username && (
 							<span className="error-msg">{error.username}</span>
@@ -198,38 +247,25 @@ const Registration = () => {
 						/>
 					</div>
 
-					{/* <div>
-            <label htmlFor="company">Компания</label>
+					<div>
+						<label htmlFor="phone-number">Телефон</label>
 
-            { error.company && <span className="error-msg">{error.company}</span> }
+						{error.phoneNumber && (
+							<span className="error-msg">{error.phoneNumber}</span>
+						)}
 
-            <input 
-              id="company" 
-              type="text"
-              className="form-field" 
-              name="company"
-              value={formData.company}
-              onChange={handleChange}
-            />
-          </div> */}
-
-					{/* <div>
-            <label htmlFor="phone-number">Номер телефона</label>
-
-            { error.phonenumber && <span className="error-msg">{error.phonenumber}</span> }
-
-            <input 
-              id="phone-number" 
-              type="tel"
-              // pattern="\+7\([0-9]{3}\)[0-9]{3}-[0-9]{4}"
-              maxLength="15"
-              placeholder="+7(777)777-7777"
-              className="form-field"
-              value={formattedPhone}
-              onChange={handlePhone}
-              onKeyDown={handlePhone}
-            />
-          </div> */}
+						<input
+							id="phone-number"
+							type="tel"
+							pattern="\+7\([0-9]{3}\)[0-9]{3}-[0-9]{4}"
+							maxLength="15"
+							placeholder="+7(777)777-7777"
+							className="form-field"
+							value={formattedPhone}
+							onChange={handlePhone}
+							onKeyDown={handlePhone}
+						/>
+					</div>
 
 					<div>
 						<label htmlFor="email">Email</label>
