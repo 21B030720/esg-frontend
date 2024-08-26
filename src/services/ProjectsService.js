@@ -5,6 +5,8 @@ export default class ProjectsService {
 	static async getProjects(page, perPage, filters) {
 		const { name, direction, status } = filters;
 
+		console.log(status);
+
 		const params = {
 			page: page,
 			per_page: perPage,

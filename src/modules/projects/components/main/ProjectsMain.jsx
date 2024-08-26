@@ -10,7 +10,6 @@ const ProjectsMain = () => {
 	const {
 		projects,
 		totalProjectsCount,
-		filters,
 		perPage,
 		setPage,
 		fetchProjects,
@@ -24,7 +23,7 @@ const ProjectsMain = () => {
 		const selectedPage = event.selected + 1;
 
 		setPage(selectedPage);
-		fetchProjects(selectedPage, perPage, filters);
+		fetchProjects(selectedPage, perPage);
 	};
 
 	return (
@@ -58,7 +57,7 @@ const ProjectsMain = () => {
 				/>
 			</div>
 
-			{/* <ProjectsConfig /> */}
+			<ProjectsConfig />
 		</div>
 	);
 };

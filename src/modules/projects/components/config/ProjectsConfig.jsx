@@ -1,6 +1,8 @@
+import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import Select from '@common/components/select/Select';
 import Clickaway from '@common/components/clickaway/Clickaway';
+import ProjectsContext from '@modules/projects/contexts/ProjectsContext';
 import useToggle from '@common/hooks/useToggle';
 import useDirections from '@common/hooks/useDirections';
 import magnifierIcon from '@assets/icons/magnifier.svg';
@@ -8,17 +10,16 @@ import caretDown from '@assets/icons/caret_down.svg';
 import styles from './projects_config.module.css';
 
 const ProjectsConfig = () => {
-	const { directions, isLoading: areDirsLoading } = useDirections();
-
 	const { t } = useTranslation();
 
+	const { statusFilter, setStatusFilter } = useContext(ProjectsContext);
+	const { directions, isLoading: areDirsLoading } = useDirections();
 	const { value: areDirsVisible, setValue: setDirsVisible } = useToggle(false);
 
 	const selectStyle = {
 		borderBottomLeftRadius: areDirsVisible ? '0' : '',
 		borderBottomRightRadius: areDirsVisible ? '0' : '',
 	};
-
 	const caretStyle = {
 		transform: areDirsVisible && 'rotate(180deg)',
 		transition: 'all 0.3s ease',
@@ -48,10 +49,10 @@ const ProjectsConfig = () => {
 
 				<input
 					type="text"
-					value={search}
+					value={''}
 					placeholder={t('Search by name')}
 					className={styles.searchbar_input}
-					onChange={(e) => onSearchChange(e.target.value)}
+					onChange={(e) => console.log(e)}
 				/>
 			</div>
 
@@ -104,20 +105,29 @@ const ProjectsConfig = () => {
 			<p className={styles.label}>{t('Application status')}:</p>
 
 			<div className={styles.radios}>
-				<div className={styles.radio_box} onClick={toggleProcessing}>
-					<Select isSelected={processing} />
+				<div
+					className={styles.radio_box}
+					onClick={() => setStatusFilter('ACCEPTED')}
+				>
+					<Select isSelected={statusFilter === 'ACCEPTED'} />
 
 					<p className={styles.radio_label}>{t('All')}</p>
 				</div>
 
-				<div className={styles.radio_box} onClick={toggleAccepted}>
-					<Select isSelected={accepted} />
+				<div
+					className={styles.radio_box}
+					onClick={() => setStatusFilter('IN_PROGRESS')}
+				>
+					<Select isSelected={statusFilter === 'IN_PROGRESS'} />
 
 					<p className={styles.radio_label}>{t('Offers gathering')}</p>
 				</div>
 
-				<div className={styles.radio_box} onClick={toggleDenied}>
-					<Select isSelected={denied} />
+				<div
+					className={styles.radio_box}
+					onClick={() => setStatusFilter('REJECTED')}
+				>
+					<Select isSelected={statusFilter === 'REJECTED'} />
 
 					<p className={styles.radio_label}>{t('Finished')}</p>
 				</div>

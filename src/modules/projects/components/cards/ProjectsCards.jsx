@@ -7,8 +7,6 @@ const ProjectsCards = ({ projects, areLoading, error }) => {
 		return <p className={styles.error_empty}>{error}</p>;
 	}
 
-	console.log(projects);
-
 	return (
 		<div className={styles.cards}>
 			{areLoading ? (

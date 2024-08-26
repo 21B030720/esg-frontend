@@ -7,12 +7,12 @@ const ProjectsContextProvider = ({ children }) => {
 	const {
 		projects,
 		page,
+		setPage,
 		perPage,
 		totalProjectsCount,
-		filters,
-		setPage,
+		statusFilter,
+		setStatusFilter,
 		fetchProjects,
-		onFilterChange,
 		areLoading,
 		error,
 	} = useProjects();
@@ -24,12 +24,12 @@ const ProjectsContextProvider = ({ children }) => {
 	const projectsCtxVal = {
 		projects,
 		page,
+		setPage,
 		perPage,
 		totalProjectsCount,
-		filters,
-		onFilterChange,
+		statusFilter,
+		setStatusFilter,
 		fetchProjects,
-		setPage,
 		areLoading,
 		error,
 	};

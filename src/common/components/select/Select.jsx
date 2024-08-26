@@ -1,10 +1,7 @@
 import styles from './select.module.css';
 
-const Select = ({
-	isSelected, onClick,
-}) => {
-
-	if(isSelected == null) {
+const Select = ({ isSelected }) => {
+	if (isSelected == null) {
 		return true;
 	}
 
@@ -13,9 +10,7 @@ const Select = ({
 		borderColor: isSelected ? 'var(--color-blue-dark)' : '',
 	};
 
-	return (
-		<div className={styles.select} style={dynamicStyle} />
-	);
+	return <div className={styles.select} style={dynamicStyle} />;
 };
 
 export default Select;
