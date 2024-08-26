@@ -5,7 +5,8 @@ import ProjectsService from '@services/ProjectsService';
 const useProjects = () => {
 	const [projects, setProjects] = useState([]);
 	const [page, setPage] = useState(1);
-	const [perPage, setPerPage] = useState(5);
+	const [perPage, setPerPage] = useState(1);
+	const [totalProjectsCount, setTotalProjectCount] = useState(null);
 	const [filters, setFilters] = useState({
 		name: null,
 		direction: null,
@@ -15,9 +16,24 @@ const useProjects = () => {
 	const [error, setError] = useState(null);
 	const [areLoading, setLoading] = useState(false);
 
-	const fetchProjects = async () => {
-		ProjectsService.getProjects()
-			.then((projects) => {
+	const onFilterChange = (pickedFilter, pickedFilterValue) => {
+		if (!(pickedFilter in filters)) return;
+
+		setFilters((p) => ({
+			...p,
+			pickedFilter: pickedFilterValue,
+		}));
+	};
+
+	const fetchProjects = async (page, perPage, filters) => {
+		ProjectsService.getProjects(page, perPage, filters)
+			.then((response) => {
+				const projects = response.content;
+				const totalItemsCount = response.totalElements;
+
+				console.log(projects);
+
+				setTotalProjectCount(totalItemsCount);
 				setProjects(projects || []);
 			})
 			.catch((err) => {
@@ -36,10 +52,21 @@ const useProjects = () => {
 		setError(null);
 		setLoading(true);
 
-		fetchProjects();
+		fetchProjects(page, perPage, filters);
 	}, []);
 
-	return { projects, page, perPage, areLoading, error };
+	return {
+		projects,
+		page,
+		perPage,
+		filters,
+		totalProjectsCount,
+		fetchProjects,
+		onFilterChange,
+		setPage,
+		areLoading,
+		error,
+	};
 };
 
 export default useProjects;

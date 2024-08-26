@@ -7,6 +7,8 @@ const ProjectsCards = ({ projects, areLoading, error }) => {
 		return <p className={styles.error_empty}>{error}</p>;
 	}
 
+	console.log(projects);
+
 	return (
 		<div className={styles.cards}>
 			{areLoading ? (
@@ -17,7 +19,7 @@ const ProjectsCards = ({ projects, areLoading, error }) => {
 					className={styles.loader}
 				/>
 			) : (
-				projects.map((card, i) => <ProjectsCard key={i} card={card} />)
+				projects.map((project, i) => <ProjectsCard key={i} project={project} />)
 			)}
 		</div>
 	);

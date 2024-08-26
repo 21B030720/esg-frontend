@@ -3,18 +3,18 @@ import { useTranslation } from 'react-i18next';
 import styles from './projects_card.module.css';
 import doExist from '@common/utils/doExist';
 
-const ProjectsCard = ({ card }) => {
+const ProjectsCard = ({ project }) => {
 	// Card in Projects List
 	const nav = useNavigate();
 	const { t } = useTranslation();
 
-	if (card == null) {
+	if (project == null) {
 		return;
 	}
 
-	const { id, name, description, directionID, applicationID } = card;
+	const { id, name, description, direction, application } = project;
 
-	if (!doExist(id, name, description, directionID, applicationID)) {
+	if (!doExist(id, name, description, direction, application)) {
 		return;
 	}
 
@@ -30,13 +30,13 @@ const ProjectsCard = ({ card }) => {
 				<div className={styles.info_box}>
 					<p className={styles.info_label}>{t('Customer')}</p>
 
-					<p className={styles.info_main}>{applicationID}</p>
+					<p className={styles.info_main}>{application}</p>
 				</div>
 
 				<div className={styles.info_box}>
 					<p className={styles.info_label}>{t('Task direction')}</p>
 
-					<p className={styles.info_main}>{directionID}</p>
+					<p className={styles.info_main}>{direction}</p>
 				</div>
 			</div>
 		</div>

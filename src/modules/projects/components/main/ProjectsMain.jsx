@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import ReactPaginate from 'react-paginate';
 import ProjectsContext from '@modules/projects/contexts/ProjectsContext';
 import ProjectsCards from '../cards/ProjectsCards';
@@ -7,27 +7,31 @@ import styles from './projects_main.module.css';
 import mergeStrings from '@common/utils/mergeStrings';
 
 const ProjectsMain = () => {
-	const { projects, page, perPage, areLoading, error } =
-		useContext(ProjectsContext);
+	const {
+		projects,
+		totalProjectsCount,
+		filters,
+		perPage,
+		setPage,
+		fetchProjects,
+		areLoading,
+		error,
+	} = useContext(ProjectsContext);
 
-	const [itemOffset, setItemOffset] = useState(0);
+	const pageCount = Math.ceil(totalProjectsCount / perPage);
 
-	const endOffset = itemOffset + perPage;
-	const currentItems = projects.slice(itemOffset, endOffset);
-
-	const pageCount = Math.ceil(projects.length / perPage);
-
-	// Invoke when user click to request another page.
 	const handlePageClick = (event) => {
-		const newOffset = (event.selected * perPage) % projects.length;
-		setItemOffset(newOffset);
+		const selectedPage = event.selected + 1;
+
+		setPage(selectedPage);
+		fetchProjects(selectedPage, perPage, filters);
 	};
 
 	return (
 		<div className={styles.container}>
 			<div className={styles.subcontainer}>
 				<ProjectsCards
-					projects={currentItems}
+					projects={projects}
 					areLoading={areLoading}
 					error={error}
 				/>
@@ -54,7 +58,7 @@ const ProjectsMain = () => {
 				/>
 			</div>
 
-			<ProjectsConfig />
+			{/* <ProjectsConfig /> */}
 		</div>
 	);
 };

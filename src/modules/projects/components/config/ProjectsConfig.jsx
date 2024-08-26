@@ -1,8 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import Select from '@common/components/select/Select';
 import Clickaway from '@common/components/clickaway/Clickaway';
-import useStatusFilters from '@modules/projects/hooks/useStatusFilters';
-import useSearchbar from '@modules/projects/hooks/useSearchbar';
 import useToggle from '@common/hooks/useToggle';
 import useDirections from '@common/hooks/useDirections';
 import magnifierIcon from '@assets/icons/magnifier.svg';
@@ -13,17 +11,6 @@ const ProjectsConfig = () => {
 	const { directions, isLoading: areDirsLoading } = useDirections();
 
 	const { t } = useTranslation();
-
-	const {
-		processing,
-		toggleProcessing,
-		accepted,
-		toggleAccepted,
-		denied,
-		toggleDenied,
-	} = useStatusFilters();
-
-	const { search, onSearchChange } = useSearchbar();
 
 	const { value: areDirsVisible, setValue: setDirsVisible } = useToggle(false);
 
