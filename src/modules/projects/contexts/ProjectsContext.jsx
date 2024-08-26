@@ -4,13 +4,13 @@ import useProjects from '../hooks/useProjects';
 const ProjectsContext = createContext({});
 
 const ProjectsContextProvider = ({ children }) => {
-	const { projects, areLoading, error } = useProjects();
+	const { projects, page, perPage, areLoading, error } = useProjects();
 
 	if (children == null) {
 		return;
 	}
 
-	const projectsCtxVal = { projects, areLoading, error };
+	const projectsCtxVal = { projects, page, perPage, areLoading, error };
 
 	return (
 		<ProjectsContext.Provider value={projectsCtxVal}>

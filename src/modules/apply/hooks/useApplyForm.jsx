@@ -1,7 +1,10 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ApplicationService from '@services/ApplicationService';
 
 const useApplyForm = () => {
+	const nav = useNavigate();
+
 	const applyFormTemplate = {
 		name: '',
 		description: '',
@@ -40,7 +43,7 @@ const useApplyForm = () => {
 				setFiles([]);
 				setUserLoadedFilesPreview([]);
 
-				alert('Заявка успешна подана!');
+				nav('/profile');
 			})
 			.catch((err) => console.error(err));
 	};

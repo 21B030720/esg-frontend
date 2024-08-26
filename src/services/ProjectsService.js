@@ -7,6 +7,7 @@ export default class ProjectsService {
 			$axiosPrivate
 				.get('/projects')
 				.then((response) => {
+					console.log(response);
 					resolve(response?.data);
 				})
 				.catch((err) => reject(err));
@@ -32,7 +33,7 @@ export default class ProjectsService {
 					$axiosPrivate
 						.post('/projects', formData)
 						.then((response) => resolve(response))
-						.catch((err) => reject(err));
+						.catch((error) => reject(error));
 				})
 				.catch((err) => reject(err));
 		});

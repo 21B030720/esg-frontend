@@ -24,6 +24,10 @@ const Application = () => {
 		return <p>{gettingAppError}</p>;
 	}
 
+	const handlePostProject = () => {
+		postProject(() => nav('/projects'));
+	};
+
 	return (
 		<div className="">
 			<Header />
@@ -54,7 +58,7 @@ const Application = () => {
 
 							<button
 								className={mergeStrings(styles.btn, styles.btn_post)}
-								onClick={postProject}
+								onClick={handlePostProject}
 							>
 								Опубликовать
 							</button>

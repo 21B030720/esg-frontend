@@ -15,14 +15,10 @@ const useApplication = (applicationId) => {
 			.catch((error) => setGettingAppError(error));
 	};
 
-	const postProject = async () => {
+	const postProject = async (onSuccess) => {
 		if (application == null) return;
 
 		const { id, name, description, direction, projectFile } = application;
-
-		// // TODO: handle multiple projectFile
-		// const fileId = projectFile[0]['id'];
-		// const fileName = projectFile[0]['originalFileName'];
 
 		if (!doExist(id, name, description, direction)) {
 			setPostingProjectError('Некоторая информация о заявке отсутствует');
@@ -37,8 +33,8 @@ const useApplication = (applicationId) => {
 		};
 
 		await ProjectsService.postProject(form, projectFile)
-			.then(() => {
-				alert('Project has been created! Проект был создан!');
+			.then((response) => {
+				if (onSuccess === 'function') onSuccess(response);
 			})
 			.catch((err) => {
 				console.error(err);

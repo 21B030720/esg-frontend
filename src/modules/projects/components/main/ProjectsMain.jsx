@@ -7,18 +7,19 @@ import styles from './projects_main.module.css';
 import mergeStrings from '@common/utils/mergeStrings';
 
 const ProjectsMain = () => {
-	const { projects, areLoading, error } = useContext(ProjectsContext);
+	const { projects, page, perPage, areLoading, error } =
+		useContext(ProjectsContext);
 
 	const [itemOffset, setItemOffset] = useState(0);
-	const itemsPerPage = 5;
 
-	const endOffset = itemOffset + itemsPerPage;
+	const endOffset = itemOffset + perPage;
 	const currentItems = projects.slice(itemOffset, endOffset);
-	const pageCount = Math.ceil(projects.length / itemsPerPage);
+
+	const pageCount = Math.ceil(projects.length / perPage);
 
 	// Invoke when user click to request another page.
 	const handlePageClick = (event) => {
-		const newOffset = (event.selected * itemsPerPage) % projects.length;
+		const newOffset = (event.selected * perPage) % projects.length;
 		setItemOffset(newOffset);
 	};
 
@@ -35,7 +36,7 @@ const ProjectsMain = () => {
 					breakLabel="..."
 					previousLabel="<"
 					nextLabel=">"
-					pageRangeDisplayed={5}
+					pageRangeDisplayed={perPage}
 					pageCount={pageCount}
 					renderOnZeroPageCount={null}
 					containerClassName={styles.pagination_container}
