@@ -1,5 +1,5 @@
-const doExist = (...args) => {
+const isExist = (...args) => {
 	return args.every((a) => a != null);
 };
 
-export default doExist;
+export default isExist;
