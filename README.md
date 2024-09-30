@@ -8,6 +8,3 @@
 2. Install Node.js with npm if not installed.
 3. Run `npm install` in root folder of the project in order to install dependencies.
 4. Run `npm run dev` in root folder of the project in order to run the project locally.
-
-## Reference
-[Architecture reference.](https://alexkondov.com/tao-of-react/)
