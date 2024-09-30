@@ -1,4 +1,3 @@
-import CustomError from '@common/utils/customError';
 import { $axiosPrivate } from '@http/axios';
 
 export default class ApplicationService {
@@ -6,9 +5,7 @@ export default class ApplicationService {
 		return new Promise((resolve, reject) => {
 			$axiosPrivate
 				.get('/applications/my')
-				.then((response) => {
-					resolve(response?.data);
-				})
+				.then((response) => resolve(response?.data))
 				.catch((error) => reject(error));
 		});
 	}

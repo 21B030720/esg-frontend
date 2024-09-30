@@ -7,8 +7,6 @@ export default class UserService {
 				.put('/user/update', formData)
 				.then((response) => resolve(response))
 				.catch((err) => reject(err));
-
-			resolve(true);
 		});
 	}
 }
