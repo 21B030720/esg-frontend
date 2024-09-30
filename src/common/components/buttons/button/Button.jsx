@@ -1,12 +1,14 @@
-import doExist from "@common/utils/doExist";
+import isExist from '@common/utils/isExist';
 
 const Button = ({
-	text, className = "",
-	color = "", backgroundColor = "",
-	onClick, type
+	text,
+	className = '',
+	color = '',
+	backgroundColor = '',
+	onClick,
+	type,
 }) => {
-
-	if(!doExist(text, onClick) || text.length === 0) {
+	if (!isExist(text, onClick) || text.length === 0) {
 		return;
 	}
 
@@ -16,9 +18,9 @@ const Button = ({
 	};
 
 	return (
-		<button 
+		<button
 			type={type}
-			className={className} 
+			className={className}
 			style={configStyles}
 			onClick={onClick}
 		>
