@@ -25,6 +25,9 @@ export default class AuthService {
 					},
 				})
 				.then((response) => {
+					console.log(formData);
+					console.log(response);
+
 					const accessToken = response?.data?.access_token;
 					const refreshToken = response?.data?.refresh_token;
 

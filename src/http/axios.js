@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { BACKEND_ADDRESS } from '@common/baseUrls';
+
+const BACKEND_ADDRESS = import.meta.env?.VITE_BACKEND_ADDRESS;
 
 const $axios = axios.create({
 	baseURL: BACKEND_ADDRESS,
@@ -27,7 +28,7 @@ $axiosPrivate.interceptors.response.use(
 		const errorStatus = error?.response?.status;
 
 		if (errorStatus !== 403) {
-			return Promise.reject(error?.toJSON());
+			return Promise.reject(error);
 		}
 
 		const req = error.request;

@@ -10,24 +10,13 @@ const useDirections = () => {
 			setLoading(true);
 
 			DirectionsService.getDirections()
-				.then((directions) => {
-					setDirections(directions);
-				})
+				.then((directions) => setDirections(directions))
 				.catch((err) => {
 					setDirections([]);
+
 					console.error(err);
-				});
-
-			// const { data, success, error } = await getDirections();
-
-			// if(success) {
-			// 	setDirections(data);
-			// } else {
-			// 	setDirections([]);
-			// 	console.error(error);
-			// }
-
-			setLoading(false);
+				})
+				.finally(() => setLoading(false));
 		};
 
 		fetchData();
