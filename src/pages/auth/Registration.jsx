@@ -132,7 +132,7 @@ const Registration = () => {
 					</button>
 
 					<button className="btn-submit" onClick={() => onRole('MANAGER')}>
-						Мэнеджер (ВРЕМЕННО)
+						Менеджер
 					</button>
 				</div>
 			</div>
