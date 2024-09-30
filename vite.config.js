@@ -20,7 +20,7 @@ export default defineConfig({
 			'@localization': path.resolve(__dirname, './src/localization'),
 			'@modules': path.resolve(__dirname, './src/modules'),
 			'@pages': path.resolve(__dirname, './src/pages'),
-			'@routes': path.resolve(__dirname, './src/routes'),
+			'@router': path.resolve(__dirname, './src/routes'),
 			'@services': path.resolve(__dirname, './src/services'),
 		},
 	},

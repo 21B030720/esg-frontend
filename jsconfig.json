@@ -8,7 +8,7 @@
 			"@localization/*": ["./src/localization/*"],
 			"@modules/*": ["./src/modules/*"],
 			"@pages/*": ["./src/pages/*"],
-			"@routes/*": ["./src/routes/*"],
+			"@router/*": ["src/router/*"],
 			"@services/*": ["./src/services/*"]
 		}
 	},
