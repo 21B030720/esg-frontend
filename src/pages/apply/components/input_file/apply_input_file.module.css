@@ -1,0 +1,79 @@
+.box {
+	max-width: max-content;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.label_box {
+	display: flex;
+	align-items: center;
+	gap: 0.625rem;
+}
+
+.label {
+	opacity: 0.7;
+}
+
+.file_box {
+	position: relative;
+	padding: 0.625rem 1.25rem;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	background-color: #ecedee;
+	border-radius: 0.5rem;
+	cursor: pointer;
+}
+
+.clip_icon {
+	max-width: 1.25rem;
+	max-height: 1.5625rem;
+}
+
+.name {
+	opacity: 0.9;
+}
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.error {
+	color: #ff0033;
+}
+
+.file_input {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.files {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	overflow-x: auto;
+}
+
+.file_preview_box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.2rem;
+}
+
+.file_name {
+	max-width: 40ch;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: bottom;
+}

@@ -1,0 +1,47 @@
+.container {
+	position: relative;
+}
+
+.label_box {
+	display: flex;
+	align-items: center;
+	gap: 0.625rem;
+}
+
+.label {
+	opacity: 0.7;
+}
+
+.select_box {
+	width: 100%;
+	margin-block-start: 0.5rem;
+	padding: 0.8rem;
+	font-family: inherit;
+	border: 1px solid #EFEFEF;
+	border-radius: 0.4rem;
+	cursor: pointer;
+}
+
+.select_ph_box {
+	display: flex;
+	justify-content: space-between;
+}
+
+.dirs_wrappable {
+	position: absolute;
+	top: 4.3.9rem;
+	left: 0;
+	z-index: 1;
+
+	width: 100%;
+	padding: 1rem;
+
+	display: grid;
+	gap: 0.8rem;
+	border: 1px solid #EFEFEF;
+	border-top: none;
+	border-top-right-radius: 0rem;
+	border-top-left-radius: 0rem;
+	background-color: var(--color-white);
+	border-radius: 0.7rem;
+}

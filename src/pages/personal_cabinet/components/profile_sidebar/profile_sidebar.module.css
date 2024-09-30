@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+.profileSidebar {
+	width: 350px;
+	background-color: #F5F5F5;
+	padding: 30px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	margin: 50px auto;
+	margin-bottom: 80px;
+	border-radius: 3%;
+}
+
+.profilePhoto{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cont{
+	align-items: flex-start;
+	font-family: 'Rubik';
+}
+
+.profilePicture {
+	width: 180px;
+	height: 180px;
+	margin-bottom: 20px;
+}
+  
+.text {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+
+.name {
+	display: flex;
+	gap: 0.4rem;
+}
+
+.textlabel {
+	color: #00357D;
+	font-weight: bold;
+}
+
+.label {
+	margin-bottom: 5px;
+}

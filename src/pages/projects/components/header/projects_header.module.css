@@ -1,0 +1,13 @@
+.header {
+	margin-block-end: 1.875rem;
+}
+
+.heading_primary {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.heading_secondary {
+	margin-block-start: 0.625rem;
+	font-size: 0.875rem; 
+}

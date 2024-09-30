@@ -1,0 +1,14 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.875rem;
+}
+
+.button {
+	width: max-content;
+	padding: 0.5625rem 1.25rem;
+	align-self: flex-end;
+	font-size: 1rem;
+	font-weight: normal;
+	border-radius: 0.4rem;
+}

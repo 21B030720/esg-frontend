@@ -1,0 +1,109 @@
+.searchbar {
+	min-height: 2.75rem;
+	margin-block-end: 0.9375rem;
+	padding: 0.75rem 0.9375rem;
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	background-color: var(--color-gray-light);
+	border-radius: 0.7rem;
+}
+
+img {
+	max-height: var(--max-size);
+}
+
+.magnifier_icon {
+	--max-size: 1.5rem;
+}
+
+.searchbar_input {
+	font-family: inherit;
+	font-size: 1rem;
+	background-color: inherit;
+	border: none;
+	outline: none;
+}
+
+.searchbar_input::placeholder {
+	font-family: inherit;
+	font-size: 1rem;
+	color: #c1c1c1;
+}
+
+.label {
+	margin-block-end: 0.5rem;
+	color: #777777;
+}
+
+.dirs {
+	position: relative;
+}
+
+.dirs_select {
+	min-height: 2.75rem;
+	margin-block-end: 0.9375rem;
+	padding: 0.625rem 0.9375rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--color-gray-light);
+	border-radius: 0.7rem;
+	cursor: pointer;
+}
+
+.dirs_placeholder {
+	color: #c1c1c1;
+	cursor: pointer;
+}
+
+.caret_down {
+	--max-size: 0.5rem;
+}
+
+.dirs_wrappable {
+	position: absolute;
+	top: 2.3rem;
+	z-index: 1;
+
+	width: 100%;
+	padding: 1rem;
+
+	display: grid;
+	gap: 0.8rem;
+	background-color: var(--color-gray-light);
+	border-radius: 0.7rem;
+}
+
+.radios {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.radio_box {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	cursor: pointer;
+}
+
+.button {
+	width: 100%;
+	min-height: 2.75rem;
+
+	margin-block-start: 0.9375rem;
+	padding: 0.625rem 0;
+
+	font-size: 1rem;
+	color: var(--color-blue-dark);
+	background-color: var(--color-gray-light);
+	border: 1px solid var(--color-blue-dark);
+	border-radius: 0.7rem;
+	transition: all 0.3s ease;
+}
+
+.button:hover {
+	color: var(--color-gray-light);
+	background-color: var(--color-blue-dark);
+}

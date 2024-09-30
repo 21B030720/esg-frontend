@@ -1,0 +1,15 @@
+.row {
+	display: flex;
+	align-items: center;
+	gap: 1.5625rem;
+}
+
+.icon {
+	--max-icon-size: 1.25rem;
+	max-width: var(--max-icon-size);
+	max-height: var(--max-icon-size);
+}
+
+.name {
+	font-weight: 600;
+}
