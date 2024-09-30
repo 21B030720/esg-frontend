@@ -69,16 +69,8 @@ const Header = () => {
 
 						<div className={styles.incon2}>
 							{headerLinks.map((l) => {
-								{
-									/* const isActive = currentUrl === l.url; */
-								}
-
 								return (
-									<HashLink
-										key={l.id}
-										to={l.url}
-										// className={isActive ? styles.active_link : ''}
-									>
+									<HashLink key={l.id} to={l.url}>
 										{t(l.name)}
 									</HashLink>
 								);
@@ -98,6 +90,7 @@ const Header = () => {
 				{!menuOpen && (
 					<div className={styles.right_side_elements}>
 						<LocalizationButton />
+
 						<Link to={isAuthenticated ? '/profile' : '/register'}>
 							<button>
 								<FontAwesomeIcon icon={faUser} size="2x" />
