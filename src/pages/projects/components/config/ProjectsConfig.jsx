@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import Select from '@common/components/select/Select';
 import Clickaway from '@common/components/clickaway/Clickaway';
-import ProjectsContext from '@modules/projects/contexts/ProjectsContext';
+import ProjectsContext from '@pages/projects/contexts/ProjectsContext';
 import useToggle from '@common/hooks/useToggle';
 import useDirections from '@common/hooks/useDirections';
 import magnifierIcon from '@assets/icons/magnifier.svg';

@@ -1,9 +1,9 @@
+import Status from '../status/Status';
+import getDateFromServerString from '@pages/personal_cabinet/utils/getDateFromServerString';
 import dateIcon from '@assets/icons/calendar.png';
 import titleIcon from '@assets/icons/title.png';
 import statusIcon from '@assets/icons/status.png';
 import styles from './my_applications.module.css';
-import Status from '../status/Status';
-import getDateFromServerString from '@modules/personal_cabinet/utils/getDateFromServerString';
 
 const MyApplications = ({ applications }) => {
 	if (applications == null) {

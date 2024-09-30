@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import doExist from '@common/utils/doExist';
 import styles from './status.module.css';
+import isExist from '@common/utils/isExist';
 import mergeStrings from '@common/utils/mergeStrings';
 
 // ACCEPTED, IN_PROGRESS, REJECTED
@@ -8,7 +8,7 @@ const Status = ({ statusStringFromServer }) => {
 	const { t } = useTranslation();
 
 	if (
-		!doExist(statusStringFromServer) ||
+		!isExist(statusStringFromServer) ||
 		typeof statusStringFromServer !== 'string' ||
 		statusStringFromServer.length === 0
 	) {

@@ -1,24 +1,27 @@
-import doExist from '@common/utils/doExist';
+import isExist from '@common/utils/isExist';
 import styles from './contacts_input.module.css';
 
 const ContactsInput = ({
-	labelName, inputType = 'text', name = '',
-	placeholder = '', value, onChange,
+	labelName,
+	inputType = 'text',
+	name = '',
+	placeholder = '',
+	value,
+	onChange,
 	errorMessage = '',
 }) => {
-
-	if(!doExist(labelName, value, onChange, name)) {
+	if (!isExist(labelName, value, onChange, name)) {
 		return;
 	}
-	
+
 	const inputDynamicStyles = {
-		color: value.length ? "var(--color-black)" : "var(--color-gray-dark)"
+		color: value.length ? 'var(--color-black)' : 'var(--color-gray-dark)',
 	};
 
 	return (
 		<div className={styles.container}>
 			<div className={styles.upper_box}>
-				<label 
+				<label
 					htmlFor={labelName}
 					className={styles.label}
 					style={inputDynamicStyles}
@@ -26,12 +29,9 @@ const ContactsInput = ({
 					{labelName}
 				</label>
 
-				{
-					errorMessage && errorMessage.length > 0 &&
-					<p className={styles.error}>
-						{errorMessage}
-					</p>
-				}
+				{errorMessage && errorMessage.length > 0 && (
+					<p className={styles.error}>{errorMessage}</p>
+				)}
 			</div>
 
 			<input

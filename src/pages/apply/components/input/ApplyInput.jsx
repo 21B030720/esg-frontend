@@ -1,14 +1,16 @@
 import RequirementStar from '@common/components/requirement_star/RequirementStar';
+import isExist from '@common/utils/isExist';
 import styles from './apply_input.module.css';
-import doExist from '@common/utils/doExist';
 
 const ApplyInput = ({
-	label, name, isRequired = false, 
+	label,
+	name,
+	isRequired = false,
 	isMultiLine = false,
-	value, onChange
+	value,
+	onChange,
 }) => {
-
-	if(!doExist(value, onChange, name, label)) {
+	if (!isExist(value, onChange, name, label)) {
 		return;
 	}
 
@@ -17,19 +19,14 @@ const ApplyInput = ({
 	return (
 		<div className={styles.box}>
 			<div className={styles.label_box}>
-				<label 
-					htmlFor={inputId}
-					className={styles.label}
-				>
+				<label htmlFor={inputId} className={styles.label}>
 					{label}
 				</label>
 
 				{isRequired && <RequirementStar />}
 			</div>
 
-			{
-				isMultiLine 
-				?
+			{isMultiLine ? (
 				<textarea
 					id={inputId}
 					name={name}
@@ -37,19 +34,19 @@ const ApplyInput = ({
 					className={styles.input}
 					value={value}
 					required={isRequired}
-					onChange={onChange} 
+					onChange={onChange}
 				/>
-				:
-				<input 
+			) : (
+				<input
 					id={inputId}
 					name={name}
-					type='text'
+					type="text"
 					className={styles.input}
 					value={value}
 					required={isRequired}
-					onChange={onChange} 
+					onChange={onChange}
 				/>
-			}
+			)}
 		</div>
 	);
 };

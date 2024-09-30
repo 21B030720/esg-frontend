@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ApplicationService from '@services/ApplicationService';
 import ProjectsService from '@services/ProjectsService';
-import doExist from '@common/utils/doExist';
 import FileService from '@services/FileService';
+import isExist from '@common/utils/isExist';
 
 const useApplication = (applicationId) => {
 	const nav = useNavigate();
@@ -24,7 +24,7 @@ const useApplication = (applicationId) => {
 
 		const { id, name, description, direction, projectFile } = application;
 
-		if (!doExist(id, name, description, direction)) {
+		if (!isExist(id, name, description, direction)) {
 			setPostingProjectError('Некоторая информация о заявке отсутствует');
 			return;
 		}

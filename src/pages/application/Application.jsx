@@ -2,12 +2,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { ClipLoader } from 'react-spinners';
 import Header from '@modules/header/Header';
 import Footer from '@modules/footer/Footer';
-import Container from '@common/components/container/Container';
 import BackLink from '@common/components/back_link/BackLink';
 import Card from './components/card/Card';
 import useApplication from './hooks/useApplication';
-import styles from './application.module.css';
 import mergeStrings from '@common/utils/mergeStrings';
+import styles from './application.module.css';
 
 const Application = () => {
 	const nav = useNavigate();
@@ -31,7 +30,7 @@ const Application = () => {
 		<div className="">
 			<Header />
 
-			<Container type="section" maxWidth="80rem" className={styles.module}>
+			<section className={styles.module}>
 				<div className={styles.backlink_wrapper}>
 					<BackLink onClick={() => nav(-1)} />
 				</div>
@@ -64,7 +63,7 @@ const Application = () => {
 						</div>
 					</div>
 				)}
-			</Container>
+			</section>
 
 			<Footer />
 		</div>

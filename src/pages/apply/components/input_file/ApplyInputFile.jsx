@@ -1,8 +1,9 @@
 import { FaFilePdf } from 'react-icons/fa';
 import RequirementStar from '@common/components/requirement_star/RequirementStar';
-import doExist from '@common/utils/doExist';
+
 import clipIcon from '@assets/icons/clip.svg';
 import removeLastChars from '@common/utils/removeLastChars';
+import isExist from '@common/utils/isExist';
 import styles from './apply_input_file.module.css';
 
 const ApplyInputFile = ({
@@ -17,7 +18,7 @@ const ApplyInputFile = ({
 	onChange,
 }) => {
 	if (
-		!doExist(label, onChange, userLoadedFilesPreview, setUserLoadedFilesPreview)
+		!isExist(label, onChange, userLoadedFilesPreview, setUserLoadedFilesPreview)
 	) {
 		return;
 	}

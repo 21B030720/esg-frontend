@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import Status from '../status/Status';
-import getDateFromServerString from '@modules/personal_cabinet/utils/getDateFromServerString';
+import getDateFromServerString from '@pages/personal_cabinet/utils/getDateFromServerString';
 import styles from './application.module.css';
 
 const Applications = ({ applications }) => {

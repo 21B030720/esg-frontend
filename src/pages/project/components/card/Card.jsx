@@ -1,17 +1,17 @@
 import { useTranslation } from 'react-i18next';
 import CardField from '../card_field/CardField';
+import isExist from '@common/utils/isExist';
 import downloadIcon from '@assets/icons/download.svg';
 import styles from './card.module.css';
-import doExist from '@common/utils/doExist';
 
 const Card = ({ project }) => {
 	const { t } = useTranslation();
 
-	if (!doExist(project)) return;
+	if (!isExist(project)) return;
 
 	const { name, description, file, application } = project;
 
-	if (!doExist(name, description, file, application)) return;
+	if (!isExist(name, description, file, application)) return;
 
 	const {
 		// name: appName,

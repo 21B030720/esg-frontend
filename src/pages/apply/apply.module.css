@@ -1,9 +1,9 @@
 .form {
+	max-width: 50rem;
 	margin: 0 auto;
 	margin-block: 4.625rem;
 	padding: 1.5rem;
-
-	border: 1px solid #CECECE;
+	border: 1px solid #cecece;
 	border-radius: 0.5rem;
 }
 

@@ -1,5 +1,5 @@
 import ButtonBlueRound from '@common/components/buttons/button_blue_round/ButtonBlueRound';
-import useContactForm from '@modules/contacts/hooks/useContactForm';
+import useContactForm from '@pages/contacts/hooks/useContactForm';
 import ContactsInput from '../input/ContactsInput';
 import styles from './contacts_form.module.css';
 

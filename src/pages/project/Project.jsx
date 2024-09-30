@@ -1,10 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { ClipLoader } from 'react-spinners';
-import Container from '@common/components/container/Container';
-import Card from './components/card/Card';
 import Header from '@modules/header/Header';
 import Footer from '@modules/footer/Footer';
 import BackLink from '@common/components/back_link/BackLink';
+import Card from './components/card/Card';
 import useProject from './hooks/useProject';
 import styles from './project.module.css';
 
@@ -14,11 +13,11 @@ const Project = () => {
 
 	if (error != null) {
 		return (
-			<Container type="section" maxWidth="80rem" className={styles.module}>
+			<section type="section" className={styles.module}>
 				<BackLink />
 
-				<p>error</p>
-			</Container>
+				<p>{error}</p>
+			</section>
 		);
 	}
 
@@ -26,7 +25,7 @@ const Project = () => {
 		<div>
 			<Header />
 
-			<Container type="section" maxWidth="80rem" className={styles.module}>
+			<section type="section" className={styles.module}>
 				<BackLink onClick={() => nav(-1)} />
 
 				{isLoading ? (
@@ -42,7 +41,7 @@ const Project = () => {
 						{/* <button className={styles.button}>Подать свое решение</button> */}
 					</div>
 				)}
-			</Container>
+			</section>
 
 			<Footer />
 		</div>

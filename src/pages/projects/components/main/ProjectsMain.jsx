@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import ReactPaginate from 'react-paginate';
-import ProjectsContext from '@modules/projects/contexts/ProjectsContext';
+import ProjectsContext from '@pages/projects/contexts/ProjectsContext';
 import ProjectsCards from '../cards/ProjectsCards';
 import ProjectsConfig from '../config/ProjectsConfig';
-import styles from './projects_main.module.css';
 import mergeStrings from '@common/utils/mergeStrings';
+import styles from './projects_main.module.css';
 
 const ProjectsMain = () => {
 	const {

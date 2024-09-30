@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import isExist from '@common/utils/isExist';
 import styles from './projects_card.module.css';
-import doExist from '@common/utils/doExist';
 
 const ProjectsCard = ({ project }) => {
 	// Card in Projects List
@@ -14,7 +14,7 @@ const ProjectsCard = ({ project }) => {
 
 	const { id, name, description, direction, application } = project;
 
-	if (!doExist(id, name, description, direction, application)) {
+	if (!isExist(id, name, description, direction, application)) {
 		return;
 	}
 

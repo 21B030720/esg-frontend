@@ -1,5 +1,6 @@
 .section {
-  margin: 0 auto;
+	max-width: 110rem;
+	margin: 0 auto;
 	padding-block: 6.5625rem;
 }
 
@@ -11,56 +12,64 @@
 }
 
 @keyframes slide {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-100%);
+	}
 }
 
 .logos {
 	position: relative;
-  overflow: hidden;
-  white-space: nowrap;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 .logos:before,
 .logos:after {
 	content: '';
-  position: absolute;
+	position: absolute;
 	z-index: 2;
-  top: 0;
-  width: 10rem;
-  height: 100%;
+	top: 0;
+	width: 10rem;
+	height: 100%;
 }
 
 .logos:before {
-  left: 0;
-  background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--color-white));
+	left: 0;
+	background: linear-gradient(
+		to left,
+		rgba(255, 255, 255, 0),
+		var(--color-white)
+	);
 }
 
 .logos:after {
-  right: 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--color-white));
+	right: 0;
+	background: linear-gradient(
+		to right,
+		rgba(255, 255, 255, 0),
+		var(--color-white)
+	);
 }
 
 .logos:hover .logos_slide {
-  animation-play-state: paused;
+	animation-play-state: paused;
 }
 
 .logos_slide {
 	--animation-frequency: 25s;
 
-  display: inline-block;
-  animation: slide var(--animation-frequency) infinite linear;
+	display: inline-block;
+	animation: slide var(--animation-frequency) infinite linear;
 }
 
 .logos_slide img {
 	--space-between-logos: 2rem;
 
 	display: inline-block;
-  margin-inline: var(--space-between-logos);
+	margin-inline: var(--space-between-logos);
 }
 
 @media (max-width: 1024px) {
