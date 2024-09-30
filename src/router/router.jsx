@@ -1,7 +1,8 @@
+import { createBrowserRouter } from 'react-router-dom';
 import Application from '@pages/application/Application';
 import Apply from '@pages/apply/Apply';
-import Login from '@pages/authorization/Login';
-import Registration from '@pages/authorization/Registration';
+import Login from '@pages/auth/Login';
+import Registration from '@pages/auth/Registration';
 import Contacts from '@pages/contacts/Contacts';
 import Directions from '@pages/directions/Directions';
 import Home from '@pages/home/Home';
@@ -12,7 +13,6 @@ import Project from '@pages/project/Project';
 import Projects from '@pages/projects/Projects';
 import ErrorBoundary from '@modules/error_boundary/ErrorBoundary';
 import ProtectedRoute from '@common/components/protected_route/ProtectedRoute';
-import { createBrowserRouter } from 'react-router-dom';
 
 const routes = [
 	{
