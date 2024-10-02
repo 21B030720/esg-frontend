@@ -3,12 +3,12 @@ import axios from 'axios';
 const BACKEND_ADDRESS = import.meta.env?.VITE_BACKEND_ADDRESS;
 
 const $axios = axios.create({
-	baseURL: BACKEND_ADDRESS,
+	baseURL: 'http://localhost:8090',
 	withCredentials: true,
 });
 
 const $axiosPrivate = axios.create({
-	baseURL: BACKEND_ADDRESS,
+	baseURL: 'http://localhost:8090',
 	withCredentials: true,
 });
 

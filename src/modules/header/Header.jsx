@@ -79,7 +79,7 @@ const Header = () => {
 
 						{menuOpen && (
 							<div className={styles.menu_profile_link}>
-								<Link to={isAuthenticated ? '/profile' : '/register'}>
+								<Link to={isAuthenticated ? '/profile' : '/login'}>
 									<button>Личный кабинет</button>
 								</Link>
 							</div>
@@ -91,7 +91,7 @@ const Header = () => {
 					<div className={styles.right_side_elements}>
 						<LocalizationButton />
 
-						<Link to={isAuthenticated ? '/profile' : '/register'}>
+						<Link to={isAuthenticated ? '/profile' : '/login'}>
 							<button>
 								<FontAwesomeIcon icon={faUser} size="2x" />
 							</button>
