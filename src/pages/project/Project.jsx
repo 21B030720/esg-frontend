@@ -6,20 +6,25 @@ import BackLink from '@common/components/back_link/BackLink';
 import Card from './components/card/Card';
 import useProject from './hooks/useProject';
 import styles from './project.module.css';
+import { useContext } from 'react';
+import AuthContext from '@common/contexts/AuthContext';
+import project from './utils/mockProject';
 
 const Project = () => {
 	const nav = useNavigate();
-	const { project, isLoading, error } = useProject();
+	// const { project, isLoading, error } = useProject();
+	const { selectedProject } = useContext(AuthContext);
+	console.log(selectedProject);
 
-	if (error != null) {
-		return (
-			<section type="section" className={styles.module}>
-				<BackLink />
+	// if (error != null) {
+	// 	return (
+	// 		<section type="section" className={styles.module}>
+	// 			<BackLink />
 
-				<p>{error}</p>
-			</section>
-		);
-	}
+	// 			<p>{error}</p>
+	// 		</section>
+	// 	);
+	// }
 
 	return (
 		<div>
@@ -27,8 +32,13 @@ const Project = () => {
 
 			<section type="section" className={styles.module}>
 				<BackLink onClick={() => nav(-1)} />
+				<div className={styles.main}>
+					<Card project={selectedProject} />
 
-				{isLoading ? (
+					{/* <button className={styles.button}>Подать свое решение</button> */}
+				</div>
+
+				{/* {isLoading ? (
 					<ClipLoader
 						size="1.5rem"
 						color="var(--color-blue-dark)"
@@ -36,11 +46,10 @@ const Project = () => {
 					/>
 				) : (
 					<div className={styles.main}>
-						<Card project={project} />
+						<Card project={selectedProject} />
 
-						{/* <button className={styles.button}>Подать свое решение</button> */}
 					</div>
-				)}
+				)} */}
 			</section>
 
 			<Footer />

@@ -1,4 +1,4 @@
-import { createContext, useEffect } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import useAuth from '@common/hooks/useAuth';
 
 const AuthContext = createContext({});
@@ -14,6 +14,8 @@ const AuthProvider = ({ children }) => {
 		logout,
 	} = useAuth();
 
+	const [selectedProject, setSelectedProject] = useState(null);
+
 	const ctxValue = {
 		user,
 		isAuthenticated,
@@ -21,6 +23,8 @@ const AuthProvider = ({ children }) => {
 		register,
 		login,
 		logout,
+		selectedProject,
+		setSelectedProject
 	};
 
 	useEffect(() => {

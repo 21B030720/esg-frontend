@@ -27,6 +27,17 @@ export default class ProjectsService {
 		});
 	}
 
+	static async getProject(id) {
+		return new Promise((resolve, reject) => {
+			$axiosPrivate
+				.get(`/projects/${id}`)
+				.then((response) => {
+					resolve(response);
+				})
+				.catch((err) => reject(err));
+		});
+	}
+
 	static async postProject(form, projectFile) {
 		return new Promise((resolve, reject) => {
 			const formData = new FormData();

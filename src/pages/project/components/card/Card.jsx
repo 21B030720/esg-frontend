@@ -9,9 +9,10 @@ const Card = ({ project }) => {
 
 	if (!isExist(project)) return;
 
-	const { name, description, file, application } = project;
+	const { name, description, projectFile, application } = project;
+	console.log( name, description, projectFile, application )
 
-	if (!isExist(name, description, file, application)) return;
+	// if (!isExist(name, description, file, application)) return;
 
 	const {
 		// name: appName,
@@ -29,12 +30,12 @@ const Card = ({ project }) => {
 			<div className={styles.fields}>
 				<CardField
 					label={t('Customer')}
-					value={company || 'Заказчик неизвестен'}
+					value={project.company || 'Заказчик неизвестен'}
 				/>
 
 				<CardField
 					label={t('Request Status')}
-					value={status || 'Статус отсутствует'}
+					value={project.status || 'Статус отсутствует'}
 				/>
 
 				<CardField
@@ -45,22 +46,22 @@ const Card = ({ project }) => {
 
 				<CardField
 					label={t('Direction')}
-					value={directionID || 'Направление неизвестно'}
+					value={project.directionID || 'Направление неизвестно'}
 				/>
 
 				<CardField
 					label={t('Description')}
-					value={description || 'Описание отсутствует'}
+					value={project.description || 'Описание отсутствует'}
 				/>
 
 				<CardField
 					label={t("Responsible Person's Full Name from Customer")}
-					value={company || 'ФИО отсутствует'}
+					value={project.company || 'ФИО отсутствует'}
 				/>
 
 				<CardField
 					label={t('Contact Details of Responsible Person from Customer')}
-					value={company || 'Телефон отсутствует'}
+					value={project.company || 'Телефон отсутствует'}
 				/>
 
 				<CardField label={t('Note')} value={'Примечание отсутствует'} />

@@ -51,6 +51,11 @@ export const formConfig = {
     },
     WORKER: {
         iin: {
+            label: 'БИН',
+            type: 'text',
+            placeholder: 'Введите БИН',
+        },
+        bin: {
             label: 'ИИН',
             type: 'text',
             placeholder: 'Введите ИИН',
@@ -95,6 +100,11 @@ export const formConfig = {
     },
     MANAGER: {
         iin: {
+            label: 'БИН',
+            type: 'text',
+            placeholder: 'Введите БИН',
+        },
+        bin: {
             label: 'ИИН',
             type: 'text',
             placeholder: 'Введите ИИН',

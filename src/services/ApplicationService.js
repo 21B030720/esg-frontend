@@ -51,10 +51,7 @@ export default class ApplicationService {
 			}
 
 			const sending = {...form, 'projectFile': files};
-	
 			const formData = objectToFormData(sending);
-	
-			
 	
 			$axiosPrivate
 				.post('/applications', formData)

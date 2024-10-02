@@ -3,6 +3,7 @@ import ProjectsCard from '../card/ProjectsCard';
 import styles from './projects_cards.module.css';
 
 const ProjectsCards = ({ projects, areLoading, error }) => {
+	console.log("PROJECTS:", projects);
 	if (error) {
 		return <p className={styles.error_empty}>{error}</p>;
 	}

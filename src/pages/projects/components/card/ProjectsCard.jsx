@@ -2,11 +2,19 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import isExist from '@common/utils/isExist';
 import styles from './projects_card.module.css';
+import { useContext } from 'react';
+import AuthContext from '@common/contexts/AuthContext';
 
 const ProjectsCard = ({ project }) => {
 	// Card in Projects List
 	const nav = useNavigate();
 	const { t } = useTranslation();
+	const { setSelectedProject } = useContext(AuthContext); 
+
+	const handleClick = () => {
+        setSelectedProject(project); // Set the project in context
+        nav(`/projects/${id}`); // Navigate to the project page
+    };
 
 	if (project == null) {
 		return;
@@ -19,7 +27,7 @@ const ProjectsCard = ({ project }) => {
 	}
 
 	return (
-		<div className={styles.card} onClick={() => nav(`/projects/${id}`)}>
+		<div className={styles.card} onClick={handleClick}>
 			<div className={styles.front}>
 				<h3 className={styles.title}>{name}</h3>
 

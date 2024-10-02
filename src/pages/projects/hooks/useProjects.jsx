@@ -7,7 +7,7 @@ const useProjects = () => {
 	const [areLoading, setLoading] = useState(false);
 
 	const [page, setPage] = useState(1);
-	const [perPage] = useState(1);
+	const [perPage] = useState(5);
 	const [totalPagesCount, setTotalPagesCount] = useState(null);
 
 	const [appliedFilters, setAppliedFilters] = useState({
