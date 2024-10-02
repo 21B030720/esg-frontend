@@ -89,6 +89,8 @@
 		"Status_accepted": "Жарияланды",
 		"Status_progress": "Қарау барысында",
 		"Status_rejected": "Қабылданбады",
-		"Status_unknown": "Белгісіз"
+		"Status_unknown": "Белгісіз",
+		"FIO": "ФИО",
+		"Project Name": "Project Name"
 	}
 }

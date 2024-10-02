@@ -93,6 +93,8 @@
 		"Status_accepted": "Опубликовано",
 		"Status_progress": "В обработке",
 		"Status_rejected": "Отказано",
-		"Status_unknown": "Неизвесто"
+		"Status_unknown": "Неизвесто",
+		"FIO": "ФИО",
+		"Project Name": "Название проекта"
 	}
 }
