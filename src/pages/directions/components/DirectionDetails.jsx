@@ -24,7 +24,7 @@ const DirectionDetails = ({
 					onClick={onPreviousDirection}
 				/>
 
-				<img src={direction.image} alt={direction.name} />
+				<img className='direction-main-image' src={direction.image} alt={direction.name} />
 
 				<img
 					className="arrow-image"

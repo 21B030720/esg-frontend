@@ -90,6 +90,12 @@ body {
 	right: 0;
 } */
 
+.direction-main-image {
+	width: 700px !important;  /* Force fixed width */
+    height: 500px !important; /* Force fixed height */
+    object-fit: fill;         /* Force image to stretch, even if distorted */
+    display: block;    
+}
 .direction-details-container p::before {
 	content: '';
 	position: absolute;

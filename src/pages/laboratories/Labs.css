@@ -20,9 +20,10 @@
 }
 
 .labs-main-image {
-	width: 700px; /* Fixed width */
-	height: 500px; /* Fixed height */
-	object-fit: cover; /* Maintain aspect ratio and avoid distortion */
+	width: 700px !important;  /* Force fixed width */
+    height: 500px !important; /* Force fixed height */
+    object-fit: fill;         /* Force image to stretch, even if distorted */
+    display: block;    
 }
 
 .lab-button {
