@@ -82,13 +82,13 @@ body {
 	background-size: cover;
 }
 
-.direction-details-container::before {
+/* .direction-details-container::before {
 	left: 0;
 }
 
 .direction-details-container::after {
 	right: 0;
-}
+} */
 
 .direction-details-container p::before {
 	content: '';
