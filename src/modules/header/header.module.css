@@ -13,10 +13,11 @@
 }
 
 .kbtu_icon {
-	width: 146px;
+	width: 201px;
 	height: 47px;
 	background-size: 100% 100%;
-	background-image: url('/src/assets/images/logo_kbtu.png');
+	/* background-image: url('/src/assets/images/logo_kbtu.png'); */
+	background-image: url('/public/KBTU_Logo.png')
 }
 
 .navigation_buttons {
