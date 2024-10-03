@@ -19,6 +19,12 @@
   color: #000;
 }
 
+.labs-main-image {
+  width: 700px; /* Fixed width */
+  height: 500px; /* Fixed height */
+  object-fit: cover; /* Maintain aspect ratio and avoid distortion */
+}
+
 .lab-button {
   display: block;
   width: 100%;
