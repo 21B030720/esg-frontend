@@ -82,6 +82,13 @@ body {
         background-size: cover;
     }
 
+    .direction-slider img {
+      width: 400px; /* Fixed width */
+      height: 300px; /* Fixed height */
+      object-fit: cover; /* Maintain aspect ratio and avoid distortion */
+  }
+  
+
     .direction-details-container::before {
         left: 0;
     }
