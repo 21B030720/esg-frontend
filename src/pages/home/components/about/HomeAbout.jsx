@@ -34,7 +34,7 @@ const HomeAbout = () => {
 	}, []);
 
 	return (
-		<section className={styles.about}>
+		<section id="home_about" className={styles.about}>
 			<h2 className={styles.about_header}>{t('about_us')}</h2>
 
 			{isMobile ? (

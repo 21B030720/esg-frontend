@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import Header from '@modules/header/Header';
+import Footer from '@modules/footer/Footer';
 import DirectionsList from './components/DirectionsList';
 import DirectionDetails from './components/DirectionDetails';
 import './Directions.css';
-import Header from '@modules/header/Header';
-import Footer from '@modules/footer/Footer';
 
 const directionDescriptions = [
 	'Business Training provides opportunities for professional growth by teaching business strategies and leadership skills.',
@@ -51,8 +51,8 @@ const directionNames = [
 ];
 
 const fakeDirections = directionNames.map((name, index) => ({
-	image: directionImages[index],  // Use different image paths for each direction
-	description: directionDescriptions[index],  // Unique description
+	image: directionImages[index], // Use different image paths for each direction
+	description: directionDescriptions[index], // Unique description
 	id: index + 1,
 	name,
 }));
@@ -84,11 +84,13 @@ const Directions = () => {
 	return (
 		<div>
 			<Header />
+
 			<div className="directions-page">
 				<DirectionsList
 					directions={fakeDirections}
 					onSelectDirection={handleDirectionSelect}
 				/>
+
 				{selectedDirection && (
 					<DirectionDetails
 						direction={selectedDirection}
@@ -97,6 +99,7 @@ const Directions = () => {
 					/>
 				)}
 			</div>
+
 			<Footer />
 		</div>
 	);
