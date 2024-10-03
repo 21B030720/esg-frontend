@@ -82,9 +82,9 @@ body {
         background-size: cover;
     }
 
-    .direction-slider img {
-      width: 400px; /* Fixed width */
-      height: 300px; /* Fixed height */
+    .direction-main-image {
+      width: 700px; /* Fixed width */
+      height: 500px; /* Fixed height */
       object-fit: cover; /* Maintain aspect ratio and avoid distortion */
   }
   

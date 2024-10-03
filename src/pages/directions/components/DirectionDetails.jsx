@@ -16,7 +16,7 @@ const DirectionDetails = ({ direction, onPreviousDirection, onNextDirection }) =
                 <button className="arrow-button" onClick={onPreviousDirection}>
                     <img className='arrow-image' src={leftArrow} alt="Previous Direction" />
                 </button>
-                <img src={direction.image} alt={direction.name} />
+                <img className='direction-main-image' src={direction.image} alt={direction.name} />
                 <button className="arrow-button" onClick={onNextDirection}>
                     <img className='arrow-image' src={rightArrow} alt="Next Direction" />
                 </button>
