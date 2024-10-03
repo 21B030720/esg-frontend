@@ -19,7 +19,7 @@ const LabDetails = ({ lab, onPreviousLab, onNextLab }) => {
                 <button className="arrow-button" onClick={onPreviousLab}>
                     <img className='arrow-image' src={leftArrow} alt="Previous Lab" />
                 </button>
-                <img src={lab.image} alt={lab.name} />
+                <img className="labs-main-image" src={lab.image} alt={lab.name} />
                 <button className="arrow-button" onClick={onNextLab}>
                     <img className='arrow-image' src={rightArrow} alt="Next Lab" />
                 </button>
