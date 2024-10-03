@@ -1,6 +1,6 @@
 import CustomError from '@common/utils/customError';
-import $axios from '@http/axios';
 import { jwtDecode } from 'jwt-decode';
+import $axios from '@http/axios';
 
 export default class AuthService {
 	static async register(formData) {
