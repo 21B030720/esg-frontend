@@ -4,7 +4,7 @@ import HomeAboutCard from '../about_card/HomeAboutCard';
 import aboutCardsData from '@pages/home/utils/aboutCardsData';
 import styles from './home_about.module.css';
 
-const HomeAbout = () => {
+const HomeAbout = ({ data }) => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
 

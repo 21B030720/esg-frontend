@@ -1,6 +1,10 @@
 import axios from 'axios';
 
-const BACKEND_ADDRESS = import.meta.env?.VITE_BACKEND_ADDRESS;
+// const BACKEND_ADDRESS = import.meta.env?.VITE_BACKEND_ADDRESS;
+// const PAYLOAD_CMS_ADDRESS = import.meta.env?.VITE_PAYLOAD_CMS_ADDRESS;
+
+const BACKEND_ADDRESS="http://localhost:8090"
+const PAYLOAD_CMS_ADDRESS="http://localhost:3001"
 
 // const BACK_HTTP = 'http://192.168.1.113:8080'; 
 // const BACK_HTTP = 'http://localhost:8090';
@@ -16,6 +20,20 @@ const $axiosPrivate = axios.create({
 	baseURL: BACKEND_ADDRESS,
 	withCredentials: true,
 });
+
+const $axiosPayload = axios.create({
+	baseURL: PAYLOAD_CMS_ADDRESS,
+	withCredentials: true,
+});
+
+// Maybe will help in some moments. Now It changes nothing
+// $axiosPayload.interceptors.request.use((config) => {
+// 	const token = localStorage.getItem('access_token'); // or 'payload_access_token' if it's different
+// 	if (token) {
+// 	  config.headers.Authorization = `Bearer ${token}`;
+// 	}
+// 	return config;
+//   });
 
 $axiosPrivate.interceptors.request.use((config) => {
 	config.headers.Authorization = `Bearer ${localStorage.getItem(
@@ -67,5 +85,5 @@ $axiosPrivate.interceptors.response.use(
 	}
 );
 
-export { $axiosPrivate };
+export { $axiosPrivate, $axiosPayload, PAYLOAD_CMS_ADDRESS };
 export default $axios;
