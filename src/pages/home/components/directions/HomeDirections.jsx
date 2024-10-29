@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import HomeDirectionsCard from '../directions_card/HomeDirectionsCard';
-import directionsData from '@pages/home/utils/directionsData';
+// import directionsData from '@pages/home/utils/directionsData';
 import styles from './home_directions.module.css';
 
-const HomeDirections = () => {
+const HomeDirections = ({ directionsData }) => {
 	const [currentCardIndex, setCurrentCardIndex] = useState(0);
 	const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 

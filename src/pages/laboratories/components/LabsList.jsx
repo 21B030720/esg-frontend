@@ -14,7 +14,7 @@ const LabsList = ({ labs, onSelectLab }) => {
           className="lab-button"
           onClick={() => onSelectLab(lab)}
         >
-          {t(lab.name)}
+          {t(lab.title)}
         </button>
       ))}
     </div>

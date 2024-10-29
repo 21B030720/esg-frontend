@@ -32,13 +32,13 @@ const Home = () => {
 
 			<HomeHero image={data.hero} text={data.heroText} />
 
-			<HomeAbout data={data.aboutUs} />
+			<HomeAbout aboutCardsData={data.aboutUs} />
 
-			<HomeDirections data={data.directions} />
+			<HomeDirections directionsData={data.directions} />
 
 			<HomeImageSection image={data.imageSection} />
 
-			<HomePartners image={data.partners} />
+			<HomePartners partners={data.partners} />
 
 			<Footer />
 		</div>

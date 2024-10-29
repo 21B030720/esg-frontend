@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import HomeAboutCard from '../about_card/HomeAboutCard';
-import aboutCardsData from '@pages/home/utils/aboutCardsData';
+// import aboutCardsData from '@pages/home/utils/aboutCardsData';
 import styles from './home_about.module.css';
 
-const HomeAbout = ({ data }) => {
+const HomeAbout = ({ aboutCardsData }) => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
 

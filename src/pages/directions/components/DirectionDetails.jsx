@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import leftArrow from '../leftArrow.png';
 import rightArrow from '../rightArrow.png';
 import '../Directions.css';
+import { PAYLOAD_CMS_ADDRESS } from '@http/axios';
 
 const DirectionDetails = ({
 	direction,
@@ -9,12 +10,12 @@ const DirectionDetails = ({
 	onNextDirection,
 }) => {
 	useEffect(() => {
-		document.title = direction.name;
+		document.title = direction.title;
 	}, [direction]);
 
 	return (
 		<div className="direction-details-container">
-			<h2>{direction.name}</h2>
+			<h2>{direction.title}</h2>
 
 			<div className="direction-slider">
 				<img
@@ -24,7 +25,7 @@ const DirectionDetails = ({
 					onClick={onPreviousDirection}
 				/>
 
-				<img className='direction-main-image' src={direction.image} alt={direction.name} />
+				<img className='direction-main-image' src={`${PAYLOAD_CMS_ADDRESS}${direction.image.url}`} alt={direction.title} />
 
 				<img
 					className="arrow-image"
@@ -34,7 +35,7 @@ const DirectionDetails = ({
 				/>
 			</div>
 
-			<p>{direction.description}</p>
+			<p>{direction.body}</p>
 		</div>
 	);
 };

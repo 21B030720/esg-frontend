@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import leftArrow from '../leftArrow.png';
 import rightArrow from '../rightArrow.png';
 import '../Labs.css';
+import { PAYLOAD_CMS_ADDRESS } from '@http/axios';
 
 const LabDetails = ({ lab, onPreviousLab, onNextLab }) => {
 	const { t } = useTranslation();
@@ -13,7 +14,7 @@ const LabDetails = ({ lab, onPreviousLab, onNextLab }) => {
 
 	return (
 		<div className="lab-details-container">
-			<h2>{t(lab.name)}</h2>
+			<h2>{t(lab.title)}</h2>
 
 			<div className="lab-slider">
 				<img
@@ -23,7 +24,7 @@ const LabDetails = ({ lab, onPreviousLab, onNextLab }) => {
 					onClick={onPreviousLab}
 				/>
 
-				<img className="labs-main-image" src={lab.image} alt={lab.name} />
+				<img className="labs-main-image" src={`${PAYLOAD_CMS_ADDRESS}${lab.image.url}`} alt={lab.title} />
 
 				<img
 					className="arrow-image"
@@ -32,7 +33,7 @@ const LabDetails = ({ lab, onPreviousLab, onNextLab }) => {
 					onClick={onNextLab}
 				/>
 			</div>
-			<p>{lab.description}</p>
+			<p>{lab.body}</p>
 		</div>
 	);
 };

@@ -4,6 +4,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import styles from "./home_about_card.module.css";
 import { useTranslation } from 'react-i18next';
+import { PAYLOAD_CMS_ADDRESS } from '@http/axios';
 
 const HomeAboutCard = ({
 	card, isImageLeft, onPrevClick, 
@@ -33,7 +34,7 @@ const HomeAboutCard = ({
 						<div>
 							<img 
 								className={styles.card_image}
-								src={card.imageUrl} 
+								src={`${PAYLOAD_CMS_ADDRESS}${card.image.url}`} 
 								alt=""
 							/>
 						</div>
@@ -46,7 +47,7 @@ const HomeAboutCard = ({
 
 				{!isMobile && (
 					<div>
-						<img className={styles.card_image} src={card.imageUrl} alt="" />
+						<img className={styles.card_image} src={`${PAYLOAD_CMS_ADDRESS}${card.image.url}`} alt="" />
 					</div>
 				)}
 			</div>
@@ -63,15 +64,15 @@ const HomeAboutCard = ({
 						)}
 				</div>
 
-				{!card.isBodyBullettedList ? 
+				{!card.isBodyBulletedList ? 
 					<div className={`${styles.card_paragraphs} ${isMobile && !isActive ? styles.hidden : styles.visible}`}>
-						{card.body.map((p, i) => (
-							<div className={styles.cardp} key={i}>{t(p)}</div>
+						{card.content.map((p, i) => (
+							<div className={styles.cardp} key={i}>{t(p.text)}</div>
 						))}
 					</div> : 
 					<ul className={`${styles.card_list} ${isMobile && !isActive ? styles.hidden : styles.visible}`}>
-						{card.body.map((p, i) => (
-							<li key={i}>{t(p)}</li>
+						{card.content.map((p, i) => (
+							<li key={i}>{t(p.text)}</li>
 						))}
 					</ul>
 				}

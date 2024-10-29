@@ -14,7 +14,7 @@ const DirectionsList = ({ directions, onSelectDirection }) => {
           className="direction-button"
           onClick={() => onSelectDirection(direction)}
         >
-          {t(direction.name)}
+          {t(direction.title)}
         </button>
       ))}
     </div>

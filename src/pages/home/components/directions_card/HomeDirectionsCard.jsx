@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import styles from "./home_directions_card.module.css";
+import { PAYLOAD_CMS_ADDRESS } from "@http/axios";
 
 const HomeDirectionsCard = ({
 	card, isBlue,
@@ -21,12 +22,12 @@ const HomeDirectionsCard = ({
 		<div className={styles.card} style={configStyle}>
 			<img 
 				className={styles.card_icon}
-				src={card.imageUrl} 
+				src={`${PAYLOAD_CMS_ADDRESS}${card.image.url}`} 
 				alt="" 
 			/>
 
 			<p className={styles.card_title}>
-				{t(card.title)}
+				{t(card.text)}
 			</p>
 		</div>
 	);
