@@ -9,6 +9,7 @@ import magnifierIcon from '@assets/icons/magnifier.svg';
 import caretDown from '@assets/icons/caret_down.svg';
 import styles from './projects_config.module.css';
 
+
 const ProjectsConfig = () => {
 	const { t } = useTranslation();
 

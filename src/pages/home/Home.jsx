@@ -24,8 +24,6 @@ const Home = () => {
 		)
 	}
 
-	console.log(data)
-
 	return (
 		<div className={styles.home}>
 			<Header />
