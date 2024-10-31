@@ -68,13 +68,13 @@
   }, */
   @media screen and (max-width: 900px) {
     .languageButton {
-      font-size: 14px;
+      font-size: 16px;
       padding-right: 0;
       padding-left: 0;
       margin-right: 0;
     }
     .dropdown_content button {
-        font-size: 14px;
+        font-size: 16px;
         padding-right: 0;
         padding-left: 0;
         margin-right: 0;
@@ -83,11 +83,11 @@
   
   @media screen and (min-width: 1536px) {
     .languageButton {
-      font-size: 24px;
+      font-size: 16px;
       padding-top: 10px;
       padding-bottom: 10px;
     }
     .dropdown_content button {
-        font-size: 24px;
+        font-size: 16px;
     }
   }

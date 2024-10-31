@@ -42,7 +42,7 @@ const useApplyForm = () => {
 		// })
 		ApplicationService.postApplication(formData, files)
 			.then(() => {
-				setFormData(applyFormTemplate);
+				// setFormData(applyFormTemplate);
 				setFiles([]);
 				setUserLoadedFilesPreview([]);
 
