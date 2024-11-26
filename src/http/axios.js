@@ -3,7 +3,7 @@ import axios from 'axios';
 // const BACKEND_ADDRESS = import.meta.env?.VITE_BACKEND_ADDRESS;
 // const PAYLOAD_CMS_ADDRESS = import.meta.env?.VITE_PAYLOAD_CMS_ADDRESS;
 
-const BACKEND_ADDRESS="http://localhost:8090"
+const BACKEND_ADDRESS="http://localhost:3000"
 const PAYLOAD_CMS_ADDRESS="http://localhost:3001"
 
 // const BACK_HTTP = 'http://192.168.1.113:8080'; 

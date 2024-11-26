@@ -33,7 +33,7 @@ const MyApplications = ({ applications }) => {
 			{applications.map((a) => (
 				<div className={styles.row} key={a.id}>
 					<div className={styles.cell}>
-						{getDateFromServerString(a.createdAt)}
+						{getDateFromServerString(a.date)}
 					</div>
 
 					<div className={styles.cell}>{a.name}</div>

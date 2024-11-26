@@ -12,19 +12,21 @@ const ProjectsCard = ({ project }) => {
 	const { setSelectedProject } = useContext(AuthContext); 
 
 	const handleClick = () => {
-        setSelectedProject(project); // Set the project in context
-        nav(`/projects/${id}`); // Navigate to the project page
+        setSelectedProject(project.applicationID); // Set the project in context
+        nav(`/projects/${_id}`); // Navigate to the project page
     };
 
 	if (project == null) {
 		return;
 	}
 
-	const { id, name, description, direction, application } = project;
+	const { _id, name, description, directionName, company } = project.applicationID;
 
-	if (!isExist(id, name, description, direction, application)) {
-		return;
-	}
+	console.log("DATA FROM APPLICATION ID:", project.applicationID)
+
+	// if (!isExist(id, name, description, direction, application)) {
+	// 	return;
+	// }
 
 	return (
 		<div className={styles.card} onClick={handleClick}>
@@ -38,13 +40,13 @@ const ProjectsCard = ({ project }) => {
 				<div className={styles.info_box}>
 					<p className={styles.info_label}>{t('Customer')}</p>
 
-					<p className={styles.info_main}>{application}</p>
+					<p className={styles.info_main}>{company}</p>
 				</div>
 
 				<div className={styles.info_box}>
 					<p className={styles.info_label}>{t('Task direction')}</p>
 
-					<p className={styles.info_main}>{direction}</p>
+					<p className={styles.info_main}>{directionName}</p>
 				</div>
 			</div>
 		</div>

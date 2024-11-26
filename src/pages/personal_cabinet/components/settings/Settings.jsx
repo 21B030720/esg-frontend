@@ -67,7 +67,7 @@ const Settings = ({ user }) => {
 					className={styles.input}
 				/>
 
-				{user.role !== 'researcher' && (
+				{/* {user.role !== 'researcher' && (
 					<input
 						type="email"
 						name="email"
@@ -76,7 +76,7 @@ const Settings = ({ user }) => {
 						placeholder="Email"
 						className={styles.input}
 					/>
-				)}
+				)} */}
 
 				<input
 					type="text"

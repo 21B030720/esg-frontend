@@ -92,6 +92,7 @@
 		"Status_rejected": "Denied",
 		"Status_unknown": "Unknown",
 		"FIO": "FIO",
-		"Project Name": "Project Name"
+		"Project Name": "Project Name",
+		"User name": "User name"
 	}
 }

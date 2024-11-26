@@ -56,11 +56,11 @@ const useProjects = () => {
 
 		ProjectsService.getProjects(projectsPage, perPage, filters)
 			.then((response) => {
-				const projects = response.content;
-				const totalPages = response.totalPages;
-				const curPage = response.pageable?.pageNumber + 1;
+				const projects = response.data;
+				const totalPages = response.total_pages;
+				const curPage = response.page;
 
-				setProjects(projects || []);
+				setProjects(projects);
 				setTotalPagesCount(totalPages);
 				setPage(curPage);
 			})

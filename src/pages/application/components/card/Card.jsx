@@ -11,22 +11,22 @@ const Card = ({ application, onFileClick }) => {
 	const { name, description, company, direction, owner, status, projectFile } =
 		application;
 
-	const getStatusNameFromServerString = () => {
-		switch (status) {
-			case 'ACCEPTED':
-				return t('Status_accepted');
-			case 'IN_PROGRESS':
-				return t('Status_progress');
-			case 'REJECTED':
-				return t('Status_denied');
-			default:
-				return t('Status_unknown');
-		}
-	};
+	// const getStatusNameFromServerString = () => {
+	// 	switch (status) {
+	// 		case 'ACCEPTED':
+	// 			return t('Status_accepted');
+	// 		case 'IN_PROGRESS':
+	// 			return t('Status_progress');
+	// 		case 'REJECTED':
+	// 			return t('Status_denied');
+	// 		default:
+	// 			return t('Status_unknown');
+	// 	}
+	// };
 
 	return (
 		<div className={styles.card}>
-			<h2 className={styles.title}>{name || 'Заголовок отсутствует'}</h2>
+			{/* <h2 className={styles.title}>{name || 'Заголовок отсутствует'}</h2>
 
 			<div className={styles.fields}>
 				<CardField
@@ -67,7 +67,7 @@ const Card = ({ application, onFileClick }) => {
 				/>
 
 				<CardField label={t('Note')} value="-" />
-			</div>
+			</div> */}
 		</div>
 	);
 };

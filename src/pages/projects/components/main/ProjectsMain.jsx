@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import ProjectsContext from '@pages/projects/contexts/ProjectsContext';
 import ProjectsCards from '../cards/ProjectsCards';

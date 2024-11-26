@@ -14,7 +14,7 @@ const Project = () => {
 	const nav = useNavigate();
 	// const { project, isLoading, error } = useProject();
 	const { selectedProject } = useContext(AuthContext);
-	console.log(selectedProject);
+	console.log("Selected Project", selectedProject);
 
 	// if (error != null) {
 	// 	return (

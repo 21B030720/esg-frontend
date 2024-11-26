@@ -8,7 +8,7 @@ const ProtectedRoute = ({ children }) => {
 
 	useEffect(() => {
 		if (isFirstRefreshOver && !isAuthenticated) {
-			redirect('/register');
+			redirect('/login');
 		}
 	}, [isAuthenticated, isFirstRefreshOver]);
 

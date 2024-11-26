@@ -19,7 +19,7 @@ export default class AuthService {
 	static async login(formData) {
 		return new Promise((resolve, reject) => {
 			$axios
-				.post('/auth/sign-in', formData, {
+				.post('/auth/login', formData, {
 					headers: {
 						'Content-Type': 'application/json',
 					},

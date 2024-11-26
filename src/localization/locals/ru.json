@@ -95,6 +95,8 @@
 		"Status_rejected": "Отказано",
 		"Status_unknown": "Неизвесто",
 		"FIO": "ФИО",
-		"Project Name": "Название проекта"
+		"Project Name": "Название проекта",
+
+		"User name": "Имя пользователя"
 	}
 }

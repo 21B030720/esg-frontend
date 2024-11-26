@@ -6,11 +6,14 @@ import './Auth.css';
 import Header from '@modules/header/Header';
 import { useMediaQuery } from 'react-responsive';
 import Footer from '@modules/footer/Footer';
+import { useTranslation } from 'react-i18next';
 
 const Login = () => {
 	const nav = useNavigate();
 
 	const isMobile = useMediaQuery({ maxWidth: 480 });
+
+	const { t } = useTranslation();
 
 	const { login } = useContext(AuthContext);
 
@@ -63,7 +66,7 @@ const Login = () => {
 
 				<form className="form" onSubmit={handleSubmit}>
 					<div>
-						<label htmlFor="username">Username</label>
+						<label htmlFor="username">{t("User name")}</label>
 
 						{error.username && (
 							<span className="error-msg">{error.username}</span>

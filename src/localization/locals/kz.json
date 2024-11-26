@@ -91,6 +91,8 @@
 		"Status_rejected": "Қабылданбады",
 		"Status_unknown": "Белгісіз",
 		"FIO": "ФИО",
-		"Project Name": "Project Name"
+		"Project Name": "Project Name",
+
+		"User name": "Пайдаланушы аты"
 	}
 }
