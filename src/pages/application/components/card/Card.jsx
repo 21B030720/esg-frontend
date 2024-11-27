@@ -7,26 +7,27 @@ const Card = ({ application, onFileClick }) => {
 	const { t } = useTranslation();
 
 	if (application == null) return <p>Заявки не существует</p>;
+	console.log(application);
 
-	const { name, description, company, direction, owner, status, projectFile } =
+	const { name, description, company, directionName, firstName, lastName, contact, status, projectFile } =
 		application;
 
-	// const getStatusNameFromServerString = () => {
-	// 	switch (status) {
-	// 		case 'ACCEPTED':
-	// 			return t('Status_accepted');
-	// 		case 'IN_PROGRESS':
-	// 			return t('Status_progress');
-	// 		case 'REJECTED':
-	// 			return t('Status_denied');
-	// 		default:
-	// 			return t('Status_unknown');
-	// 	}
-	// };
+	const getStatusNameFromServerString = () => {
+		switch (status) {
+			case 'ACCEPTED':
+				return t('Status_accepted');
+			case 'IN_PROGRESS':
+				return t('Status_progress');
+			case 'REJECTED':
+				return t('Status_denied');
+			default:
+				return t('Status_unknown');
+		}
+	};
 
 	return (
 		<div className={styles.card}>
-			{/* <h2 className={styles.title}>{name || 'Заголовок отсутствует'}</h2>
+			<h2 className={styles.title}>{name || 'Заголовок отсутствует'}</h2>
 
 			<div className={styles.fields}>
 				<CardField
@@ -48,7 +49,7 @@ const Card = ({ application, onFileClick }) => {
 
 				<CardField
 					label={t('Direction')}
-					value={direction.name || 'Направление неизвестно'}
+					value={directionName || 'Направление неизвестно'}
 				/>
 
 				<CardField
@@ -58,16 +59,16 @@ const Card = ({ application, onFileClick }) => {
 
 				<CardField
 					label={t("Responsible Person's Full Name from Customer")}
-					value={`${owner.firstName} ${owner.lastName}` || 'ФИО отсутствует'}
+					value={`${firstName} ${lastName}` || 'ФИО отсутствует'}
 				/>
 
 				<CardField
 					label={t('Contact Details of Responsible Person from Customer')}
-					value={owner.email || 'Телефон отсутствует'}
+					value={contact || 'Телефон отсутствует'}
 				/>
 
 				<CardField label={t('Note')} value="-" />
-			</div> */}
+			</div>
 		</div>
 	);
 };

@@ -8,7 +8,7 @@ export const inputFields = [
     {
         type: 'input',
         labelKey: 'FIO',
-        name: 'FIO',
+        name: 'fio',
         isRequired: true
     },
     {
@@ -32,7 +32,7 @@ export const inputFields = [
     {
         type: 'file',
         labelKey: 'Technical Task',
-        name: 'projectFile',
+        name: 'projectFiles',
         isRequired: true,
     },
     {

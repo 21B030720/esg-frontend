@@ -38,28 +38,47 @@ export default class ProjectsService {
 		});
 	}
 
-	static async postProject(form, projectFile) {
+	static async postProject(form) {
 		return new Promise((resolve, reject) => {
 			const formData = new FormData();
 
-			formData.append('name', form['name']);
-			formData.append('description', form['description']);
-			formData.append('directionID', form['directionID']);
 			formData.append('applicationID', form['applicationID']);
 
-			FileService.downloadFiles(projectFile)
-				.then((files) => {
-					// Append each file individually under the same field name with []
-					for (let i = 0; i < files.length; i++) {
-						formData.append('projectFile[]', files[i]);
-					}
+			if (form.additionalFiles && form.additionalFiles.length > 0) {
+				for (let i = 0; i < form.additionalFiles.length; i++) {
+					formData.append('additionalFiles', form.additionalFiles[i]);
+				}
+			}
 
-					$axiosPrivate
+			$axiosPrivate
 						.post('/projects', formData)
 						.then((response) => resolve(response))
 						.catch((error) => reject(error));
-				})
-				.catch((err) => reject(err));
+
+
+			// FileService.downloadFiles(projectFile)
+			// 	.then((files) => {
+			// 		// Append each file individually under the same field name with []
+			// 		for (let i = 0; i < files.length; i++) {
+			// 			formData.append('projectFile[]', files[i]);
+			// 		}
+
+			// 		$axiosPrivate
+			// 			.post('/projects', formData)
+			// 			.then((response) => resolve(response))
+			// 			.catch((error) => reject(error));
+			// 	})
+			// 	.catch((err) => reject(err));
 		});
 	}
+
+	static async applyProject(id) {
+		return new Promise((resolve, reject) => {
+			$axiosPrivate
+						.post(`/projects/${id}/add-participants`)
+						.then((response) => resolve(response))
+						.catch((error) => reject(error));
+		});
+	}
+
 }

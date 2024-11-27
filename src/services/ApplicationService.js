@@ -50,7 +50,7 @@ export default class ApplicationService {
 				return;
 			}
 
-			const sending = {...form, 'projectFile': files};
+			const sending = {...form, 'projectFiles': files};
 			const formData = objectToFormData(sending);
 	
 			$axiosPrivate

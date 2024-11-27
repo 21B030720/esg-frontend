@@ -4,14 +4,16 @@ import ApplicationService from '@services/ApplicationService';
 import ProjectsService from '@services/ProjectsService';
 import FileService from '@services/FileService';
 import isExist from '@common/utils/isExist';
+import objectToFormData from '@common/utils/objectToFormData';
 
 const useApplication = (applicationId) => {
 	const nav = useNavigate();
 
-	const [application, setApplication] = useState(null);
-	const [isLoading, setLoading] = useState(false);
-	const [gettingAppError, setGettingAppError] = useState(null);
-	const [postingProjectError, setPostingProjectError] = useState(null);
+	const [ application, setApplication ] = useState(null);
+	const [ files, setFiles ] = useState([])
+	const [ isLoading, setLoading ] = useState(false);
+	const [ gettingAppError, setGettingAppError ] = useState(null);
+	const [ postingProjectError, setPostingProjectError ] = useState(null);
 
 	const fetchApplication = async () => {
 		await ApplicationService.getApplicationById(applicationId)
@@ -22,21 +24,20 @@ const useApplication = (applicationId) => {
 	const postProject = async () => {
 		if (application == null) return;
 
-		const { id, name, description, direction, projectFile } = application;
+		const { _id } = application;
+		console.log("Hello")
 
-		if (!isExist(id, name, description, direction)) {
+		if (!isExist(_id)) {
 			setPostingProjectError('Некоторая информация о заявке отсутствует');
 			return;
 		}
 
 		const form = {
-			applicationID: id,
-			name,
-			description,
-			directionID: direction.id,
+			applicationID: _id,
+			additionalFiles: files
 		};
 
-		await ProjectsService.postProject(form, projectFile)
+		await ProjectsService.postProject(form)
 			.then(() => {
 				nav('/projects');
 			})

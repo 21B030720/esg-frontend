@@ -12,7 +12,7 @@ const ProjectsCard = ({ project }) => {
 	const { setSelectedProject } = useContext(AuthContext); 
 
 	const handleClick = () => {
-        setSelectedProject(project.applicationID); // Set the project in context
+        setSelectedProject(project); // Set the project in context
         nav(`/projects/${_id}`); // Navigate to the project page
     };
 

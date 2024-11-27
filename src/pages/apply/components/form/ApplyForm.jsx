@@ -47,7 +47,7 @@ const ApplyForm = () => {
                                 key={field.name}
                                 label={t(field.labelKey)}
                                 name={field.name}
-                                onChange={(direction) => change(field.name, direction.id)}
+                                onChange={(direction) => change(field.name, direction._id)}
                                 isRequired={field.isRequired}
                             />
                         );

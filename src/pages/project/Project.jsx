@@ -13,8 +13,8 @@ import project from './utils/mockProject';
 const Project = () => {
 	const nav = useNavigate();
 	// const { project, isLoading, error } = useProject();
-	const { selectedProject } = useContext(AuthContext);
-	console.log("Selected Project", selectedProject);
+	const { selectedProject, handleApply } = useContext(AuthContext);
+	// console.log("Selected Project", selectedProject);
 
 	// if (error != null) {
 	// 	return (
@@ -33,9 +33,9 @@ const Project = () => {
 			<section type="section" className={styles.module}>
 				<BackLink onClick={() => nav(-1)} />
 				<div className={styles.main}>
-					<Card project={selectedProject} />
+					<Card project={selectedProject.applicationID} />
 
-					{/* <button className={styles.button}>Подать свое решение</button> */}
+					<button type="button" onClick={() => { handleApply(selectedProject._id); }} className={styles.button}>Податься</button>
 				</div>
 
 				{/* {isLoading ? (

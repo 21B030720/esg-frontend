@@ -50,7 +50,7 @@ $axiosPrivate.interceptors.response.use(
 	(error) => {
 		const errorStatus = error?.response?.status;
 
-		if (errorStatus !== 403) {
+		if (errorStatus !== 403 ) {
 			return Promise.reject(error);
 		}
 

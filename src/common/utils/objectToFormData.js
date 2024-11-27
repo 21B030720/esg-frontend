@@ -10,7 +10,7 @@ function objectToFormData(obj, form = new FormData(), namespace = '') {
               }
               // objectToFormData(element, form, `${formKey}[${index}]`);
             } else {
-              form.append(`${formKey}[]`, element); // It is Text or File
+              form.append(`${formKey}`, element); // It is Text or File
             }
           });
         }

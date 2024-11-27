@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from 'react';
 import useAuth from '@common/hooks/useAuth';
+import ProjectsService from '@services/ProjectsService';
 
 const AuthContext = createContext({});
 
@@ -16,6 +17,18 @@ const AuthProvider = ({ children }) => {
 
 	const [selectedProject, setSelectedProject] = useState(null);
 
+	const handleApply = async(id) => {
+		console.log(selectedProject, id);
+		ProjectsService.applyProject(id)
+			.then(() => {
+				// window.href.refresh();
+			})
+			.catch((err) => {
+				console.error(err);
+				// setPostingProjectError(err?.message);
+			});
+	}
+
 	const ctxValue = {
 		user,
 		isAuthenticated,
@@ -24,11 +37,12 @@ const AuthProvider = ({ children }) => {
 		login,
 		logout,
 		selectedProject,
-		setSelectedProject
+		setSelectedProject,
+		handleApply
 	};
 
 	useEffect(() => {
-		refresh();
+		// refresh();
 	}, []);
 
 	return (

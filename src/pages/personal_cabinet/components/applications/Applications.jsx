@@ -29,7 +29,7 @@ const Applications = ({ applications }) => {
 							<p>{a?.company}</p>
 							<Status statusStringFromServer={a?.status} />
 							<button
-								onClick={() => nav(`/applications/${a?.id}`)}
+								onClick={() => nav(`/applications/${a?._id}`)}
 								className={styles.btn_action}
 							>
 								Посмотреть
