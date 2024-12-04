@@ -5,6 +5,7 @@ import DirectionsList from './components/DirectionsList';
 import DirectionDetails from './components/DirectionDetails';
 import './Directions.css';
 import useDirections from './hooks/useDirections';
+import DirectionsWithoutPayload from './DirectionsWithoutPayload';
 
 
 
@@ -52,7 +53,7 @@ const Directions = () => {
 
 	if(error) {
 		return(
-			<>{error}</>
+			<DirectionsWithoutPayload />
 		)
 	}
 

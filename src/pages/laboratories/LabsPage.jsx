@@ -6,6 +6,7 @@ import pic from './Geolog1.png';
 import Header from '@modules/header/Header';
 import Footer from '@modules/footer/Footer';
 import useLaboratories from './hooks/useLaboratories';
+import LaboratoriesWithoutPayload from './LabsPageWithoutPayload';
 
 
 
@@ -45,7 +46,7 @@ const Laboratories = () => {
 
 	if(error) {
 		return(
-			<>{error}</>
+			<LaboratoriesWithoutPayload />
 		)
 	}
 

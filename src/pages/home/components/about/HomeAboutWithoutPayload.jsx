@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import HomeAboutCard from '../about_card/HomeAboutCard';
 import aboutCardsData from '@pages/home/utils/aboutCardsData';
 import styles from './home_about.module.css';
+import HomeAboutCardWithoutPayload from '../about_card/HomeAboutCardWithoutPayload';
 
 const HomeAboutWithoutPayload = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
@@ -39,7 +40,7 @@ const HomeAboutWithoutPayload = () => {
 
 			{isMobile ? (
 				<div className={styles.slider}>
-					<HomeAboutCard
+					<HomeAboutCardWithoutPayload
 						card={aboutCardsData[currentIndex]}
 						isImageLeft={currentIndex % 2 === 0}
 						onPrevClick={handlePrevClick}
@@ -50,7 +51,7 @@ const HomeAboutWithoutPayload = () => {
 			) : (
 				<div className={styles.about_cards}>
 					{aboutCardsData.map((card, i) => (
-						<HomeAboutCard
+						<HomeAboutCardWithoutPayload
 							key={card.id == null ? i : card.id}
 							card={card}
 							isImageLeft={i % 2 === 0}

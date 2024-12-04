@@ -15,7 +15,7 @@ import HomePartnersWithoutPayload from './components/partners/HomePartnersWithou
 
 const Home = () => {
 
-	// const { data, loading, error } = useMainPayload();
+	const { data, loading, error } = useMainPayload();
 
 	if(loading) {
 		return (
@@ -25,15 +25,39 @@ const Home = () => {
 
 	if(error) {
 		return(
-			<>{error}</>
+			<div className={styles.home}>
+				<Header />
+
+				{/* <HomeHero image={data.hero} text={data.heroText} />
+
+				<HomeAbout aboutCardsData={data.aboutUs} />
+
+				<HomeDirections directionsData={data.directions} />
+
+				<HomeImageSection image={data.imageSection} />
+
+				<HomePartners partners={data.partners} /> */}
+
+				<HomeHeroWithoutPayload />
+
+				<HomeAboutWithoutPayload />
+
+				<HomeDirectionsWithoutPayload />
+
+				<HomeImageSectionWithoutPayload />
+
+				<HomePartnersWithoutPayload />
+
+				<Footer />
+			</div>
 		)
 	}
 
 	return (
 		<div className={styles.home}>
-			{/* <Header /> */}
+			<Header />
 
-			{/* <HomeHero image={data.hero} text={data.heroText} />
+			<HomeHero image={data.hero} text={data.heroText} />
 
 			<HomeAbout aboutCardsData={data.aboutUs} />
 
@@ -41,9 +65,9 @@ const Home = () => {
 
 			<HomeImageSection image={data.imageSection} />
 
-			<HomePartners partners={data.partners} /> */}
+			<HomePartners partners={data.partners} />
 
-			<HomeHeroWithoutPayload />
+			{/* <HomeHeroWithoutPayload />
 
 			<HomeAboutWithoutPayload />
 
@@ -51,7 +75,7 @@ const Home = () => {
 
 			<HomeImageSectionWithoutPayload />
 
-			<HomePartnersWithoutPayload />
+			<HomePartnersWithoutPayload /> */}
 
 			<Footer />
 		</div>

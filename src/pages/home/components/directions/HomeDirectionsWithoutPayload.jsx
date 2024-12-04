@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import HomeDirectionsCard from '../directions_card/HomeDirectionsCard';
 import directionsData from '@pages/home/utils/directionsData';
 import styles from './home_directions.module.css';
+import HomeDirectionsCardWithoutPayload from '../directions_card/HomeDirectionsCardWithoutPayload';
 
 const HomeDirectionsWithoutPayload = () => {
 	const [currentCardIndex, setCurrentCardIndex] = useState(0);
@@ -54,7 +55,7 @@ const HomeDirectionsWithoutPayload = () => {
 					onTouchStart={handleTouchStart}
 					onTouchEnd={handleTouchEnd}
 				>
-					<HomeDirectionsCard
+					<HomeDirectionsCardWithoutPayload
 						key={directionsData[currentCardIndex].id}
 						card={directionsData[currentCardIndex]}
 						isBlue={currentCardIndex % 2 !== 0}
@@ -63,7 +64,7 @@ const HomeDirectionsWithoutPayload = () => {
 			) : (
 				<div className={styles.directions_cards}>
 					{directionsData.map((dir, i) => (
-						<HomeDirectionsCard key={dir.id} card={dir} isBlue={i % 2 !== 0} />
+						<HomeDirectionsCardWithoutPayload key={dir.id} card={dir} isBlue={i % 2 !== 0} />
 					))}
 				</div>
 			)}

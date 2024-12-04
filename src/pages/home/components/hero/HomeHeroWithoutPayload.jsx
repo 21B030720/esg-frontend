@@ -14,7 +14,7 @@ const HomeHeroWithoutPayload = () => {
 	};
 
 	return (
-		<section className={styles.hero}>
+		<section className={styles.hero_without_payload}>
 			<div className={styles.hero_content}>
 				<h1 className={styles.hero_header}>
 					{t("Kazakh-British Technical University. Innovation and Expertise for Kazakhstan's Industry")}

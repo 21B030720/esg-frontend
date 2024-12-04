@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import styles from "./home_directions_card.module.css";
 
-const HomeDirectionsCardWithoutCard = ({
+const HomeDirectionsCardWithoutPayload = ({
 	card, isBlue,
 }) => {
 
@@ -32,4 +32,4 @@ const HomeDirectionsCardWithoutCard = ({
 	);
 };
 
-export default HomeDirectionsCardWithoutCard;
+export default HomeDirectionsCardWithoutPayload;
