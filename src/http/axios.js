@@ -10,16 +10,23 @@ const PAYLOAD_CMS_ADDRESS = import.meta.env?.VITE_PAYLOAD_CMS_ADDRESS;
 // const BACK_HTTP = 'http://localhost:8090';
 
 const $axios = axios.create({
-	// baseURL: BACK_HTTP,
-	baseURL: BACKEND_ADDRESS,
+	baseURL: '/api', // Let the proxy handle the requests
+	headers: {
+	  'Accepts': 'application/json',
+	  'Access-Control-Allow-Origin': '*',
+	},
 	withCredentials: true,
-});
+  });
+  
 
 const $axiosPrivate = axios.create({
-	// baseURL: BACK_HTTP,
-	baseURL: BACKEND_ADDRESS,
+	baseURL: '/api', // Let the proxy handle the requests
+	headers: {
+	  'Accepts': 'application/json',
+	  'Access-Control-Allow-Origin': '*',
+	},
 	withCredentials: true,
-});
+  });
 
 const $axiosPayload = axios.create({
 	baseURL: PAYLOAD_CMS_ADDRESS,

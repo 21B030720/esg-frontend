@@ -4,17 +4,37 @@ import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+
+
+
+
+
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+
 dotenv.config();
+
+const BACKEND_ADDRESS = process.env.VITE_BACKEND_ADDRESS;
+console.log('Backend Address:', process.env.VITE_BACKEND_ADDRESS);
 
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [react()],
 	server: {
-		cors: false, // Disable CORS for development
-	},
+		proxy: {
+		  '/api': {
+			target: BACKEND_ADDRESS, // Backend server
+			changeOrigin: true,
+			secure: false,
+			rewrite: (path) => path.replace(/^\/api/, ''),
+		  },
+		},
+	  },
+	  
+	  
+	  
 	resolve: {
 		alias: {
 			'@assets': path.resolve(__dirname, './src/assets'),
