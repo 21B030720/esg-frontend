@@ -12,6 +12,9 @@ dotenv.config();
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [react()],
+	server: {
+		cors: false, // Disable CORS for development
+	},
 	resolve: {
 		alias: {
 			'@assets': path.resolve(__dirname, './src/assets'),

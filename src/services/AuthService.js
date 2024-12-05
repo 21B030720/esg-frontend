@@ -6,7 +6,7 @@ export default class AuthService {
 	static async register(formData) {
 		return new Promise((resolve, reject) => {
 			$axios
-				.post('/auth/sign-up', formData, {
+				.post('/auth/register', formData, {
 					headers: {
 						'Content-Type': 'application/json',
 					},

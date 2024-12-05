@@ -62,7 +62,7 @@ export function validate(form, phone, setError, isLogin) {
 		valid = false;
 	}
 
-	if (form.role === 'USER') {
+	if (form.role === 'COMPANY') {
 		if (form.bin === '') {
 			setError((prev) => ({
 				...prev,
@@ -78,7 +78,7 @@ export function validate(form, phone, setError, isLogin) {
 			}));
 			valid = false;
 		}
-	} else if (form.role === 'WORKER') {
+	} else if (form.role === 'RESEARCHER') {
 		if (form.iin === '') {
 			setError((prev) => ({
 				...prev,

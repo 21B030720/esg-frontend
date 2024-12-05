@@ -28,7 +28,7 @@ const ProfileSidebar = ({ user }) => {
 				</div>
 
 				<div className={styles.text}>
-					{user?.role === 'USER' ? 'Недропользователь' : 'Научный сотрудник'}
+					{user?.role === 'COMPANY' ? 'Недропользователь' : 'Научный сотрудник'}
 				</div>
 
 				<div className={styles.label}>Email:</div>

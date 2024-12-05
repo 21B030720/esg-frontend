@@ -1,6 +1,6 @@
 // formConfig.js
 export const formConfig = {
-    USER: {
+    COMPANY: {
         iin: {
             label: 'БИН',
             type: 'text',
@@ -49,7 +49,7 @@ export const formConfig = {
             placeholder: 'Введите пароль',
         },
     },
-    WORKER: {
+    RESEARCHER: {
         iin: {
             label: 'БИН',
             type: 'text',

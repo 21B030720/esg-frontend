@@ -13,9 +13,9 @@ const Tabs = ({ user }) => {
 
 	function getInitialActiveTab() {
 		switch (user.role) {
-			case 'USER':
+			case 'COMPANY':
 				return 'my_applications';
-			case 'WORKER':
+			case 'RESEARCHER':
 				return 'projects';
 			case 'MANAGER':
 				return 'applications';
@@ -74,7 +74,7 @@ const Tabs = ({ user }) => {
 							Мои заявки
 						</button>
 
-						{user.role === 'WORKER' && (
+						{user.role === 'RESEARCHER' && (
 							<button
 								className={`${styles.tabButton} ${
 									activeTab === 'projects' ? styles.active : ''
@@ -105,7 +105,7 @@ const Tabs = ({ user }) => {
 						<MyApplications applications={items} />
 					)}
 
-					{activeTab === 'projects' && user.role !== 'USER' && <MyProjects />}
+					{activeTab === 'projects' && user.role !== 'COMPANY' && <MyProjects />}
 
 					{activeTab === 'applications' && user.role === 'MANAGER' && (
 						<Applications applications={items} />

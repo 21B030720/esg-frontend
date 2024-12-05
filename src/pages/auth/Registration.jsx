@@ -90,7 +90,7 @@ const Registration = () => {
 	};
 
 	const onRole = (pickedRole) => {
-		if (!['USER', 'WORKER', 'MANAGER'].includes(pickedRole)) {
+		if (!['COMPANY', 'MANAGER', 'RESEARCHER'].includes(pickedRole)) {
 			throw Error('Role must be USER, WORKER or MANAGER');
 		}
 
@@ -113,11 +113,11 @@ const Registration = () => {
 				{isMobile && <Header />}
 
 				<div className="wrapper btn_roles">
-					<button className="btn-submit" onClick={() => onRole('USER')}>
+					<button className="btn-submit" onClick={() => onRole('COMPANY')}>
 						Организация
 					</button>
 
-					<button className="btn-submit" onClick={() => onRole('WORKER')}>
+					<button className="btn-submit" onClick={() => onRole('RESEARCHER')}>
 						Научный сотрудник
 					</button>
 
