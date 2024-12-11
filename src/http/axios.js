@@ -13,7 +13,7 @@ const $axios = axios.create({
 	baseURL: '/api', // Let the proxy handle the requests
 	headers: {
 	  'Accepts': 'application/json',
-	  'Access-Control-Allow-Origin': '*',
+	//   'Access-Control-Allow-Origin': '*',
 	},
 	withCredentials: true,
   });
@@ -23,7 +23,7 @@ const $axiosPrivate = axios.create({
 	baseURL: '/api', // Let the proxy handle the requests
 	headers: {
 	  'Accepts': 'application/json',
-	  'Access-Control-Allow-Origin': '*',
+	//   'Access-Control-Allow-Origin': '*',
 	},
 	withCredentials: true,
   });
