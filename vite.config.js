@@ -25,12 +25,19 @@ export default defineConfig({
 	server: {
 		proxy: {
 		  '/api': {
-			target: BACKEND_ADDRESS, // Backend server
-			changeOrigin: true,
-			secure: false,
-			rewrite: (path) => path.replace(/^\/api/, ''),
-		  },
+				target: BACKEND_ADDRESS, // Backend server
+				changeOrigin: true,
+				secure: false,
+				rewrite: (path) => path.replace(/^\/api/, ''),
+			},
+		  '/cms': { // New section to forward PayloadCMS
+				target: 'http://localhost:3001', // PayloadCMS address
+				changeOrigin: true,
+				secure: false,
+				rewrite: (path) => path.replace(/^\/cms/, ''), // Optional: adjust the path as needed
+			},
 		},
+		
 	  },
 	  
 	  
