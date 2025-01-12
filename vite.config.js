@@ -17,6 +17,7 @@ const __dirname = path.dirname(__filename);
 dotenv.config();
 
 const BACKEND_ADDRESS = process.env.VITE_BACKEND_ADDRESS;
+const CMS_ADDRESS = process.env.VITE_PAYLOAD_CMS_ADDRESS;
 console.log('Backend Address:', process.env.VITE_BACKEND_ADDRESS);
 
 // https://vitejs.dev/config/
@@ -31,7 +32,7 @@ export default defineConfig({
 				rewrite: (path) => path.replace(/^\/api/, ''),
 			},
 		  '/cms': { // New section to forward PayloadCMS
-				target: 'http://localhost:3001', // PayloadCMS address
+				target: VITE_PAYLOAD_CMS_ADDRESS, // PayloadCMS address
 				changeOrigin: true,
 				secure: false,
 				rewrite: (path) => path.replace(/^\/cms/, ''), // Optional: adjust the path as needed
