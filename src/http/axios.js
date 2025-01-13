@@ -29,7 +29,7 @@ const $axiosPrivate = axios.create({
   });
 
 const $axiosPayload = axios.create({
-	baseURL: PAYLOAD_CMS_ADDRESS,
+	baseURL: '/cms',
 	withCredentials: true,
 });
 

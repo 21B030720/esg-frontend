@@ -35,7 +35,7 @@ export default defineConfig({
 				target: CMS_ADDRESS, // PayloadCMS address
 				changeOrigin: true,
 				secure: false,
-				rewrite: (path) => path.replace(/^\/cms/, ''), // Optional: adjust the path as needed
+				rewrite: (path) => path.replace(/^\/api/, ''), // Optional: adjust the path as needed
 			},
 		},
 		
