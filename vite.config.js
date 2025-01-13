@@ -32,7 +32,7 @@ export default defineConfig({
 				rewrite: (path) => path.replace(/^\/api/, ''),
 			},
 		  '/cms': { // New section to forward PayloadCMS
-				target: VITE_PAYLOAD_CMS_ADDRESS, // PayloadCMS address
+				target: CMS_ADDRESS, // PayloadCMS address
 				changeOrigin: true,
 				secure: false,
 				rewrite: (path) => path.replace(/^\/cms/, ''), // Optional: adjust the path as needed
