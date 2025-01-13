@@ -59,13 +59,13 @@ const Home = () => {
 
 			<HomeHero image={data.hero} text={data.heroText} />
 
-			<HomeAbout aboutCardsData={data.aboutUs} />
+			{/* <HomeAbout aboutCardsData={data.aboutUs} />
 
 			<HomeDirections directionsData={data.directions} />
 
 			<HomeImageSection image={data.imageSection} />
 
-			<HomePartners partners={data.partners} />
+			<HomePartners partners={data.partners} /> */}
 
 			{/* <HomeHeroWithoutPayload />
 
