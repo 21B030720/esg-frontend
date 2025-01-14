@@ -31,11 +31,11 @@ export default defineConfig({
 				secure: false,
 				rewrite: (path) => path.replace(/^\/api/, ''),
 			},
-		  '/admin': { // New section to forward PayloadCMS
+		  '/': {
 				target: CMS_ADDRESS, // PayloadCMS address
 				changeOrigin: true,
 				secure: false,
-				rewrite: (path) => path.replace(/^\/admin/, ''), // Optional: adjust the path as needed
+				rewrite: (path) => path.replace(/^\/$/, ''), // Optional: adjust the path as needed
 			},
 		},
 		

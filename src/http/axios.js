@@ -29,7 +29,7 @@ const $axiosPrivate = axios.create({
   });
 
 const $axiosPayload = axios.create({
-	baseURL: '/admin',
+	baseURL: '/',
 	withCredentials: true,
 });
 
